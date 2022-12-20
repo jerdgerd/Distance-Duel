@@ -1,9 +1,15 @@
 import random
 import math
-from countryContinentTuple import countriesToContinents
+from data.countryContinentTuple import countriesToContinents
+from data.insults import insults
+from data.compliments import compliments
 import csv
-numTries = 5
+numTries = 3
+complimentValue = 4000
+insultValue = 200
 difficultyCities = 207
+decayValue = .002
+maxScore = 5000
 # Open the CSV file in read mode
 with open("data/worldcities.csv", "r") as file:
   # Create a CSV reader object
@@ -130,13 +136,12 @@ def validContinent(continent1, continent2, city):
   return (continent != continent1 and continent != continent2)
 
 def addToScore(diffDistance):
-  max_score = 5000  # Maximum score for d=0
-  decay_rate = 0.002  # Controls how rapidly the score decreases as d increases
-  return int(max_score * math.exp(-decay_rate * diffDistance))
+  return int(maxScore * math.exp(-decayValue * diffDistance))
+
 def main():
   score = 0
   for count in range(0, numTries):
-    print("You on try " + str(count+1) + " of " + str(numTries))
+    print("You are on try " + str(count+1) + " of " + str(numTries))
     city1, city2 = cityPicker(difficultyCities)
     continent1 = countriesToContinents.get(city1[3], "ERROR1")
     continent2 = countriesToContinents.get(city2[3], "ERROR2")
@@ -165,6 +170,13 @@ def main():
     score = score + addToScore(diff)
     print("You scored " + str(score) +" this round!")
     print("Your new total score is "  + str(score))
+    if (addToScore(diff) > complimentValue):
+      randomIndex = random.randint(0, len(compliments))
+      print(compliments[randomIndex])
+    elif (addToScore(diff) < insultValue):
+      randomIndex = random.randint(0, len(insults))
+      print(insults[randomIndex])
+    print("\n")
   print("=============================")
   print("Your final score is " + str(score))
 if __name__ == "__main__":

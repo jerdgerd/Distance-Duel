@@ -8,7 +8,7 @@ numTries = 3
 complimentValue = 4000
 insultValue = 200
 difficultyCities = 207
-decayValue = .002
+decayValue = .0015
 maxScore = 5000
 # Open the CSV file in read mode
 with open("data/worldcities.csv", "r") as file:
@@ -138,8 +138,33 @@ def validContinent(continent1, continent2, city):
 def addToScore(diffDistance):
   return int(maxScore * math.exp(-decayValue * diffDistance))
 
+def sortHighScores():  
+  # Read the CSV file
+  with open('data/highScores.csv', 'r') as file:
+    reader = csv.reader(file)
+    rows = [(row[0], int(row[1])) for row in reader]
+  # Sort the rows in place in descending order by the second column
+  rows.sort(key=lambda row: row[1], reverse=True)
+  # Overwrite the original file with the sorted rows
+  with open('data/highScores.csv', 'w') as file:
+    writer = csv.writer(file)
+    writer.writerows(rows)
+
+def printHighScores():
+  print("The top scores are:")
+  print("================================")
+  with open('data/highScores.csv', 'r') as file:
+    # Read all the lines of the file
+    lines = file.readlines()
+    # Print the first six lines
+    for line in lines[:6]:
+      print(line.strip())
+
 def main():
   score = 0
+  name = ""
+  while (len(name) != 3):
+    name = input("Enter your 3-letter initials here: ")
   for count in range(0, numTries):
     print("You are on try " + str(count+1) + " of " + str(numTries))
     city1, city2 = cityPicker(difficultyCities)
@@ -167,17 +192,23 @@ def main():
     print(
       f"The distance between {city1[0]} and {city2[0]} is {distance1:.2f} miles and the distance between {city3[0]} and {city4[0]} is {distance2:.2f} miles."
       )
-    score = score + addToScore(diff)
-    print("You scored " + str(score) +" this round!")
+    addedScore = addToScore(diff)
+    score = score + addedScore
+    print("You scored " + str(addedScore) +" this round!")
     print("Your new total score is "  + str(score))
-    if (addToScore(diff) > complimentValue):
-      randomIndex = random.randint(0, len(compliments))
+    if (addedScore > complimentValue):
+      randomIndex = random.randint(0, len(compliments) - 1)
       print(compliments[randomIndex])
-    elif (addToScore(diff) < insultValue):
-      randomIndex = random.randint(0, len(insults))
+    elif (addedScore < insultValue):
+      randomIndex = random.randint(0, len(insults) - 1)
       print(insults[randomIndex])
     print("\n")
   print("=============================")
   print("Your final score is " + str(score))
+  with open('data/highScores.csv', 'a') as file:
+    print(f"{name}, {score}", file=file)
+  sortHighScores()
+  printHighScores()
+
 if __name__ == "__main__":
   main()

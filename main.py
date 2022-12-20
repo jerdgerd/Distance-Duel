@@ -7,9 +7,10 @@ import csv
 numTries = 3
 complimentValue = 4000
 insultValue = 200
-difficultyCities = 207
-decayValue = .0015
+difficultyCities = 206
+decayValue = 5
 maxScore = 5000
+
 # Open the CSV file in read mode
 with open("data/worldcities.csv", "r") as file:
   # Create a CSV reader object
@@ -96,8 +97,8 @@ def distance(lat1, lon1, lat2, lon2):
 
 
 def cityPicker(topCities):
-  random_index = random.randint(0, topCities)
-  random_index2 = random.randint(0, topCities)
+  random_index = random.randint(0, topCities - 1)
+  random_index2 = random.randint(0, topCities - 1)
   while random_index == random_index2:
     random_index2 = random.randint(0, topCities)
   return questionCities[random_index], questionCities[random_index2]
@@ -135,8 +136,9 @@ def validContinent(continent1, continent2, city):
   continent = countriesToContinents.get(city[3], "ERROR")
   return (continent != continent1 and continent != continent2)
 
-def addToScore(diffDistance):
-  return int(maxScore * math.exp(-decayValue * diffDistance))
+def addToScore(originalDistance, diffDistance):
+  percentDifferent = (diffDistance + 0.0) / originalDistance
+  return int(maxScore * math.exp(-decayValue * percentDifferent))
 
 def sortHighScores():  
   # Read the CSV file
@@ -192,7 +194,7 @@ def main():
     print(
       f"The distance between {city1[0]} and {city2[0]} is {distance1:.2f} miles and the distance between {city3[0]} and {city4[0]} is {distance2:.2f} miles."
       )
-    addedScore = addToScore(diff)
+    addedScore = addToScore(distance1, diff)
     score = score + addedScore
     print("You scored " + str(addedScore) +" this round!")
     print("Your new total score is "  + str(score))

@@ -5,7 +5,7 @@ import csv
 numTries = 5
 difficultyCities = 207
 # Open the CSV file in read mode
-with open("worldcities.csv", "r") as file:
+with open("data/worldcities.csv", "r") as file:
   # Create a CSV reader object
   reader = csv.reader(file)
 
@@ -37,7 +37,7 @@ with open("worldcities.csv", "r") as file:
       # Add the city name to the dictionary
       added_cities[city_name] = country
 
-with open("worldcities3.csv", "r") as file:
+with open("data/worldcities3.csv", "r") as file:
   # Create a CSV reader object
   reader = csv.reader(file)
 
@@ -119,10 +119,11 @@ def collectCities(cityName):
     print(
       f"{i}: {cityMatches[i- 1][0]}, {cityMatches[i-1][3]}, with a population of {cityMatches[i-1][4]}"
     )
-  selection = 
-      ("Please select a match from the list above, using only the number given: "
-    ))
-  return cityMatches[selection - 1]
+  selection = ""
+  while not selection.isdigit() or not int(selection) < len(cityMatches) or not int(selection) > 0:
+    selection = input("Please select a match from the list above, using only the number given: ")
+  return cityMatches[int(selection) - 1]
+
 
 def validContinent(continent1, continent2, city):
   continent = countriesToContinents.get(city[3], "ERROR")
@@ -135,7 +136,7 @@ def addToScore(diffDistance):
 def main():
   score = 0
   for count in range(0, numTries):
-    print("You on try " + str(count) + " of " + str(numTries))
+    print("You on try " + str(count+1) + " of " + str(numTries))
     city1, city2 = cityPicker(difficultyCities)
     continent1 = countriesToContinents.get(city1[3], "ERROR1")
     continent2 = countriesToContinents.get(city2[3], "ERROR2")
@@ -143,7 +144,7 @@ def main():
       f"What are two cities that are approximately the same distance apart as {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]}?"
     )
     city3, city4 = None, None
-    while (city3 == None or city4 == None ):
+    while (city3 == None or city4 == None):
       cityName = (input("First city: ")).lower()
       city3 = collectCities(cityName)
       cityName = (input("Second city: ")).lower()
@@ -162,7 +163,8 @@ def main():
       f"The distance between {city1[0]} and {city2[0]} is {distance1:.2f} miles and the distance between {city3[0]} and {city4[0]} is {distance2:.2f} miles."
       )
     score = score + addToScore(diff)
-    print("Your new score is "  + str(score))
+    print("You scored " + str(score) +" this round!")
+    print("Your new total score is "  + str(score))
   print("=============================")
   print("Your final score is " + str(score))
 if __name__ == "__main__":

@@ -204,11 +204,11 @@ def main():
     diff = abs(distance1 - distance2)
     if (isMiles):
       print(
-      f"The distance between {city1[0]} and {city2[0]} is {milesToKilometers(distance1):.2f} miles and the distance between {city3[0]} and {city4[0]} is {milesToKilometers(distance1):.2f} miles."
+      f"The distance between {city1[0]} and {city2[0]} is {milesToKilometers(distance1):.2f} miles and the distance between {city3[0]} and {city4[0]} is {milesToKilometers(distance2):.2f} miles."
       )
     else:
       print(
-      f"The distance between {city1[0]} and {city2[0]} is {milesToKilometers(distance1):.2f} kilometers and the distance between {city3[0]} and {city4[0]} is {milesToKilometers(distance1):.2f} kilometers."
+      f"The distance between {city1[0]} and {city2[0]} is {milesToKilometers(distance1):.2f} kilometers and the distance between {city3[0]} and {city4[0]} is {milesToKilometers(distance2):.2f} kilometers."
       )
     addedScore = addToScore(distance1, diff)
     score = score + addedScore

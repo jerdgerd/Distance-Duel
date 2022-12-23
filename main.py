@@ -4,11 +4,30 @@ import csv
 import cherrypy
 import json
 import os
+import logging
 
 from data.countryContinentTuple import countriesToContinents
 from data.insults import insults
 from data.compliments import compliments
 
+# Set up a logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# Create a file handler to write log messages to a file
+file_handler = logging.FileHandler('cherrypy.log')
+file_handler.setLevel(logging.DEBUG)
+
+# Create a formatter for the log messages
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Add the formatter to the file handler
+file_handler.setFormatter(formatter)
+
+# Add the file handler to the logger
+logger.addHandler(file_handler)
+
+# Variables
 numTries = 3
 complimentValue = 4000
 insultValue = 200
@@ -19,10 +38,6 @@ name = ""
 cities = []
 questionCities = []
 score = 0
-city1 = None
-city2 = None
-city3 = None
-city4 = None
 continent1 = None
 continent2 = None
 numDuels = 0
@@ -30,6 +45,12 @@ isMiles = True
 
 
 class DistanceDuelGame(object):
+    def __init__(self):
+        # Define a variable within the __init__ method
+        self.city1 = None
+        self.city2 = None
+        self.city3 = None
+        self.city4 = None
 
     @cherrypy.expose
     def index(self):
@@ -151,15 +172,17 @@ class DistanceDuelGame(object):
         locationMatches = []
         for city in cities:
             if (len(cityName) >= 5):
-                if (cityName in city[0].lower()):
+                if (cityName.lower() in city[0].lower()):
                     locationMatches.append(city)
-            elif cityName == city[0].lower():
+            elif cityName.lower() == city[0].lower():
                 locationMatches.append(city)
         return locationMatches
 
     @cherrypy.expose
     def collectCities(self, cityName):
+        logger.debug(f"cityName: {cityName}")
         cityMatches = self.listSearch(cityName.strip())
+        logger.debug(f"cityName: {cityName}, cityMatches: {cityMatches}")
         # if len(cityMatches) == 0:
         #  return None
         # if (len(cityMatches) == 1):
@@ -227,9 +250,10 @@ class DistanceDuelGame(object):
             """
             return html
         else:
-            city1, city2 = self.cityPicker(difficultyCities)
-            continent1 = countriesToContinents.get(city1[3], "ERROR1")
-            continent2 = countriesToContinents.get(city2[3], "ERROR2")
+            self.city1, self.city2 = self.cityPicker(difficultyCities)
+            logger.debug(f"city1: {self.city1}")
+            continent1 = countriesToContinents.get(self.city1[3], "ERROR1")
+            continent2 = countriesToContinents.get(self.city2[3], "ERROR2")
             suggestions_json = json.dumps(cities)
             html= f"""
             <html>
@@ -239,10 +263,10 @@ class DistanceDuelGame(object):
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                     $(document).ready(function() {{
-                        $("#city1").autocomplete({{
+                        $("#self.city1").autocomplete({{
                             source: {suggestions_json}
                         }});
-                        $("#city2").autocomplete({{
+                        $("#self.city2").autocomplete({{
                             source: {suggestions_json}
                         }});
                     }});
@@ -250,7 +274,7 @@ class DistanceDuelGame(object):
             </head>
             <body>
               <p class="question">
-                 What are two cities that are approximately the same distance apart as {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]}?
+                 What are two cities that are approximately the same distance apart as {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]}?
               </p>
               <form method="get" action="distanceCheck">
                  City 1: <input type="text" name="cityName1" />
@@ -267,8 +291,11 @@ class DistanceDuelGame(object):
     @cherrypy.expose
     def distanceCheck(self, cityName1=None, cityName2=None):
         self.validateSelections(cityName1, cityName2)
-        distance1 = self.distance(city1[1], city1[2], city2[1], city2[2])
-        distance2 = self.distance(city3[1], city3[2], city4[1], city4[2])
+        logger.debug(f"city2: {self.city2}")
+        logger.debug(f"city3: {self.city3}")
+        logger.debug(f"city4: {self.city4}")
+        distance1 = self.distance(self.city1[1], self.city1[2], self.city2[1], self.city2[2])
+        distance2 = self.distance(self.city3[1], self.city3[2], self.city4[1], self.city4[2])
         # Calculate difference between distances
         diff = abs(distance1 - distance2)
         numDuels = numDuels + 1
@@ -285,7 +312,7 @@ class DistanceDuelGame(object):
                 <body>
                     <h1>Duel {numDuels} Score: {score}</h1>
                     <h1>Overall Score: {score}</h1>
-                    <p>  {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]} were approximately {distance1:.2f} miles apart, while {city3[0]}, {city3[3]} and {city4[0]}, {city4[3]}
+                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} miles apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
                       were approximately {distance2:.2f} miles apart. You have {numTries - numDuels} duels left. </p>
                     <form method="post" action="next_round">
                         <input type="submit" value="Next Round">
@@ -304,7 +331,7 @@ class DistanceDuelGame(object):
                 <body>
                     <h1>Duel {numDuels} Score: {score}</h1>
                     <h1>Overall Score: {score}</h1>
-                    <p>  {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]} were approximately {distance1:.2f} kilometers apart, while {city3[0]}, {city3[3]} and {city4[0]}, {city4[3]}
+                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
                       were approximately {distance2:.2f} kilometers apart. You have {numTries - numDuels} duels left. </p>
                     <form method="post" action="gatherName">
                         <input type="submit" value="Next Round">
@@ -319,10 +346,10 @@ class DistanceDuelGame(object):
             cities = []
             questionCities = []
             score = 0
-            city1 = None
-            city2 = None
-            city3 = None
-            city4 = None
+            self.city1 = None
+            self.city2 = None
+            self.city3 = None
+            self.city4 = None
             continent1 = None
             continent2 = None
             numDuels = 0
@@ -335,7 +362,7 @@ class DistanceDuelGame(object):
             <body>
                 <h1>Duel {numDuels} Score: {score}</h1>
                 <h1>Overall Score: {score}</h1>
-                <p>  {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]} were approximately {distance1:.2f} kilometers apart, while {city3[0]}, {city3[3]} and {city4[0]}, {city4[3]}
+                <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
                   were approximately {distance2:.2f} kilometers apart. You have no duels left. </p>
                   <form method="post" action="index">
                   <input type="submit" value="Start Over">
@@ -347,14 +374,14 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def validateSelections(self, cityName1, cityName2):
-        city3 = None
-        city4 = None
-        while (city3 == None or city4 == None):
-            city3 = self.collectCities(cityName1)
-            city4 = self.collectCities(cityName2)
-            if (city4 == None or city4 == None):
+        self.city3 = None
+        self.city4 = None
+        while (self.city3 == None or self.city4 == None):
+            self.city3 = self.collectCities(cityName1)
+            self.city4 = self.collectCities(cityName2)
+            if (self.city4 == None or self.city4 == None):
                 print("------> ERROR: One of your cities is not in our database. This may be because the name of the city is misspelled, or because we are using a different name of the city. Please try again.")
-            elif (not self.validContinent(continent1, continent2, city3) or not self.validContinent(continent1, continent2, city4)):
+            elif (not self.validContinent(continent1, continent2, self.city3) or not self.validContinent(continent1, continent2, self.city4)):
                 print("------> ERROR: One of your cities is on the same continent as a city provided in the question. Please try again.")
 
     @cherrypy.expose
@@ -371,6 +398,13 @@ class DistanceDuelGame(object):
 conf={"/style": {"tools.staticdir.on": True,
                "tools.staticdir.dir": os.path.abspath("./style"),},
                }
+
+# Set up CherryPy to use the logger
+cherrypy.log.access_log.propagate = False
+cherrypy.log.error_log.propagate = False
+cherrypy.log.screen = False
+cherrypy.log.access_log.addHandler(file_handler)
+cherrypy.log.error_log.addHandler(file_handler)
 
 cherrypy.server.socket_host = '0.0.0.0'
 cherrypy.quickstart(DistanceDuelGame(),config=conf)

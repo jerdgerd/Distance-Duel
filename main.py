@@ -14,7 +14,7 @@ insultValue = 200
 difficultyCities = 206
 decayValue = 5
 maxScore = 5000
-namn = ""
+name = ""
 cities = []
 questionCities = []
 score = 0
@@ -24,6 +24,8 @@ city3 = None
 city4 = None
 continent1 = None
 continent2 = None
+numDuels = 0
+isMiles = True
 
 class DistanceDuelGame(object):
   
@@ -31,8 +33,6 @@ class DistanceDuelGame(object):
   def index(self):
     self.populateCitiesList()
     self.gatherQuestionCities()
-    print(len(cities))
-    print(len(questionCities))
     return """
         <html>
             <body>
@@ -124,8 +124,9 @@ class DistanceDuelGame(object):
     a = math.sin(
       dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-  
-    return R * c
+    if isMiles:
+      return R * c
+    else: 1.609344 * (R * c)
   
   @cherrypy.expose  
   def cityPicker(self,topCities):
@@ -152,21 +153,21 @@ class DistanceDuelGame(object):
   
   @cherrypy.expose  
   def collectCities(self,cityName):
-    cityMatches = listSearch(cityName)
-    if len(cityMatches) == 0:
-      return None
-    if (len(cityMatches) == 1):
-      print(f"------> You selected {cityMatches[0][0]}, {cityMatches[0][3]}")
-      return cityMatches[0]
-    for i in range(1, len(cityMatches) + 1):
-      print(
-        f"{i}: {cityMatches[i- 1][0]}, {cityMatches[i-1][3]}, with a population of {cityMatches[i-1][4]}"
-      )
-    selection = ""
-    while not selection.isdigit() or not int(selection) < len(cityMatches) + 1 or not int(selection) > 0:
-      selection = input("Please select a match from the list above, using only the number given: ")
-    print(f"------> You selected {cityMatches[int(selection) - 1][0]}, {cityMatches[int(selection) - 1][3]}")
-    return cityMatches[int(selection) - 1]
+    cityMatches = self.listSearch(cityName.strip())
+    #if len(cityMatches) == 0:
+    #  return None
+    #if (len(cityMatches) == 1):
+      #print(f"------> You selected {cityMatches[0][0]}, {cityMatches[0][3]}")
+    return cityMatches[0]
+    #for i in range(1, len(cityMatches) + 1):
+    #  print(
+    #    f"{i}: {cityMatches[i- 1][0]}, {cityMatches[i-1][3]}, with a population of {cityMatches[i-1][4]}"
+    #  )
+    #selection = ""
+    #while not selection.isdigit() or not int(selection) < len(cityMatches) + 1 or not int(selection) > 0:
+    #  selection = input("Please select a match from the list above, using only the number given: ")
+    #print(f"------> You selected {cityMatches[int(selection) - 1][0]}, {cityMatches[int(selection) - 1][3]}")
+    #return cityMatches[int(selection) - 1]
   
   
   @cherrypy.expose
@@ -240,10 +241,10 @@ class DistanceDuelGame(object):
           <p>
              What are two cities that are approximately the same distance apart as {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]}?"
           </p>
-          <form method="get" action="Distance Check">
-             City 1: <input type="text" name="city1" />
+          <form method="get" action="distanceCheck">
+             City 1: <input type="text" name="cityName1" />
              <br />
-             City 2: <input type="text" name="city2" />
+             City 2: <input type="text" name="cityName2" />
              <br />
              <input type="submit" value="Submit" />
              </form>
@@ -251,29 +252,98 @@ class DistanceDuelGame(object):
         </html>
       """
 
+  @cherrypy.expose
+  def distanceCheck(self, cityName1=None, cityName2=None):
+    self.validateSelections(cityName1, cityName2)
+    distance1 = self.distance(city1[1], city1[2], city2[1], city2[2])
+    distance2 = self.distance(city3[1], city3[2], city4[1], city4[2])
+    # Calculate difference between distances
+    diff = abs(distance1 - distance2)
+    numDuels = numDuels + 1
+    duelScore = self.addToScore(distance1, diff)
+    score = score + duelScore
+    feedback = self.decideOnFeedback(duelScore)
+    if numDuels < numTries:
+      if isMiles:
+        return f"""
+            <html>
+            <body>
+                <h1>Duel {numDuels} Score: {score}</h1>
+                <h1>Overall Score: {score}</h1>
+                <p>  {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]} were approximately {distance1:.2f} miles apart, while {city3[0]}, {city3[3]} and {city4[0]}, {city4[3]}
+                  were approximately {distance2:.2f} miles apart. You have {numTries - numDuels} duels left. </p>
+                <form method="post" action="next_round">
+                    <input type="submit" value="Next Round">
+                </form>
+                <p>{feedback}</p>
+            </body>
+        </html>
+        """
+      else:
+        return f"""
+            <html>
+            <body>
+                <h1>Duel {numDuels} Score: {score}</h1>
+                <h1>Overall Score: {score}</h1>
+                <p>  {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]} were approximately {distance1:.2f} kilometers apart, while {city3[0]}, {city3[3]} and {city4[0]}, {city4[3]}
+                  were approximately {distance2:.2f} kilometers apart. You have {numTries - numDuels} duels left. </p>
+                <form method="post" action="gatherName">
+                    <input type="submit" value="Next Round">
+                </form>
+                <p>{feedback}</p>
+            </body>
+        </html>
+        """
+    else:
+      name = ""
+      cities = []
+      questionCities = []
+      score = 0
+      city1 = None
+      city2 = None
+      city3 = None
+      city4 = None
+      continent1 = None
+      continent2 = None
+      numDuels = 0
+
+      return f"""
+          <html>
+          <body>
+              <h1>Duel {numDuels} Score: {score}</h1>
+              <h1>Overall Score: {score}</h1>
+              <p>  {city1[0]}, {city1[3]} and {city2[0]}, {city2[3]} were approximately {distance1:.2f} kilometers apart, while {city3[0]}, {city3[3]} and {city4[0]}, {city4[3]}
+                were approximately {distance2:.2f} kilometers apart. You have no duels left. </p>
+                <form method="post" action="index">
+                <input type="submit" value="Start Over">
+              </form>
+          </body>
+      </html>
+      """
+
 
   @cherrypy.expose
-  def validateSelections(self):
-    city3, city4 = None, None
+  def validateSelections(self, cityName1, cityName2):
+    city3 = None
+    city4 = None
     while (city3 == None or city4 == None):
-      cityName = (input("First city: ")).lower()
-      city3 = collectCities(cityName)
-      cityName = (input("Second city: ")).lower()
-      city4 = collectCities(cityName)
+      city3 = self.collectCities(cityName1)
+      city4 = self.collectCities(cityName2)
       if (city4 == None or city4 == None):
         print("------> ERROR: One of your cities is not in our database. This may be because the name of the city is misspelled, or because we are using a different name of the city. Please try again.")
-      elif (not validContinent(continent1, continent2, city3) or not validContinent(continent1, continent2, city4)):
+      elif (not self.validContinent(continent1, continent2, city3) or not self.validContinent(continent1, continent2, city4)):
         print("------> ERROR: One of your cities is on the same continent as a city provided in the question. Please try again.")
-        city3 = None
 
   @cherrypy.expose
-  def decideOnFeedback(self):
+  def decideOnFeedback(self, addedScore):
     if (addedScore > complimentValue):
       randomIndex = random.randint(0, len(compliments) - 1)
-      print(compliments[randomIndex])
+      return (compliments[randomIndex])
     elif (addedScore < insultValue):
       randomIndex = random.randint(0, len(insults) - 1)
-      print(insults[randomIndex])
+      return (insults[randomIndex])
+    else:
+      return ""
 
 
 cherrypy.server.socket_host = '0.0.0.0' 

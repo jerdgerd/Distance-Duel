@@ -10,6 +10,7 @@ insultValue = 200
 difficultyCities = 206
 decayValue = 5
 maxScore = 5000
+isMiles = False
 
 # Open the CSV file in read mode
 with open("data/worldcities.csv", "r") as file:
@@ -95,6 +96,10 @@ def distance(lat1, lon1, lat2, lon2):
 
   return R * c
 
+def milesToKilometers(miles):
+  if isMiles:
+    return miles
+  return miles * 1.609
 
 def cityPicker(topCities):
   random_index = random.randint(0, topCities - 1)
@@ -197,9 +202,13 @@ def main():
     distance2 = distance(city3[1], city3[2], city4[1], city4[2])
     # Calculate difference between distances
     diff = abs(distance1 - distance2)
-
-    print(
-      f"The distance between {city1[0]} and {city2[0]} is {distance1:.2f} miles and the distance between {city3[0]} and {city4[0]} is {distance2:.2f} miles."
+    if (isMiles):
+      print(
+      f"The distance between {city1[0]} and {city2[0]} is {milesToKilometers(distance1):.2f} miles and the distance between {city3[0]} and {city4[0]} is {milesToKilometers(distance1):.2f} miles."
+      )
+    else:
+      print(
+      f"The distance between {city1[0]} and {city2[0]} is {milesToKilometers(distance1):.2f} kilometers and the distance between {city3[0]} and {city4[0]} is {milesToKilometers(distance1):.2f} kilometers."
       )
     addedScore = addToScore(distance1, diff)
     score = score + addedScore
@@ -216,7 +225,7 @@ def main():
     print("\n")
   print("Your final score is " + str(score))
   with open('data/highScores.csv', 'a') as file:
-    print(f"{name}, {score}", file=file)
+    print(f"{name.upper()}, {score}", file=file)
   sortHighScores()
   printHighScores()
 

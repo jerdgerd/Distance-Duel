@@ -34,15 +34,9 @@ insultValue = 200
 difficultyCities = 206
 decayValue = 5
 maxScore = 5000
-name = ""
 cities = []
 questionCities = []
-score = 0
-continent1 = None
-continent2 = None
-numDuels = 0
 isMiles = True
-
 
 class DistanceDuelGame(object):
     def __init__(self):
@@ -51,6 +45,11 @@ class DistanceDuelGame(object):
         self.city2 = None
         self.city3 = None
         self.city4 = None
+        self.numDuels = 0
+        self.score = 0
+        self.continent1 = None
+        self.continent2 = None
+        self.name = ""
 
     @cherrypy.expose
     def index(self):
@@ -250,12 +249,101 @@ class DistanceDuelGame(object):
             """
             return html
         else:
-            self.city1, self.city2 = self.cityPicker(difficultyCities)
-            logger.debug(f"city1: {self.city1}")
-            continent1 = countriesToContinents.get(self.city1[3], "ERROR1")
-            continent2 = countriesToContinents.get(self.city2[3], "ERROR2")
-            suggestions_json = json.dumps(cities)
+            self.name = name.upper()
+            return self.nextRound()
+
+    @cherrypy.expose
+    def distanceCheck(self, cityName1=None, cityName2=None):
+        self.validateSelections(cityName1, cityName2)
+        logger.debug(f"city2: {self.city2}")
+        logger.debug(f"city3: {self.city3}")
+        logger.debug(f"city4: {self.city4}")
+        distance1 = self.distance(self.city1[1], self.city1[2], self.city2[1], self.city2[2])
+        distance2 = self.distance(self.city3[1], self.city3[2], self.city4[1], self.city4[2])
+        # Calculate difference between distances
+        diff = abs(distance1 - distance2)
+        self.numDuels = self.numDuels + 1
+        duelScore = self.addToScore(distance1, diff)
+        self.score = self.score + duelScore
+        feedback = self.decideOnFeedback(duelScore)
+        if self.numDuels < numTries:
+            if isMiles:
+                html= f"""
+                <html>
+                <head>
+                <link rel="stylesheet" href="style/basic_style.css">
+                </head>
+                <body>
+                    <h1>Duel {self.numDuels} Score: {duelScore}</h1>
+                    <h1>Overall Score: {self.score}</h1>
+                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} miles apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
+                      were approximately {distance2:.2f} miles apart. You have {numTries - self.numDuels} duels left. </p>
+                    <form method="post" action="nextRound">
+                        <input type="submit" value="Next Round">
+                    </form>
+                    <p>{feedback}</p>
+                </body>
+                </html>
+                """
+                return html
+            else:
+                html= f"""
+                <html>
+                <head>
+                <link rel="stylesheet" href="style/basic_style.css">
+                </head>
+                <body>
+                    <h1>Duel {self.numDuels} Score: {duelScore}</h1>
+                    <h1>Overall Score: {self.score}</h1>
+                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
+                      were approximately {distance2:.2f} kilometers apart. You have {numTries - self.numDuels} duels left. </p>
+                    <form method="post" action="nextRound">
+                        <input type="submit" value="Next Round">
+                    </form>
+                    <p>{feedback}</p>
+                </body>
+                </html>
+                """
+                return html
+        else:
             html= f"""
+            <html>
+              <head>
+              <link rel="stylesheet" href="style/basic_style.css">
+              </head>
+            <body>
+                <h1>Duel {self.numDuels} Score: {duelScore}</h1>
+                <h1>Overall Score: {self.score}</h1>
+                <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
+                  were approximately {distance2:.2f} kilometers apart. You have no duels left. </p>
+                  <form method="post" action="index">
+                  <input type="submit" value="Start Over">
+                </form>
+            </body>
+            <p>{feedback}</p>
+            </html>
+            """
+            self.name = ""
+            cities = []
+            questionCities = []
+            self.score = 0
+            self.city1 = None
+            self.city2 = None
+            self.city3 = None
+            self.city4 = None
+            continent1 = None
+            continent2 = None
+            self.numDuels = 0
+            return html
+
+    @cherrypy.expose
+    def nextRound(self):
+        self.city1, self.city2 = self.cityPicker(difficultyCities)
+        logger.debug(f"city1: {self.city1}")
+        continent1 = countriesToContinents.get(self.city1[3], "ERROR1")
+        continent2 = countriesToContinents.get(self.city2[3], "ERROR2")
+        suggestions_json = json.dumps(cities)
+        html= f"""
             <html>
             <head>
                 <link rel="stylesheet" href="style/basic_style.css">
@@ -286,91 +374,7 @@ class DistanceDuelGame(object):
             </body>
             </html>
             """
-            return html
-
-    @cherrypy.expose
-    def distanceCheck(self, cityName1=None, cityName2=None):
-        self.validateSelections(cityName1, cityName2)
-        logger.debug(f"city2: {self.city2}")
-        logger.debug(f"city3: {self.city3}")
-        logger.debug(f"city4: {self.city4}")
-        distance1 = self.distance(self.city1[1], self.city1[2], self.city2[1], self.city2[2])
-        distance2 = self.distance(self.city3[1], self.city3[2], self.city4[1], self.city4[2])
-        # Calculate difference between distances
-        diff = abs(distance1 - distance2)
-        numDuels = numDuels + 1
-        duelScore = self.addToScore(distance1, diff)
-        score = score + duelScore
-        feedback = self.decideOnFeedback(duelScore)
-        if numDuels < numTries:
-            if isMiles:
-                html= f"""
-                <html>
-                <head>
-                <link rel="stylesheet" href="style/basic_style.css">
-                </head>
-                <body>
-                    <h1>Duel {numDuels} Score: {score}</h1>
-                    <h1>Overall Score: {score}</h1>
-                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} miles apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
-                      were approximately {distance2:.2f} miles apart. You have {numTries - numDuels} duels left. </p>
-                    <form method="post" action="next_round">
-                        <input type="submit" value="Next Round">
-                    </form>
-                    <p>{feedback}</p>
-                </body>
-                </html>
-                """
-                return html
-            else:
-                html= f"""
-                <html>
-                <head>
-                <link rel="stylesheet" href="style/basic_style.css">
-                </head>
-                <body>
-                    <h1>Duel {numDuels} Score: {score}</h1>
-                    <h1>Overall Score: {score}</h1>
-                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
-                      were approximately {distance2:.2f} kilometers apart. You have {numTries - numDuels} duels left. </p>
-                    <form method="post" action="gatherName">
-                        <input type="submit" value="Next Round">
-                    </form>
-                    <p>{feedback}</p>
-                </body>
-                </html>
-                """
-                return html
-        else:
-            name = ""
-            cities = []
-            questionCities = []
-            score = 0
-            self.city1 = None
-            self.city2 = None
-            self.city3 = None
-            self.city4 = None
-            continent1 = None
-            continent2 = None
-            numDuels = 0
-
-            html= f"""
-            <html>
-              <head>
-              <link rel="stylesheet" href="style/basic_style.css">
-              </head>
-            <body>
-                <h1>Duel {numDuels} Score: {score}</h1>
-                <h1>Overall Score: {score}</h1>
-                <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
-                  were approximately {distance2:.2f} kilometers apart. You have no duels left. </p>
-                  <form method="post" action="index">
-                  <input type="submit" value="Start Over">
-                </form>
-            </body>
-            </html>
-            """
-            return html
+        return html
 
     @cherrypy.expose
     def validateSelections(self, cityName1, cityName2):
@@ -381,7 +385,7 @@ class DistanceDuelGame(object):
             self.city4 = self.collectCities(cityName2)
             if (self.city4 == None or self.city4 == None):
                 print("------> ERROR: One of your cities is not in our database. This may be because the name of the city is misspelled, or because we are using a different name of the city. Please try again.")
-            elif (not self.validContinent(continent1, continent2, self.city3) or not self.validContinent(continent1, continent2, self.city4)):
+            elif (not self.validContinent(self.continent1, self.continent2, self.city3) or not self.validContinent(self.continent1, self.continent2, self.city4)):
                 print("------> ERROR: One of your cities is on the same continent as a city provided in the question. Please try again.")
 
     @cherrypy.expose

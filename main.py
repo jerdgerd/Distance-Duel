@@ -342,34 +342,39 @@ class DistanceDuelGame(object):
         logger.debug(f"city1: {self.city1}")
         continent1 = countriesToContinents.get(self.city1[3], "ERROR1")
         continent2 = countriesToContinents.get(self.city2[3], "ERROR2")
-        suggestions_json = json.dumps(cities)
+
+        # Convert the list of cities to a JSON string
+        cities_json = json.dumps(cities)
+
         html= f"""
             <html>
             <head>
+                <link rel="stylesheet" href="{cherrypy.url('/static/jquery-ui.css')}">
                 <link rel="stylesheet" href="style/basic_style.css">
-                </head>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script>
-                    $(document).ready(function() {{
-                        $("#self.city1").autocomplete({{
-                            source: {suggestions_json}
-                        }});
-                        $("#self.city2").autocomplete({{
-                            source: {suggestions_json}
-                        }});
-                    }});
-                </script>
             </head>
             <body>
+            <script>
+              var cities = {cities_json};
+              console.log(cities);
+            </script>
+
+            <!-- Include the jQuery and jQuery UI libraries -->
+            <script src="{cherrypy.url('/static/jquery-3.6.0.min.js')}"></script>
+            <script src="{cherrypy.url('/static/jquery-ui.min.js')}"></script>
+
               <p class="question">
                  What are two cities that are approximately the same distance apart as {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]}?
               </p>
               <form method="get" action="distanceCheck">
-                 City 1: <input type="text" name="cityName1" />
+                 <!-- Include the autocomplete script -->
+                 City 1: <input type="text" name="cityName1" id="cityName1"/>
+                         <div id="cityName1-autocomplete-results"></div>
                  <br />
-                 City 2: <input type="text" name="cityName2" />
+                 City 2: <input type="text" name="cityName2" id="cityName2"/>
+                         <div id="cityName2-autocomplete-results"></div>
                  <br />
                  <input type="submit" value="Submit" />
+                 <script src="{cherrypy.url('/static/autocomplete_city_inputs.js')}"></script>
                  </form>
             </body>
             </html>
@@ -400,8 +405,14 @@ class DistanceDuelGame(object):
             return ""
 
 conf={"/style": {"tools.staticdir.on": True,
-               "tools.staticdir.dir": os.path.abspath("./style"),},
+               "tools.staticdir.dir": os.path.abspath("./style")},
+      "/static": {
+               'tools.staticdir.on': True,
+               'tools.staticdir.dir': os.path.abspath("./static")
                }
+	}
+
+
 
 # Set up CherryPy to use the logger
 cherrypy.log.access_log.propagate = False

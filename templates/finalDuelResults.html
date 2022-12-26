@@ -1,0 +1,16 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="style/basic_style.css">
+    </head>
+    <body>
+        <h1>Duel {{ numDuels }} Score: {{ duelScore }}</h1>
+        <h1>Overall Score: {{ score }}</h1>
+        <p>  {{ city1[0] }}, {{ city1[3] }} and {{ city2[0] }}, {{ city2[3] }} were approximately {{ distance1 }} {{ distanceMeasure }} apart, 
+            while {{ city3[0] }}, {{ city3[3] }} and {{ city4[0] }}, {{ city4[3] }}
+          were approximately {{ distance2 }} {{ distanceMeasure }} apart. You have no duels left. </p>
+        <form method="post" action="index">
+            <input type="submit" value="Start Over">
+        </form>
+    </body>
+    <p>{{feedback}}</p>
+    </html>

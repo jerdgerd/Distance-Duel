@@ -6,6 +6,7 @@ import json
 import os
 import logging
 
+from jinja2 import Environment, FileSystemLoader
 from data.countryContinentTuple import countriesToContinents
 from data.insults import insults
 from data.compliments import compliments
@@ -26,6 +27,9 @@ file_handler.setFormatter(formatter)
 
 # Add the file handler to the logger
 logger.addHandler(file_handler)
+
+#setting up jinja
+env = Environment(loader=FileSystemLoader('templates'))
 
 # Variables
 numTries = 3
@@ -55,21 +59,8 @@ class DistanceDuelGame(object):
     def index(self):
         self.populateCitiesList()
         self.gatherQuestionCities()
-        html = """
-        <html>
-        <head>
-            <title>Travel Game</title>
-            <link rel="stylesheet" href="style/basic_style.css">
-            </head>
-            <body>
-                <form method="get" action="gatherName">
-                    <input type="text" name="name"/>
-                    <button type="submit">Submit 3 Letter Name</button>
-                </form>
-            </body>
-        </html>
-        """
-        return html
+        template = env.get_template('getName.html')        
+        return template.render()
 
     def populateCitiesList(self):
         # Open the CSV file in read mode
@@ -234,20 +225,8 @@ class DistanceDuelGame(object):
     @cherrypy.expose
     def gatherName(self, name=None):
         if (name == None or len(name) != 3):
-            html="""
-            <html>
-                <head>
-                <link rel="stylesheet" href="style/basic_style.css">
-                </head>
-                <body>
-                    <form method="get" action="gatherName">
-                        <input type="text" name="name"/>
-                        <button type="submit"> You submitted a non-3 letter name. Please submit a 3 Letter Name</button>
-                    </form>
-                </body>
-            </html>
-            """
-            return html
+            template = env.get_template('getName.html')        
+            return template.render()
         else:
             self.name = name.upper()
             return self.nextRound()
@@ -266,63 +245,25 @@ class DistanceDuelGame(object):
         duelScore = self.addToScore(distance1, diff)
         self.score = self.score + duelScore
         feedback = self.decideOnFeedback(duelScore)
+        distanceMeasure = ""
+        needToReset = False
         if self.numDuels < numTries:
-            if isMiles:
-                html= f"""
-                <html>
-                <head>
-                <link rel="stylesheet" href="style/basic_style.css">
-                </head>
-                <body>
-                    <h1>Duel {self.numDuels} Score: {duelScore}</h1>
-                    <h1>Overall Score: {self.score}</h1>
-                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} miles apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
-                      were approximately {distance2:.2f} miles apart. You have {numTries - self.numDuels} duels left. </p>
-                    <form method="post" action="nextRound">
-                        <input type="submit" value="Next Round">
-                    </form>
-                    <p>{feedback}</p>
-                </body>
-                </html>
-                """
-                return html
-            else:
-                html= f"""
-                <html>
-                <head>
-                <link rel="stylesheet" href="style/basic_style.css">
-                </head>
-                <body>
-                    <h1>Duel {self.numDuels} Score: {duelScore}</h1>
-                    <h1>Overall Score: {self.score}</h1>
-                    <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
-                      were approximately {distance2:.2f} kilometers apart. You have {numTries - self.numDuels} duels left. </p>
-                    <form method="post" action="nextRound">
-                        <input type="submit" value="Next Round">
-                    </form>
-                    <p>{feedback}</p>
-                </body>
-                </html>
-                """
-                return html
+            template = env.get_template('notFinalDuelResults.html')
+
         else:
-            html= f"""
-            <html>
-              <head>
-              <link rel="stylesheet" href="style/basic_style.css">
-              </head>
-            <body>
-                <h1>Duel {self.numDuels} Score: {duelScore}</h1>
-                <h1>Overall Score: {self.score}</h1>
-                <p>  {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]} were approximately {distance1:.2f} kilometers apart, while {self.city3[0]}, {self.city3[3]} and {self.city4[0]}, {self.city4[3]}
-                  were approximately {distance2:.2f} kilometers apart. You have no duels left. </p>
-                  <form method="post" action="index">
-                  <input type="submit" value="Start Over">
-                </form>
-            </body>
-            <p>{feedback}</p>
-            </html>
-            """
+            template = env.get_template('finalDuelResults.html')
+            needToReset = True
+
+        if (isMiles):
+            distanceMeasure = "miles"
+
+        else:
+            distanceMeasure = "Kilometers"
+
+        html = template.render(numDuels=self.numDuels, duelScore=duelScore, score=self.score, city1=self.city1, city2=self.city2, distance1=format(distance1, '.2f'),
+        distanceMeasure="kilometers", city3=self.city3, city4=self.city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - self.numDuels), feedback=feedback)
+
+        if (needToReset):
             self.name = ""
             cities = []
             questionCities = []
@@ -334,7 +275,9 @@ class DistanceDuelGame(object):
             continent1 = None
             continent2 = None
             self.numDuels = 0
-            return html
+            needToReset = False
+
+        return html
 
     @cherrypy.expose
     def nextRound(self):
@@ -346,40 +289,8 @@ class DistanceDuelGame(object):
         # Convert the list of cities to a JSON string
         cities_json = json.dumps(cities)
 
-        html= f"""
-            <html>
-            <head>
-                <link rel="stylesheet" href="{cherrypy.url('/static/jquery-ui.css')}">
-                <link rel="stylesheet" href="style/basic_style.css">
-            </head>
-            <body>
-            <script>
-              var cities = {cities_json};
-              console.log(cities);
-            </script>
-
-            <!-- Include the jQuery and jQuery UI libraries -->
-            <script src="{cherrypy.url('/static/jquery-3.6.0.min.js')}"></script>
-            <script src="{cherrypy.url('/static/jquery-ui.min.js')}"></script>
-
-              <p class="question">
-                 What are two cities that are approximately the same distance apart as {self.city1[0]}, {self.city1[3]} and {self.city2[0]}, {self.city2[3]}?
-              </p>
-              <form method="get" action="distanceCheck">
-                 <!-- Include the autocomplete script -->
-                 City 1: <input type="text" name="cityName1" id="cityName1"/>
-                         <div id="cityName1-autocomplete-results"></div>
-                 <br />
-                 City 2: <input type="text" name="cityName2" id="cityName2"/>
-                         <div id="cityName2-autocomplete-results"></div>
-                 <br />
-                 <input type="submit" value="Submit" />
-                 <script src="{cherrypy.url('/static/autocomplete_city_inputs.js')}"></script>
-                 </form>
-            </body>
-            </html>
-            """
-        return html
+        template = env.get_template('duelQuestion.html')
+        return template.render(cities_json=cities_json, city1=self.city1, city2=self.city2, cherrypy=cherrypy)
 
     @cherrypy.expose
     def validateSelections(self, cityName1, cityName2):

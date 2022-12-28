@@ -54,6 +54,8 @@ class DistanceDuelGame(object):
         self.continent1 = None
         self.continent2 = None
         self.name = ""
+        self.cityFound = True
+        self.duplicateContinent = False
 
     @cherrypy.expose
     def index(self):
@@ -173,8 +175,8 @@ class DistanceDuelGame(object):
         logger.debug(f"cityName: {cityName}")
         cityMatches = self.listSearch(cityName.strip())
         logger.debug(f"cityName: {cityName}, cityMatches: {cityMatches}")
-        # if len(cityMatches) == 0:
-        #  return None
+        if len(cityMatches) == 0:
+         return None
         # if (len(cityMatches) == 1):
         # print(f"------> You selected {cityMatches[0][0]}, {cityMatches[0][3]}")
         return cityMatches[0]
@@ -238,7 +240,10 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def distanceCheck(self, cityName1=None, cityName2=None):
-        self.validateSelections(cityName1, cityName2)
+        if (not self.validateSelections(cityName1, cityName2)):
+            cities_json = json.dumps(cities)
+            template = env.get_template('duelQuestion.html')
+            return template.render(cities_json=cities_json, city1=self.city1, city2=self.city2, continent1 = self.continent1, continent2 = self.continent2, cherrypy=cherrypy, duplicateContinent = self.duplicateContinent, cityFound = self.cityFound)
         logger.debug(f"city2: {self.city2}")
         logger.debug(f"city3: {self.city3}")
         logger.debug(f"city4: {self.city4}")
@@ -271,17 +276,17 @@ class DistanceDuelGame(object):
 
         if (needToReset):
             self.name = ""
-            cities = []
-            questionCities = []
             self.score = 0
             self.city1 = None
             self.city2 = None
             self.city3 = None
             self.city4 = None
-            continent1 = None
-            continent2 = None
+            self.continent1 = None
+            self.continent2 = None
             self.numDuels = 0
             needToReset = False
+            self.duplicateContinent = False
+            self.cityFound = True
 
         return html
 
@@ -289,26 +294,28 @@ class DistanceDuelGame(object):
     def nextRound(self):
         self.city1, self.city2 = self.cityPicker(difficultyCities)
         logger.debug(f"city1: {self.city1}")
-        continent1 = countriesToContinents.get(self.city1[3], "ERROR1")
-        continent2 = countriesToContinents.get(self.city2[3], "ERROR2")
+        self.continent1 = countriesToContinents.get(self.city1[3], "ERROR1")
+        self.continent2 = countriesToContinents.get(self.city2[3], "ERROR2")
 
         # Convert the list of cities to a JSON string
         cities_json = json.dumps(cities)
 
         template = env.get_template('duelQuestion.html')
-        return template.render(cities_json=cities_json, city1=self.city1, city2=self.city2, cherrypy=cherrypy)
+        return template.render(cities_json=cities_json, city1=self.city1, city2=self.city2, continent1 = self.continent1, continent2 = self.continent2, duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 
     @cherrypy.expose
     def validateSelections(self, cityName1, cityName2):
-        self.city3 = None
-        self.city4 = None
-        while (self.city3 == None or self.city4 == None):
-            self.city3 = self.collectCities(cityName1)
-            self.city4 = self.collectCities(cityName2)
-            if (self.city4 == None or self.city4 == None):
-                print("------> ERROR: One of your cities is not in our database. This may be because the name of the city is misspelled, or because we are using a different name of the city. Please try again.")
-            elif (not self.validContinent(self.continent1, self.continent2, self.city3) or not self.validContinent(self.continent1, self.continent2, self.city4)):
-                print("------> ERROR: One of your cities is on the same continent as a city provided in the question. Please try again.")
+        self.city3 = self.collectCities(cityName1)
+        self.city4 = self.collectCities(cityName2)
+        if (self.city3 == None or self.city4 == None):
+            self.cityFound = False
+            return False
+        elif (not self.validContinent(self.continent1, self.continent2, self.city3) or not self.validContinent(self.continent1, self.continent2, self.city4)):
+            self.duplicateContinent = True
+            return False
+        self.cityFound = True
+        self.duplicateContinent = False
+        return True
 
     @cherrypy.expose
     def decideOnFeedback(self, addedScore):

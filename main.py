@@ -59,7 +59,7 @@ class DistanceDuelGame(object):
     def index(self):
         self.populateCitiesList()
         self.gatherQuestionCities()
-        template = env.get_template('getName.html')        
+        template = env.get_template('getName.html')
         return template.render()
 
     def populateCitiesList(self):
@@ -212,20 +212,25 @@ class DistanceDuelGame(object):
             writer.writerows(rows)
 
     @cherrypy.expose
-    def printHighScores(self):
-        print("The top scores are:")
-        print("================================")
-        with open('data/highScores.csv', 'r') as file:
-            # Read all the lines of the file
-            lines = file.readlines()
-            # Print the first six lines
-            for line in lines[:6]:
-                print(line.strip())
+    def get_high_scores(self):
+        high_scores = []
+        with open("data/highScores.csv", "r") as csvfile:
+            reader = csv.reader(csvfile)
+            for row in reader:
+                high_scores.append((row[0], row[1]))
+            high_scores.sort(key=lambda x: int(x[1]), reverse=True)
+        return high_scores[:5]
+
+    @cherrypy.expose
+    def add_score_to_database(self, name, score):
+        with open("data/highScores.csv", "a") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow([name, score])
 
     @cherrypy.expose
     def gatherName(self, name=None):
         if (name == None or len(name) != 3):
-            template = env.get_template('getName.html')        
+            template = env.get_template('getName.html')
             return template.render()
         else:
             self.name = name.upper()
@@ -251,6 +256,7 @@ class DistanceDuelGame(object):
             template = env.get_template('notFinalDuelResults.html')
 
         else:
+            self.add_score_to_database(self.name,self.score)
             template = env.get_template('finalDuelResults.html')
             needToReset = True
 
@@ -261,7 +267,7 @@ class DistanceDuelGame(object):
             distanceMeasure = "Kilometers"
 
         html = template.render(numDuels=self.numDuels, duelScore=duelScore, score=self.score, city1=self.city1, city2=self.city2, distance1=format(distance1, '.2f'),
-        distanceMeasure="kilometers", city3=self.city3, city4=self.city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - self.numDuels), feedback=feedback)
+        distanceMeasure="kilometers", city3=self.city3, city4=self.city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - self.numDuels), feedback=feedback, high_scores=self.get_high_scores())
 
         if (needToReset):
             self.name = ""

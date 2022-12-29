@@ -2,6 +2,24 @@
 <head>
     <link rel="stylesheet" href="{{ cherrypy.url('/static/js/jquery-ui.css') }}">
     <link rel="stylesheet" href="/static/style/basic_style.css">
+    <style>
+	.grid {
+        	display: grid; /* enable grid layout */
+		grid-template-columns: 1fr 1fr 1fr; /* create three equally sized columns */
+		grid-column-gap: 5px; /* increase the gap between the columns to create a bolder border */
+        	height: 100%; /* set the height of the grid to be the full height of the page */
+        	width: 100%; /* set the width to be the full width of the page */
+	}
+        .section {
+             border-right: 1px solid black; /* add a border to the bottom of each section except the last one */
+             height: 100%; /* set the height of each section to be the full height of the container */
+             width: 100%; /* set the width to be the full width of the container */
+             box-sizing: border-box; /* include padding and borders in the width and height */
+         }
+         .section:last-child {
+             border-right: none; /* remove the border from the last section */
+         }
+    </style>
 </head>
 <body>
 <script>
@@ -13,29 +31,43 @@
 <script src="{{ cherrypy.url('/static/js/jquery-3.6.0.min.js') }}"></script>
 <script src="{{ cherrypy.url('/static/js/jquery-ui.min.js') }}"></script>
 
-<p class="question">
-   What are two cities that are approximately the same distance apart as {{ city1[0] }}, {{ city1[3] }} and {{ city2[0] }}, {{ city2[3] }}? 
-</p>
-<br>
-<p class="question">
-   You may not use cities from {{ continent1 }}{% if continent1 != continent2 %} and {{ continent2  }}{% endif %}.
-</p>
-<form method="get" action="distanceCheck">
-   <!-- Include the autocomplete script -->
-   City 1: <input type="text" name="cityName1" id="cityName1"/>
-           <div id="cityName1-autocomplete-results"></div>
-   <br />
-   City 2: <input type="text" name="cityName2" id="cityName2"/>
-           <div id="cityName2-autocomplete-results"></div>
-   <br />
-   <input type="submit" value="Submit" />
-   <script src="{{ cherrypy.url('/static/js/autocomplete_city_inputs.js') }}"></script>
-</form>
-{% if duplicateContinent %}
-<p class="error">You submitted cities where one of them was on the same continent as one of the cities in the question. Remember that all of Russia counts as Europe, and that South America starts below Panama.</p>
-{% endif %}
-{% if not cityFound %}
-<p class="error">You submitted a city that was not in our database. Please make sure you select a city from the autocomplete to avoid typos.</p>
-{% endif %}
+<div class="grid">
+    <div class="cityinfo">
+	    <h2> {{ city1[0] }}, {{ city1[3] }} </h2>
+	    <h2> Population: {{ city1_pop }} </h2>
+	    <p> {{ city1_summary }} </p>
+    </div>
+    <div class="section">
+	<p class="question">
+	   What are two cities that are approximately the same distance apart as {{ city1[0] }}, {{ city1[3] }} and {{ city2[0] }}, {{ city2[3] }}? 
+	</p>
+	<br>
+	<p class="question">
+	   You may not use cities from {{ continent1 }}{% if continent1 != continent2 %} and {{ continent2  }}{% endif %}.
+	</p>
+	<form method="get" action="distanceCheck">
+	   <!-- Include the autocomplete script -->
+	   City 1: <input type="text" name="cityName1" id="cityName1"/>
+	           <div id="cityName1-autocomplete-results"></div>
+	   <br />
+	   City 2: <input type="text" name="cityName2" id="cityName2"/>
+	           <div id="cityName2-autocomplete-results"></div>
+	   <br />
+	   <input type="submit" value="Submit" />
+	   <script src="{{ cherrypy.url('/static/js/autocomplete_city_inputs.js') }}"></script>
+	</form>
+	{% if duplicateContinent %}
+	<p class="error">You submitted cities where one of them was on the same continent as one of the cities in the question. Remember that all of Russia counts as Europe, and that South America starts below Panama.</p>
+	{% endif %}
+	{% if not cityFound %}
+	<p class="error">You submitted a city that was not in our database. Please make sure you select a city from the autocomplete to avoid typos.</p>
+	{% endif %}
+    </div>
+    <div class="cityinfo">
+	    <h2> {{ city2[0] }}, {{ city2[3] }} </h2>
+	    <h2> Population: {{ city2_pop }} </h2>
+	    <p> {{ city2_summary }} </p>
+    </div>
+</div>
 </body>
 </html>

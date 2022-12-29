@@ -56,3 +56,14 @@ button {
 .hall-of-fame {
     margin: 20px 0;
 }
+div.cityinfo {
+  border-right: 1px solid black; /* add a border to the bottom of each section except the last one */
+  display: block; /* enable flex layout */
+  text-align: center; /* center the text within the element */
+  height: 100%; /* set the height of each section to be the full height of the container */
+  width: 100%; /* set the width to be the full width of the container */
+  box-sizing: border-box; /* include padding and borders in the width and height */
+}
+div.cityinfo:last-child {
+  border-right: none; /* remove the border from the last section */
+}

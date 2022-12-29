@@ -27,7 +27,7 @@ countriesToContinents = {
     "Brunei": "Asia",
     "Bulgaria": "Europe",
     "Burkina Faso": "Africa",
-    "Burma": "Asia",
+    "Myanmar": "Asia",
     "Burundi": "Africa",
     "Cambodia": "Asia",
     "Cameroon": "Africa",

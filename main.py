@@ -328,8 +328,7 @@ class DistanceDuelGame(object):
         else:
             return ""
 
-conf={"/style": {"tools.staticdir.on": True,
-               "tools.staticdir.dir": os.path.abspath("./style")},
+conf={
       "/static": {
                'tools.staticdir.on': True,
                'tools.staticdir.dir': os.path.abspath("./static")

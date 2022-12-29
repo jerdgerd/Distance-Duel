@@ -1,7 +1,7 @@
 <html>
 <head>
-    <link rel="stylesheet" href="{{ cherrypy.url('/static/jquery-ui.css') }}">
-    <link rel="stylesheet" href="style/basic_style.css">
+    <link rel="stylesheet" href="{{ cherrypy.url('/static/js/jquery-ui.css') }}">
+    <link rel="stylesheet" href="/static/style/basic_style.css">
 </head>
 <body>
 <script>
@@ -10,12 +10,15 @@
 </script>
 
 <!-- Include the jQuery and jQuery UI libraries -->
-<script src="{{ cherrypy.url('/static/jquery-3.6.0.min.js') }}"></script>
-<script src="{{ cherrypy.url('/static/jquery-ui.min.js') }}"></script>
+<script src="{{ cherrypy.url('/static/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ cherrypy.url('/static/js/jquery-ui.min.js') }}"></script>
 
 <p class="question">
    What are two cities that are approximately the same distance apart as {{ city1[0] }}, {{ city1[3] }} and {{ city2[0] }}, {{ city2[3] }}? 
-   You may not use cities from {{ continent1 }} {% if continent1 != continent2 %} and {{ continent2  }}{% endif %}.
+</p>
+<br>
+<p class="question">
+   You may not use cities from {{ continent1 }}{% if continent1 != continent2 %} and {{ continent2  }}{% endif %}.
 </p>
 <form method="get" action="distanceCheck">
    <!-- Include the autocomplete script -->
@@ -26,13 +29,13 @@
            <div id="cityName2-autocomplete-results"></div>
    <br />
    <input type="submit" value="Submit" />
-   <script src="{{ cherrypy.url('/static/autocomplete_city_inputs.js') }}"></script>
+   <script src="{{ cherrypy.url('/static/js/autocomplete_city_inputs.js') }}"></script>
 </form>
 {% if duplicateContinent %}
-<p>You submitted cities where one of them was on the same continent as one of the cities in the question. Remember that all of Russia counts as Europe, and that South America starts below Panama.</p>
+<p class="error">You submitted cities where one of them was on the same continent as one of the cities in the question. Remember that all of Russia counts as Europe, and that South America starts below Panama.</p>
 {% endif %}
 {% if not cityFound %}
-<p>You submitted a city that was not in our database. Please make sure you select a city from the autocomplete to avoid typos.</p>
+<p class="error">You submitted a city that was not in our database. Please make sure you select a city from the autocomplete to avoid typos.</p>
 {% endif %}
 </body>
 </html>

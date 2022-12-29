@@ -10,6 +10,13 @@ p.question {
     font-size: 25px;
     text-align:center;
 }
+p.error {
+  color: #ff0000; /* Red color */
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px; /* Add some space around the text */
+  padding: 8px; /* Add some padding to the text */
+}
 form {
     display: flex;
     flex-direction: column;
@@ -22,6 +29,12 @@ input[type=text] {
     margin: 10px 0;
 }
 input[type=submit] {
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    margin: 10px 0;
+}
+button {
     width: 200px;
     height: 40px;
     font-size: 18px;

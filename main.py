@@ -139,19 +139,21 @@ class DistanceDuelGame(object):
                 # Get the name of the city and the country
                 city_name = row[1]
                 country = row[4]
+                country_iso3 = row[6]
+                city_id=row[10]
 
                 # Check if the city has already been added
-                if city_name not in added_cities or added_cities[city_name] != country:
-                    # Create a tuple with the values for city_ascii, lat, lng, and country
+                if city_id not in added_cities:
+                    # Create a tuple with the values for city_id, city_ascii, lat, lng,
+                    # country, country_iso3, population
                     if (row[9] != ""):
                         population = row[9].split(".")
-                        city = (row[1], float(row[2]), float(row[3]), row[4],
-                                int(population[0]))
+                        city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]))
                     # Add the tuple to the list
                     cities.append(city)
 
                     # Add the city name to the dictionary
-                    added_cities[city_name] = country
+                    added_cities[city_id] = country
 
     def gatherQuestionCities(self):
         with open("data/worldcities3.csv", "r") as file:
@@ -169,19 +171,21 @@ class DistanceDuelGame(object):
                 # Get the name of the city and the country
                 city_name = row[1]
                 country = row[4]
+                country_iso3 = row[6]
+                city_id=row[10]
 
                 # Check if the city has already been added
-                if city_name not in added_cities or added_cities[city_name] != country:
-                    # Create a tuple with the values for city_ascii, lat, lng, and country
+                if city_id not in added_cities:
+                    # Create a tuple with the values for city_id, city_ascii, lat, lng,
+                    # country, country_iso3, population
                     if (row[9] != ""):
                         population = row[9].split(".")
-                        city = (row[1], float(row[2]), float(row[3]), row[4],
-                                int(population[0]))
+                        city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]))
                     # Add the tuple to the list
                     questionCities.append(city)
 
                     # Add the city name to the dictionary
-                    added_cities[city_name] = country
+                    added_cities[city_id] = country
 
     @cherrypy.expose
     def distance(self, lat1, lon1, lat2, lon2):
@@ -222,9 +226,9 @@ class DistanceDuelGame(object):
         locationMatches = []
         for city in cities:
             if (len(cityName) >= 5):
-                if (cityName.lower() in city[0].lower()):
+                if (cityName.lower() in city[1].lower()):
                     locationMatches.append(city)
-            elif cityName.lower() == city[0].lower():
+            elif cityName.lower() == city[1].lower():
                 locationMatches.append(city)
         return locationMatches
 
@@ -250,7 +254,7 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def validContinent(self, continent1, continent2, city):
-        continent = countriesToContinents.get(city[3], "ERROR")
+        continent = countriesToContinents.get(city[4], "ERROR")
         return (continent != continent1 and continent != continent2)
 
     @cherrypy.expose
@@ -301,12 +305,12 @@ class DistanceDuelGame(object):
         if (not self.validateSelections(cityName1, cityName2)):
             cities_json = json.dumps(cities)
             template = env.get_template('duelQuestion.html')
-            return template.render(cities_json=cities_json, city1=self.city1, city1_pop=self.format_population(self.city1[4]), city1_summary=self.get_city_info(self.city1[0], self.city1[3])["summary"], city2=self.city2, city2_pop=self.format_population(self.city2[4]), city2_summary=self.get_city_info(self.city2[0], self.city2[3])["summary"], continent1 = self.continent1, continent2 = self.continent2, cherrypy=cherrypy, duplicateContinent = self.duplicateContinent, cityFound = self.cityFound)
+            return template.render(cities_json=cities_json, city1=self.city1, city1_pop=self.format_population(self.city1[6]), city1_summary=self.get_city_info(self.city1[1], self.city1[4])["summary"], city2=self.city2, city2_pop=self.format_population(self.city2[6]), city2_summary=self.get_city_info(self.city2[1], self.city2[4])["summary"], city1_country_iso3=self.city1[5], city2_country_iso3=self.city2[5], continent1 = self.continent1, continent2 = self.continent2, cherrypy=cherrypy, duplicateContinent = self.duplicateContinent, cityFound = self.cityFound)
         logger.debug(f"city2: {self.city2}")
         logger.debug(f"city3: {self.city3}")
         logger.debug(f"city4: {self.city4}")
-        distance1 = self.distance(self.city1[1], self.city1[2], self.city2[1], self.city2[2])
-        distance2 = self.distance(self.city3[1], self.city3[2], self.city4[1], self.city4[2])
+        distance1 = self.distance(self.city1[2], self.city1[3], self.city2[2], self.city2[3])
+        distance2 = self.distance(self.city3[2], self.city3[3], self.city4[2], self.city4[3])
         # Calculate difference between distances
         diff = abs(distance1 - distance2)
         self.numDuels = self.numDuels + 1
@@ -352,14 +356,14 @@ class DistanceDuelGame(object):
     def nextRound(self):
         self.city1, self.city2 = self.cityPicker(difficultyCities)
         logger.debug(f"city1: {self.city1}")
-        self.continent1 = countriesToContinents.get(self.city1[3], "ERROR1")
-        self.continent2 = countriesToContinents.get(self.city2[3], "ERROR2")
+        self.continent1 = countriesToContinents.get(self.city1[4], "ERROR1")
+        self.continent2 = countriesToContinents.get(self.city2[4], "ERROR2")
 
         # Convert the list of cities to a JSON string
         cities_json = json.dumps(cities)
 
         template = env.get_template('duelQuestion.html')
-        return template.render(cities_json=cities_json, city1=self.city1, city1_pop=self.format_population(self.city1[4]), city1_summary=self.get_city_info(self.city1[0], self.city1[3])["summary"], city2=self.city2, city2_pop=self.format_population(self.city2[4]), city2_summary=self.get_city_info(self.city2[0], self.city2[3])["summary"], continent1 = self.continent1, continent2 = self.continent2, duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
+        return template.render(cities_json=cities_json, city1=self.city1, city1_pop=self.format_population(self.city1[6]), city1_summary=self.get_city_info(self.city1[1], self.city1[4])["summary"], city2=self.city2, city2_pop=self.format_population(self.city2[6]), city2_summary=self.get_city_info(self.city2[1], self.city2[4])["summary"], city1_country_iso3=self.city1[5], city2_country_iso3=self.city2[5], continent1 = self.continent1, continent2 = self.continent2, duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 
     @cherrypy.expose
     def validateSelections(self, cityName1, cityName2):

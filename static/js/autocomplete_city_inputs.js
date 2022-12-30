@@ -4,14 +4,14 @@ $('#cityName1').autocomplete({
   source: function(request, response) {
     // Filter the list of cities based on the term being typed in the input field
     var filtered_cities = cities.filter(function(city) {
-      return city[0].toLowerCase().indexOf(request.term.toLowerCase()) > -1;
+      return city[1].toLowerCase().indexOf(request.term.toLowerCase()) > -1;
     });
     response(filtered_cities.map(function(city) {
       return {
-	label: city[0] + ', ' + city[3] + ' - Population: ' + city[4], // The label to display in the suggestion list
-        value: city[0], // The value to set in the input field when a suggestion is selected
-        population: city[4], // Additional fields to use in the event handler
-        country: city[3],
+	label: city[1] + ', ' + city[4] + ' - Population: ' + city[6], // The label to display in the suggestion list
+        value: city[1], // The value to set in the input field when a suggestion is selected
+        population: city[6], // Additional fields to use in the event handler
+        country: city[4]
       };
     }));
   },
@@ -27,14 +27,14 @@ $('#cityName2').autocomplete({
   source: function(request, response) {
     // Filter the list of cities based on the term being typed in the input field
     var filtered_cities = cities.filter(function(city) {
-      return city[0].toLowerCase().indexOf(request.term.toLowerCase()) > -1;
+      return city[1].toLowerCase().indexOf(request.term.toLowerCase()) > -1;
     });
     response(filtered_cities.map(function(city) {
       return {
-	label: city[0] + ', ' + city[3] + ' - Population: ' + city[4], // The label to display in the suggestion list
-        value: city[0], // The value to set in the input field when a suggestion is selected
-        population: city[4], // Additional fields to use in the event handler
-        country: city[3],
+	label: city[1] + ', ' + city[4] + ' - Population: ' + city[6], // The label to display in the suggestion list
+        value: city[1], // The value to set in the input field when a suggestion is selected
+        population: city[6], // Additional fields to use in the event handler
+        country: city[4]
       };
     }));
   },

@@ -71,8 +71,8 @@ class DistanceDuelGame(object):
            logger.debug(f"{search_list}")
            search_term=search_list.pop(0)
            logger.debug(f"New search term is: {search_term}")
-           page = wikipedia.page(search_term)
-           summary = wikipedia.summary(search_term, sentences=7)
+           page = wikipedia.page(search_term,auto_suggest=False)
+           summary = wikipedia.summary(search_term, sentences=7, auto_suggest=False)
            return {
                'title': page.title,
                'url': page.url,

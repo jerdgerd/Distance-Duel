@@ -2,6 +2,20 @@
     <head>
         <link rel="stylesheet" href="/static/style/basic_style.css">
         <link rel="stylesheet" href="/static/style/high_scores_style.css">
+    <style>
+      /* set the height of the map container to 100% of the viewport height */
+      .map-container {
+        height: 100vh;
+        position: relative;
+      }
+    
+      /* position the map at the bottom of the map container */
+      .map-container .map {
+        position: absolute;
+        bottom: 0;
+	left: 0;
+      }
+    </style>
     </head>
     <body>
     <div class="high-scores">
@@ -27,5 +41,10 @@
             <input type="submit" value="Start Over">
         </form>
     <p style="text-align: center;">{{feedback}}</p>
+    {% if showMaps %}
+    <div style="width:900px;margin:auto;">
+    {{ map_html }}
+    </div>
+    {% endif %}
     </body>
     </html>

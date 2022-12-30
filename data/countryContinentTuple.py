@@ -44,7 +44,7 @@ countriesToContinents = {
     "Croatia": "Europe",
     "Cuba": "North America",
     "Cyprus": "Europe",
-    "Czech Republic": "Europe",
+    "Czechia": "Europe",
     "Denmark": "Europe",
     "Djibouti": "Africa",
     "Dominica": "North America",

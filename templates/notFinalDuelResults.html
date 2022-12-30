@@ -1,6 +1,20 @@
 <html>
     <head>
     <link rel="stylesheet" href="/static/style/basic_style.css">
+    <style>
+     /* set the height of the map container to 100% of the viewport height */
+     .map-container {
+       height: 100vh;
+       position: relative;
+     }
+
+     /* position the map at the bottom of the map container */
+     .map-container .map {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+     }
+    </style>
     </head>
     <body>
         <h3 style="text-align: center;">Duel {{ numDuels }} Score: {{ duelScore }}</h1>
@@ -13,6 +27,11 @@
             <input type="submit" value="Next Round">
         </form>
         <p style="text-align: center;">{{feedback}}</p>
+	{% if showMaps %}
+	<div style="width:900px;margin:auto;">
+	{{ map_html }}
+	</div>
+	{% endif %}
     </body>
 </html>
 

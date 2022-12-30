@@ -6,9 +6,10 @@ import json
 import os
 import logging
 import wikipedia
+import folium
 
 from cherrypy.lib import sessions
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, Template
 from data.countryContinentTuple import countriesToContinents
 from data.insults import insults
 from data.compliments import compliments
@@ -42,12 +43,13 @@ decayValue = 5
 maxScore = 5000
 cities = []
 questionCities = []
+showMaps = True
 isMiles = True
 
 sessions.init()
 
 class DistanceDuelGame(object):
-    
+
     @cherrypy.expose
     def resetValues(self):
         session = cherrypy.session
@@ -99,6 +101,40 @@ class DistanceDuelGame(object):
                'url': '',
                'summary': ''
            }
+
+    def generate_map_html(self, city1, city2, city3, city4):
+      # create a folium map centered at (0, 0)
+      map = folium.Map(location=[0, 0], zoom_start=2, tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', attr='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community', scroll_wheel_zoom=False, dragging=False)
+
+      # loop through the array of cities
+      for city in [city1, city2, city3, city4]:
+        # add a marker for each city
+        folium.Marker(location=[city[2], city[3]], popup=city[1]).add_to(map)
+
+      # create an array of colors for the lines
+      colors = ['red', 'white']
+
+      # add a line connecting each pair of cities
+      folium.PolyLine([city1[2:4], city2[2:4]], color=colors[0], weight=2, opacity=1).add_to(map)
+      folium.PolyLine([city3[2:4], city4[2:4]], color=colors[1], weight=2, opacity=1).add_to(map)
+
+      # set the bounding box for the map
+      bounds = [[min(city1[2], city2[2], city3[2], city4[2]), min(city1[3], city2[3], city3[3], city4[3])],
+                [max(city1[2], city2[2], city3[2], city4[2]), max(city1[3], city2[3], city3[3], city4[3])]]
+      map.fit_bounds(bounds)
+
+      # create a Jinja2 template for the map HTML
+      template = Template("""
+        <div class="map-container">
+        <div id="map" class="map"style="width:900px;height:600px;" >
+        {{ map_html }}
+        </div>
+        </div>
+      """)
+
+      # render the template and return the HTML
+      return template.render(map_html=map.get_root().render())
+
 
     def format_population(self, num):
         # Convert the number to a string and reverse it
@@ -317,12 +353,12 @@ class DistanceDuelGame(object):
             template = env.get_template('duelQuestion.html')
             city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
             city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
-            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
-                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), 
-                city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], 
-                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy, 
+            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
+                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]),
+                city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
+                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
                 duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'])
-        
+
         city1 = session['city1']
         city2 = session['city2']
         city3 = session['city3']
@@ -354,7 +390,7 @@ class DistanceDuelGame(object):
         else:
             distanceMeasure = "kilometers"
 
-        html = template.render(numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
+        html = template.render(showMaps=showMaps,map_html=self.generate_map_html(city1,city2,city3,city4),numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
         distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores())
 
         if (needToReset):
@@ -377,9 +413,9 @@ class DistanceDuelGame(object):
         template = env.get_template('duelQuestion.html')
         city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
         city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
-        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
-            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary, 
-            city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], continent1 = session['continent1'], 
+        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
+            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
+            city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], continent1 = session['continent1'],
             continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 
     @cherrypy.expose

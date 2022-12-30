@@ -7,6 +7,7 @@ import os
 import logging
 import wikipedia
 
+from cherrypy.lib import sessions
 from jinja2 import Environment, FileSystemLoader
 from data.countryContinentTuple import countriesToContinents
 from data.insults import insults
@@ -43,23 +44,29 @@ cities = []
 questionCities = []
 isMiles = True
 
+sessions.init()
+
 class DistanceDuelGame(object):
-    def __init__(self):
-        # Define a variable within the __init__ method
-        self.city1 = None
-        self.city2 = None
-        self.city3 = None
-        self.city4 = None
-        self.numDuels = 0
-        self.score = 0
-        self.continent1 = None
-        self.continent2 = None
-        self.name = ""
-        self.cityFound = True
-        self.duplicateContinent = False
+    
+    @cherrypy.expose
+    def resetValues(self):
+        session = cherrypy.session
+        session['city1'] = []
+        session['city2'] = []
+        session['city3'] = []
+        session['city4'] = []
+        session['numDuels'] = 0
+        session['score'] = 0
+        session['continent1'] = ""
+        session['continent2'] = ""
+        session['name'] = ""
+        session['cityFound'] = True
+        session['duplicateContinent'] = False
+
 
     @cherrypy.expose
     def index(self):
+        self.resetValues()
         self.populateCitiesList()
         self.gatherQuestionCities()
         template = env.get_template('getName.html')
@@ -294,39 +301,50 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def gatherName(self, name=None):
+        session = cherrypy.session
         if (name == None or len(name) != 3):
             template = env.get_template('getName.html')
             return template.render()
         else:
-            self.name = name.upper()
+            session['name'] = name.upper()
             return self.nextRound()
 
     @cherrypy.expose
     def distanceCheck(self, cityName1=None, cityName2=None):
+        session = cherrypy.session
         if (not self.validateSelections(cityName1, cityName2)):
             cities_json = json.dumps(cities)
             template = env.get_template('duelQuestion.html')
-            city1_title, city1_url, city1_summary = self.get_city_info(self.city1[1], self.city1[4]).values()
-            city2_title, city2_url, city2_summary = self.get_city_info(self.city2[1], self.city2[4]).values()
-            return template.render(cities_json=cities_json, city1=self.city1, city1_pop=self.format_population(self.city1[6]), city1_summary=city1_summary, city2=self.city2, city2_pop=self.format_population(self.city2[6]), city2_summary=city2_summary, city1_country_iso3=self.city1[5], city2_country_iso3=self.city2[5], continent1 = self.continent1, continent2 = self.continent2, cherrypy=cherrypy, duplicateContinent = self.duplicateContinent, cityFound = self.cityFound)
-        logger.debug(f"city2: {self.city2}")
-        logger.debug(f"city3: {self.city3}")
-        logger.debug(f"city4: {self.city4}")
-        distance1 = self.distance(self.city1[2], self.city1[3], self.city2[2], self.city2[3])
-        distance2 = self.distance(self.city3[2], self.city3[3], self.city4[2], self.city4[3])
+            city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
+            city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
+            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
+                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), 
+                city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], 
+                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy, 
+                duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'])
+        
+        city1 = session['city1']
+        city2 = session['city2']
+        city3 = session['city3']
+        city4 = session['city4']
+        logger.debug(f"city2: {city2}")
+        logger.debug(f"city3: {city3}")
+        logger.debug(f"city4: {city4}")
+        distance1 = self.distance(city1[2], city1[3], city2[2], city2[3])
+        distance2 = self.distance(city3[2], city3[3], city4[2], city4[3])
         # Calculate difference between distances
         diff = abs(distance1 - distance2)
-        self.numDuels = self.numDuels + 1
+        session['numDuels'] = session['numDuels'] + 1
         duelScore = self.addToScore(distance1, diff)
-        self.score = self.score + duelScore
+        session['score'] = session['score'] + duelScore
         feedback = self.decideOnFeedback(duelScore)
         distanceMeasure = ""
         needToReset = False
-        if self.numDuels < numTries:
+        if session['numDuels'] < numTries:
             template = env.get_template('notFinalDuelResults.html')
 
         else:
-            self.add_score_to_database(self.name,self.score)
+            self.add_score_to_database(session['name'],session['score'])
             template = env.get_template('finalDuelResults.html')
             needToReset = True
 
@@ -334,54 +352,53 @@ class DistanceDuelGame(object):
             distanceMeasure = "miles"
 
         else:
-            distanceMeasure = "Kilometers"
+            distanceMeasure = "kilometers"
 
-        html = template.render(numDuels=self.numDuels, duelScore=duelScore, score=self.score, city1=self.city1, city2=self.city2, distance1=format(distance1, '.2f'),
-        distanceMeasure="kilometers", city3=self.city3, city4=self.city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - self.numDuels), feedback=feedback, high_scores=self.get_high_scores())
+        html = template.render(numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
+        distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores())
 
         if (needToReset):
-            self.name = ""
-            self.score = 0
-            self.city1 = None
-            self.city2 = None
-            self.city3 = None
-            self.city4 = None
-            self.continent1 = None
-            self.continent2 = None
-            self.numDuels = 0
+            self.resetValues()
             needToReset = False
-            self.duplicateContinent = False
-            self.cityFound = True
 
         return html
 
     @cherrypy.expose
     def nextRound(self):
-        self.city1, self.city2 = self.cityPicker(difficultyCities)
-        logger.debug(f"city1: {self.city1}")
-        self.continent1 = countriesToContinents.get(self.city1[4], "ERROR1")
-        self.continent2 = countriesToContinents.get(self.city2[4], "ERROR2")
+        session = cherrypy.session
+        session['city1'], session['city2'] = self.cityPicker(difficultyCities)
+        logger.debug(f"city1: {session['city1']}")
+        session['continent1'] = countriesToContinents.get(session['city1'][4], "ERROR1")
+        session['continent2'] = countriesToContinents.get(session['city2'][4], "ERROR2")
 
         # Convert the list of cities to a JSON string
         cities_json = json.dumps(cities)
 
         template = env.get_template('duelQuestion.html')
-        city1_title, city1_url, city1_summary = self.get_city_info(self.city1[1], self.city1[4]).values()
-        city2_title, city2_url, city2_summary = self.get_city_info(self.city2[1], self.city2[4]).values()
-        return template.render(cities_json=cities_json, city1=self.city1, city1_pop=self.format_population(self.city1[6]), city1_summary=city1_summary, city2=self.city2, city2_pop=self.format_population(self.city2[6]), city2_summary=city2_summary, city1_country_iso3=self.city1[5], city2_country_iso3=self.city2[5], continent1 = self.continent1, continent2 = self.continent2, duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
+        city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
+        city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
+        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
+            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary, 
+            city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], continent1 = session['continent1'], 
+            continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 
     @cherrypy.expose
     def validateSelections(self, cityName1, cityName2):
-        self.city3 = self.collectCities(cityName1)
-        self.city4 = self.collectCities(cityName2)
-        if (self.city3 == None or self.city4 == None):
-            self.cityFound = False
+        session = cherrypy.session
+        session['city3'] = self.collectCities(cityName1)
+        session['city4'] = self.collectCities(cityName2)
+        city3 = session['city3']
+        city4 = session['city4']
+        continent1 = session['continent1']
+        continent2 = session['continent2']
+        if (city3 == None or city4 == None):
+            session['cityFound'] = False
             return False
-        elif (not self.validContinent(self.continent1, self.continent2, self.city3) or not self.validContinent(self.continent1, self.continent2, self.city4)):
-            self.duplicateContinent = True
+        elif (not self.validContinent(continent1, continent2, city3) or not self.validContinent(continent1, continent2, city4)):
+            session['duplicateContinent'] = True
             return False
-        self.cityFound = True
-        self.duplicateContinent = False
+        session['cityFound'] = True
+        session['duplicateContinent'] = False
         return True
 
     @cherrypy.expose
@@ -397,10 +414,13 @@ class DistanceDuelGame(object):
 
 
 conf={
-      "/static": {
-               'tools.staticdir.on': True,
-               'tools.staticdir.dir': os.path.abspath("./static")
-               }
+        '/': {
+            'tools.sessions.on': True,
+        },
+        "/static": {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': os.path.abspath("./static")
+        }
 	}
 
 
@@ -413,4 +433,4 @@ cherrypy.log.access_log.addHandler(file_handler)
 cherrypy.log.error_log.addHandler(file_handler)
 
 cherrypy.server.socket_host = '0.0.0.0'
-cherrypy.quickstart(DistanceDuelGame(),config=conf)
+cherrypy.quickstart(DistanceDuelGame(), '/', config=conf)

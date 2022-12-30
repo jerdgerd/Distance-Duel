@@ -86,20 +86,20 @@ class DistanceDuelGame(object):
            return {
                'title': page.title,
                'url': page.url,
-               'summary': summary
+               'summary': summary,
            }
        except wikipedia.DisambiguationError:
            logger.debug(f"Disambiguation error triggered on {search_term}")
            return {
                'title': '',
                'url': '',
-               'summary': ''
+               'summary': '',
            }
        except wikipedia.exceptions.PageError:
            return {
                'title': '',
                'url': '',
-               'summary': ''
+               'summary': '',
            }
 
     def generate_map_html(self, city1, city2, city3, city4):
@@ -353,10 +353,11 @@ class DistanceDuelGame(object):
             template = env.get_template('duelQuestion.html')
             city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
             city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
-            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
-                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]),
+            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
+                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), 
                 city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
-                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
+                city1_picture = session['city1'][0], city2_picture = ['city2'][0],
+                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy, 
                 duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'])
 
         city1 = session['city1']
@@ -413,10 +414,10 @@ class DistanceDuelGame(object):
         template = env.get_template('duelQuestion.html')
         city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
         city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
-        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
-            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
-            city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], continent1 = session['continent1'],
-            continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
+        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
+            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary, 
+            city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = session['city1'][0], city2_picture = session['city2'][0],
+            continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 
     @cherrypy.expose
     def validateSelections(self, cityName1, cityName2):

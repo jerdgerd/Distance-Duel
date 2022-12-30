@@ -17,14 +17,15 @@
     </div>
     <br><br><br>
 
-        <h1>Duel {{ numDuels }} Score: {{ duelScore }}</h1>
-        <h1>Overall Score: {{ score }}</h1>
-        <p>  {{ city1[1] }}, {{ city1[4] }} and {{ city2[1] }}, {{ city2[4] }} were approximately {{ distance1 }} {{ distanceMeasure }} apart, 
-            while {{ city3[1] }}, {{ city3[4] }} and {{ city4[1] }}, {{ city4[4] }}
-          were approximately {{ distance2 }} {{ distanceMeasure }} apart. You have no duels left. </p>
+        <h3 style="text-align: center;">Duel {{ numDuels }} Score: {{ duelScore }}</h3>
+        <h1 style="text-align: center;">Total Score: {{ score }}</h1>
+	<p style="text-align: center;">  <b>{{ city1[1] }}, {{ city1[4] }}</b> and <b>{{ city2[1] }}, {{ city2[4] }}</b> are <b style="color: red;">{{ distance1 }} {{ distanceMeasure }}</b> apart,<br> 
+	<b>{{ city3[1] }}, {{ city3[4] }}</b> and <b>{{ city4[1] }}, {{ city4[4] }}</b>
+	are <b style="color: red;">{{ distance2 }} {{ distanceMeasure }}</b> apart. <br><br></p>
+	<h3 style="text-align: center;">You have no duels left. </h3>
         <form method="post" action="index">
             <input type="submit" value="Start Over">
         </form>
+    <p style="text-align: center;">{{feedback}}</p>
     </body>
-    <p>{{feedback}}</p>
     </html>

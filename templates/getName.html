@@ -2,12 +2,24 @@
     <head>
         <title>Travel Game</title>
         <link rel="stylesheet" href="/static/style/basic_style.css">
+        <link rel="stylesheet" href="/static/style/high_scores_style.css">
         </head>
         <body>
             <form method="get" action="gatherName">
                 <input type="text" name="name"/>
-                <button type="submit">Submit 3 Letter Name</button>
-            </form>
+                <button type="submit">Enter 3 Letter Initials</button>
+            </form><br><br><br>
+            <div class="high-scores">
+              <h2 class="high-scores">Hall of Fame</h2>
+              <ul class="high-scores">
+                {% for name, score in high_scores %}
+                  <li class="high-scores">
+                    <span class="high-scores-name">{{ name }}</span>
+                    <span class="high-scores-score">{{ score }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
         </body>
     </head>
 </html>

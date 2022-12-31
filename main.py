@@ -10,6 +10,8 @@ import folium
 import requests
 import nltk
 
+
+nltk.download('punkt')
 from cherrypy.lib import sessions
 from jinja2 import Environment, FileSystemLoader, Template
 from data.countryContinentTuple import countriesToContinents
@@ -373,11 +375,11 @@ class DistanceDuelGame(object):
             template = env.get_template('duelQuestion.html')
             city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
             city2_title, city2_url, city2_summary, city2_picture = self.get_city_info(session['city2page']).values()
-            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
-                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), 
+            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
+                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]),
                 city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
                 city1_picture = city1_picture, city2_picture = city2_picture,
-                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy, 
+                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
                 duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'])
 
         city1 = session['city1']
@@ -436,8 +438,8 @@ class DistanceDuelGame(object):
         session['city2page'] = self.get_wiki_page(session['city2'][1], session['city2'][4])
         city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
         city2_title, city2_url, city2_summary, city2_picture = self.get_city_info(session['city2page']).values()
-        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
-            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary, 
+        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
+            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
             city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = city1_picture, city2_picture = city2_picture,
             continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 

@@ -7,6 +7,8 @@ import os
 import logging
 import wikipedia
 import folium
+import requests
+import nltk
 
 from cherrypy.lib import sessions
 from jinja2 import Environment, FileSystemLoader, Template
@@ -64,6 +66,8 @@ class DistanceDuelGame(object):
         session['name'] = ""
         session['cityFound'] = True
         session['duplicateContinent'] = False
+        session['city1page'] = ''
+        session['city2page'] = ''
 
 
     @cherrypy.expose
@@ -74,32 +78,48 @@ class DistanceDuelGame(object):
         template = env.get_template('getName.html')
         return template.render(high_scores=self.get_high_scores())
 
-    def get_city_info(self, city_name, city_country):
+    def get_wiki_page(self, city_name, city_country):
+        search_list=wikipedia.search(f"{city_name}, {city_country}")
+        logger.debug(f"{search_list}")
+        search_term=search_list.pop(0)
+        logger.debug(f"New search term is: {search_term}")
+        page = wikipedia.page(search_term,auto_suggest=False)
+        return page
+
+
+    def get_city_info(self, page):
        try:
-           search_list=wikipedia.search(f"{city_name}, {city_country}")
-           logger.debug(f"{search_list}")
-           search_term=search_list.pop(0)
-           logger.debug(f"New search term is: {search_term}")
-           page = wikipedia.page(search_term,auto_suggest=False)
-           logger.debug(f"Page contents: {page}")
-           summary = wikipedia.summary(search_term, sentences=7, auto_suggest=False)
+           summary = page.summary
+           summarySentences = nltk.sent_tokenize(summary)
+           #Add first 7 sentences to the summary
+           summary = ''
+           i = 0
+           while len(summarySentences) > i and i < 7:
+               summary = summary + " " + summarySentences[i]
+               i = i + 1
+           response  = requests.get('http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=' + page.title)
+           json_data = json.loads(response.text)
+           picture = list(json_data['query']['pages'].values())[0]['original']['source']
            return {
                'title': page.title,
                'url': page.url,
                'summary': summary,
+               'picture': picture
            }
        except wikipedia.DisambiguationError:
-           logger.debug(f"Disambiguation error triggered on {search_term}")
+           logger.debug(f"Disambiguation error triggered on {{ page.title }}")
            return {
                'title': '',
                'url': '',
                'summary': '',
+               'picture': ''
            }
        except wikipedia.exceptions.PageError:
            return {
                'title': '',
                'url': '',
                'summary': '',
+               'picture': ''
            }
 
     def generate_map_html(self, city1, city2, city3, city4):
@@ -351,13 +371,13 @@ class DistanceDuelGame(object):
         if (not self.validateSelections(cityName1, cityName2)):
             cities_json = json.dumps(cities)
             template = env.get_template('duelQuestion.html')
-            city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
-            city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
-            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
-                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]),
+            city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
+            city2_title, city2_url, city2_summary, city2_picture = self.get_city_info(session['city2page']).values()
+            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
+                city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), 
                 city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
-                city1_picture = session['city1'][0], city2_picture = ['city2'][0],
-                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
+                city1_picture = city1_picture, city2_picture = city2_picture,
+                continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy, 
                 duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'])
 
         city1 = session['city1']
@@ -412,11 +432,13 @@ class DistanceDuelGame(object):
         cities_json = json.dumps(cities)
 
         template = env.get_template('duelQuestion.html')
-        city1_title, city1_url, city1_summary = self.get_city_info(session['city1'][1], session['city1'][4]).values()
-        city2_title, city2_url, city2_summary = self.get_city_info(session['city2'][1], session['city2'][4]).values()
-        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
-            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
-            city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = session['city1'][0], city2_picture = session['city2'][0],
+        session['city1page'] = self.get_wiki_page(session['city1'][1], session['city1'][4])
+        session['city2page'] = self.get_wiki_page(session['city2'][1], session['city2'][4])
+        city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
+        city2_title, city2_url, city2_summary, city2_picture = self.get_city_info(session['city2page']).values()
+        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]), 
+            city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary, 
+            city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = city1_picture, city2_picture = city2_picture,
             continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 
     @cherrypy.expose

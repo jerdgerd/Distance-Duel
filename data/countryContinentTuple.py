@@ -49,6 +49,7 @@ countriesToContinents = {
     "Djibouti": "Africa",
     "Dominica": "North America",
     "Dominican Republic": "North America",
+    "Democratic Republic of the Congo": "Africa",
     "East Timor": "Asia",
     "Ecuador": "South America",
     "Egypt": "Africa",

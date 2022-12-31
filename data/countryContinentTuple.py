@@ -84,6 +84,7 @@ countriesToContinents = {
     "Italy": "Europe",
     "Côte d'Ivoire": "Africa",
     "Jamaica": "North America",
+    "Montserrat": "North America",
     "Japan": "Asia",
     "Jordan": "Asia",
     "Kazakhstan": "Asia",

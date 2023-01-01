@@ -48,7 +48,6 @@ maxScore = 5000
 cities = []
 questionCities = []
 showMaps = True
-isMiles = True
 
 sessions.init()
 
@@ -70,6 +69,9 @@ class DistanceDuelGame(object):
         session['duplicateContinent'] = False
         session['city1page'] = ''
         session['city2page'] = ''
+        session['difficulty'] = ''
+        session['isMiles'] = True
+        session['timerLength'] = -1
 
 
     @cherrypy.expose
@@ -370,8 +372,21 @@ class DistanceDuelGame(object):
             writer.writerow([name, score])
 
     @cherrypy.expose
-    def gatherName(self, name=None):
+    def gatherName(self, name=None, difficulty=None, timerLength=None, isMiles=None):
         session = cherrypy.session
+        if difficulty == None:
+            session['difficulty'] = 'medium'
+        else:
+            session['diffuculty'] = difficulty
+        if timerLength == None:
+            session['timerLength'] = -1
+        else:
+            session['timerLength'] = timerLength
+        if isMiles == None:
+            session['isMiles'] = True
+        else:
+            session['isMiles'] = isMiles
+
         if (name == None or len(name) != 3):
             template = env.get_template('getName.html')
             return template.render()

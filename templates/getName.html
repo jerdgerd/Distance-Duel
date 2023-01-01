@@ -1,14 +1,37 @@
 <html>
     <head>
-        <title>Travel Game</title>
+        <title>Distance Duel</title>
         <link rel="stylesheet" href="/static/style/basic_style.css">
         <link rel="stylesheet" href="/static/style/high_scores_style.css">
         </head>
         <body>
             <form method="get" action="gatherName">
-                <input type="text" name="name"/>
-                <button type="submit">Enter 3 Letter Initials</button>
-            </form><br><br><br>
+              <p>Please input three-letter initials below.</p>
+              <input type="text" name="name"/>
+              <label for="difficulty">Difficulty:</label>
+              <select name="difficulty">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+              </select>
+              <br>
+              <label for="timerLength">Timer Length:</label>
+              <select name="timerLength">
+                  <option value="none">No timer</option>
+                  <option value="30">30 seconds</option>
+                  <option value="60">1 minute</option>
+                  <option value="120">2 minutes</option>
+              </select>
+              <br>
+              <label for="isMiles">Units:</label>
+              <select name="isMiles">
+                  <option value=True>Miles</option>
+                  <option value=False>Kilometers</option>
+              </select>
+              <br>
+              <button type="submit">Start Game</button>
+          </form>
+          <br>
             <div class="high-scores">
               <h2 class="high-scores">Hall of Fame</h2>
               <ul class="high-scores">

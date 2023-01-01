@@ -279,6 +279,7 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def distance(self, lat1, lon1, lat2, lon2):
+        session = cherrypy.session
         # Function to calculate the distance between two cities in miles
         # using the Haversine formula
         R = 3958.8  # approximate radius of earth in miles
@@ -294,7 +295,7 @@ class DistanceDuelGame(object):
         a = math.sin(
             dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-        if isMiles:
+        if session['isMiles']:
             return R * c
         else:
             1.609344 * (R * c)
@@ -447,7 +448,7 @@ class DistanceDuelGame(object):
             template = env.get_template('finalDuelResults.html')
             needToReset = True
 
-        if (isMiles):
+        if (session['isMiles']):
             distanceMeasure = "miles"
 
         else:

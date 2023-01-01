@@ -3,35 +3,112 @@
         <title>Distance Duel</title>
         <link rel="stylesheet" href="/static/style/basic_style.css">
         <link rel="stylesheet" href="/static/style/high_scores_style.css">
+        <style>
+            .initialize_game {
+              width: 50%;
+              margin: 0 auto;
+              text-align: center;
+              padding: 20px;
+              border: none;
+              border-radius: 0;
+            }
+
+	    .initialize_game form {
+                width: 50%;
+                margin: 0 auto;
+                text-align: center;
+                padding: 20px;
+                border: none;
+                border-radius: 0; /* Remove border radius from form */
+              }
+
+	    .initialize_game p {
+               margin-bottom: 20px;
+               font-size: 18px;
+               font-weight: bold;
+               font-style: italic;
+	       border: none;
+             }
+
+
+	    .initialize_game input[type="text"] {
+                width: 25%; /* Make input box smaller */
+                height: 35px;
+                padding: 0 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: bold; /* Make user input bold */
+              }
+
+            .initialize_game label {
+               margin-bottom: 10px;
+               font-size: 18px;
+               font-weight: bold;
+               font-style: italic;
+              border: none;
+            }
+
+	    .initialize_game button[type="submit"] {
+                 width: 50%;
+                 height: 40px;
+                 background-color: #333;
+                 color: #fff;
+                 font-size: 20px;
+                 font-weight: bold;
+                 border: none;
+                 border-radius: 5px;
+                 cursor: pointer;
+                 display: flex;
+                 justify-content: center; /* Center button text horizontally */
+                 align-items: center; /* Center button text vertically */
+               }
+
+
+            
+            .initialize_game select {
+              width: 50%;
+              height: 35px;
+              padding: 0 10px;
+              margin-bottom: 20px;
+              margin-top: 0;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              font-size: 16px;
+            }
+              .initialize_game button[type="submit"]:hover {
+                background-color: #444;
+              }
+        </style>
         </head>
         <body>
-            <form method="get" action="gatherName">
-              <p>Please input three-letter initials below.</p>
-              <input type="text" name="name"/>
-              <label for="difficulty">Difficulty:</label>
-              <select name="difficulty">
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
+            <form method="get" action="gatherName" class="initialize_game">
+              <p class="initialize_game">Please input three-letter initials below.</p>
+              <input type="text" name="name" class="initialize_game"/>
+              <label for="difficulty" class="initialize_game">Difficulty:</label>
+              <select name="difficulty" class="initialize_game">
+                  <option value="easy" class="initialize_game">Easy</option>
+                  <option value="medium" class="initialize_game">Medium</option>
+                  <option value="hard" class="initialize_game">Hard</option>
               </select>
               <br>
-              <label for="timerLength">Timer Length:</label>
-              <select name="timerLength">
-                  <option value="none">No timer</option>
-                  <option value="30">30 seconds</option>
-                  <option value="60">1 minute</option>
-                  <option value="120">2 minutes</option>
+              <label for="timerLength" class="initialize_game">Timer Length:</label>
+              <select name="timerLength" class="initialize_game">
+                  <option value="none" class="initialize_game">No timer</option>
+                  <option value="30" class="initialize_game">30 seconds</option>
+                  <option value="60" class="initialize_game">1 minute</option>
+                  <option value="120" class="initialize_game">2 minutes</option>
               </select>
               <br>
-              <label for="isMiles">Units:</label>
-              <select name="isMiles">
-                  <option value=True>Miles</option>
-                  <option value=False>Kilometers</option>
+              <label for="isMiles" class="initialize_game">Units:</label>
+              <select name="isMiles" class="initialize_game">
+                  <option value=True class="initialize_game">Miles</option>
+                  <option value=False class="initialize_game">Kilometers</option>
               </select>
-              <br>
-              <button type="submit">Start Game</button>
-          </form>
-          <br>
+	      <br><br><br>
+              <button type="submit" class="initialize_game">Start Game</button>
+            </form>
+	    <br><hr>
             <div class="high-scores">
               <h2 class="high-scores">Hall of Fame</h2>
               <ul class="high-scores">

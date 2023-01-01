@@ -234,6 +234,7 @@ class DistanceDuelGame(object):
 
             # Iterate over the rows in the CSV file
             for row in reader:
+                logger.debug(f"row: {row}")
                 # Get the name of the city and the country
                 city_name = row[1]
                 country = row[4]
@@ -245,6 +246,7 @@ class DistanceDuelGame(object):
                     # Create a tuple with the values for city_id, city_ascii, lat, lng,
                     # country, country_iso3, population
                     if (row[9] != ""):
+                        logger.debug(f"population: {row[9]}")
                         population = row[9].split(".")
                         city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]))
                     # Add the tuple to the list

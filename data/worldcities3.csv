@@ -1,212 +1,213 @@
 "city","city_ascii","lat","lng","country","iso2","iso3","admin_name","capital","population","id"
-Tokyo,Tokyo,35.6839,139.7744,Japan,JP,JPN,Tōkyō,primary,39105000,1392685764
-Jakarta,Jakarta,-6.2146,106.8451,Indonesia,ID,IDN,Jakarta,primary,35362000,1360771077
-Delhi,Delhi,28.6667,77.2167,India,IN,IND,Delhi,admin,31870000,1356872604
-Manila,Manila,14.6,120.9833,Philippines,PH,PHL,Manila,primary,23971000,1608618140
-São Paulo,Sao Paulo,-23.5504,-46.6339,Brazil,BR,BRA,São Paulo,admin,22495000,1076532519
-Mumbai,Mumbai,19.0758,72.8775,India,IN,IND,Mahārāshtra,admin,22186000,1356226629
-Shanghai,Shanghai,31.1667,121.4667,China,CN,CHN,Shanghai,admin,22118000,1156073548
-Mexico City,Mexico City,19.4333,-99.1333,Mexico,MX,MEX,Ciudad de México,primary,21505000,1484247881
-Guangzhou,Guangzhou,23.1288,113.259,China,CN,CHN,Guangdong,admin,21489000,1156237133
-Cairo,Cairo,30.0444,31.2358,Egypt,EG,EGY,Al Qāhirah,primary,19787000,1818253931
-Beijing,Beijing,39.904,116.4075,China,CN,CHN,Beijing,primary,19437000,1156228865
-Kolkāta,Kolkata,22.5727,88.3639,India,IN,IND,West Bengal,admin,18698000,1356060520
-Moscow,Moscow,55.7558,37.6178,Russia,RU,RUS,Moskva,primary,17693000,1643318494
-Bangkok,Bangkok,13.75,100.5167,Thailand,TH,THA,Krung Thep Maha Nakhon,primary,17573000,1764068610
-Dhaka,Dhaka,23.7289,90.3944,Bangladesh,BD,BGD,Dhaka,primary,16839000,1050529279
-Buenos Aires,Buenos Aires,-34.5997,-58.3819,Argentina,AR,ARG,Ciudad Autónoma de Buenos Aires,primary,16216000,1032717330
-Ōsaka,Osaka,34.752,135.4582,Japan,JP,JPN,Ōsaka,admin,15490000,1392419823
-Lagos,Lagos,6.45,3.4,Nigeria,NG,NGA,Lagos,minor,15487000,1566593751
-Istanbul,Istanbul,41.01,28.9603,Turkey,TR,TUR,İstanbul,admin,15311000,1792756324
-Karachi,Karachi,24.86,67.01,Pakistan,PK,PAK,Sindh,admin,15292000,1586129469
-Shenzhen,Shenzhen,22.535,114.054,China,CN,CHN,Guangdong,minor,14678000,1156158707
-Bangalore,Bangalore,12.9791,77.5913,India,IN,IND,Karnātaka,admin,13999000,1356410365
-Ho Chi Minh City,Ho Chi Minh City,10.8167,106.6333,Vietnam,VN,VNM,Hồ Chí Minh,admin,13954000,1704774326
-Tehran,Tehran,35.7,51.4167,Iran,IR,IRN,Tehrān,primary,13819000,1364305026
-Rio de Janeiro,Rio de Janeiro,-22.9083,-43.1964,Brazil,BR,BRA,Rio de Janeiro,admin,12486000,1076887657
-Chengdu,Chengdu,30.66,104.0633,China,CN,CHN,Sichuan,admin,11920000,1156421555
-Baoding,Baoding,38.8671,115.4845,China,CN,CHN,Hebei,,11860000,1156256829
-Chennai,Chennai,13.0825,80.275,India,IN,IND,Tamil Nādu,admin,11564000,1356374944
-Lahore,Lahore,31.5497,74.3436,Pakistan,PK,PAK,Punjab,admin,11148000,1586801463
-Paris,Paris,48.8566,2.3522,France,FR,FRA,Île-de-France,primary,11027000,1250015082
-Tianjin,Tianjin,39.1467,117.2056,China,CN,CHN,Tianjin,admin,10932000,1156174046
-Linyi,Linyi,35.0606,118.3425,China,CN,CHN,Shandong,,10820000,1156086320
-Shijiazhuang,Shijiazhuang,38.0422,114.5086,China,CN,CHN,Hebei,admin,10784600,1156217541
-Zhengzhou,Zhengzhou,34.7492,113.6605,China,CN,CHN,Henan,admin,10136000,1156183137
-Nanyang,Nanyang,32.9987,112.5292,China,CN,CHN,Henan,,10013600,1156192287
-Hyderābād,Hyderabad,17.3617,78.4747,India,IN,IND,Telangana,admin,9840000,1356871768
-Wuhan,Wuhan,30.5872,114.2881,China,CN,CHN,Hubei,admin,9729000,1156117184
-Handan,Handan,36.6116,114.4894,China,CN,CHN,Hebei,minor,9549700,1156957080
-Nagoya,Nagoya,35.1167,136.9333,Japan,JP,JPN,Aichi,admin,9522000,1392407472
-Weifang,Weifang,36.7167,119.1,China,CN,CHN,Shandong,,9373000,1156912965
-Lima,Lima,-12.06,-77.0375,Peru,PE,PER,Lima,primary,8992000,1604728603
-Zhoukou,Zhoukou,33.625,114.6418,China,CN,CHN,Henan,minor,8953172,1156272098
-Luanda,Luanda,-8.8383,13.2344,Angola,AO,AGO,Luanda,primary,8883000,1024949724
-Kuala Lumpur,Kuala Lumpur,3.1478,101.6953,Malaysia,MY,MYS,Kuala Lumpur,primary,8639000,1458988644
-Hanoi,Hanoi,21.0245,105.8412,Vietnam,VN,VNM,Hà Nội,primary,8246600,1704413791
-Pune,Pune,18.5196,73.8553,India,IN,IND,Mahārāshtra,,7948000,1356081074
-Bogotá,Bogota,4.6126,-74.0705,Colombia,CO,COL,Bogotá,primary,7743955,1170483426
-Ahmedabad,Ahmedabad,23.03,72.58,India,IN,IND,Gujarāt,minor,7717000,1356304381
-Dar es Salaam,Dar es Salaam,-6.8,39.2833,Tanzania,TZ,TZA,Dar es Salaam,primary,7461000,1834843853
-Santiago,Santiago,-33.45,-70.6667,Chile,CL,CHL,Región Metropolitana,primary,7026000,1152554349
-Baghdad,Baghdad,33.35,44.4167,Iraq,IQ,IRQ,Baghdād,primary,6107000,1368596238
-Khartoum,Khartoum,15.6031,32.5265,Sudan,SD,SDN,Khartoum,primary,6017000,1729268475
-Madrid,Madrid,40.4167,-3.7167,Spain,ES,ESP,Madrid,primary,6006000,1724616994
-Allahābād,Allahabad,25.45,81.85,India,IN,IND,Uttar Pradesh,,5954391,1356718332
-Giza,Giza,29.987,31.2118,Egypt,EG,EGY,Al Jīzah,admin,5598402,1818925479
-Nairobi,Nairobi,-1.2864,36.8172,Kenya,KE,KEN,Nairobi City,primary,5545000,1404000661
-Atlanta,Atlanta,33.7627,-84.4224,United States,US,USA,Georgia,admin,5449398,1840013660
-Guadalajara,Guadalajara,20.6767,-103.3475,Mexico,MX,MEX,Jalisco,admin,5437000,1484950208
-Rangoon,Rangoon,16.795,96.16,Myanmar,MM,MMR,Yangon,primary,5430000,1104616656
-Toronto,Toronto,43.7417,-79.3733,Canada,CA,CAN,Ontario,admin,5429524,1124279679
-Saint Petersburg,Saint Petersburg,59.95,30.3167,Russia,RU,RUS,Sankt-Peterburg,admin,5384342,1643616350
-Singapore,Singapore,1.3,103.8,Singapore,SG,SGP,Central Singapore,primary,5271000,1702341327
-Belo Horizonte,Belo Horizonte,-19.9281,-43.9419,Brazil,BR,BRA,Minas Gerais,admin,5159000,1076967355
-Sūrat,Surat,21.17,72.83,India,IN,IND,Gujarāt,,4875000,1356758738
-Alexandria,Alexandria,31.2,29.9167,Egypt,EG,EGY,Al Iskandarīyah,admin,4870000,1818695837
-Sydney,Sydney,-33.865,151.2094,Australia,AU,AUS,New South Wales,admin,4840600,1036074917
-Barcelona,Barcelona,41.3825,2.1769,Spain,ES,ESP,Catalonia,admin,4735000,1724594040
-Melbourne,Melbourne,-37.8136,144.9631,Australia,AU,AUS,Victoria,admin,4529500,1036533631
-Timbío,Timbio,2.3528,-76.6819,Colombia,CO,COL,Cauca,minor,4444444,1170815311
-Casablanca,Casablanca,33.5992,-7.62,Morocco,MA,MAR,Casablanca-Settat,admin,4370000,1504175315
-Kabul,Kabul,34.5328,69.1658,Afghanistan,AF,AFG,Kābul,primary,4273156,1004993580
-Amman,Amman,31.95,35.9333,Jordan,JO,JOR,Al ‘Āşimah,primary,4007526,1400522593
-Kano,Kano,12,8.5167,Nigeria,NG,NGA,Kano,admin,3848885,1566422868
-Yokohama,Yokohama,35.4333,139.6333,Japan,JP,JPN,Kanagawa,admin,3757630,1392118339
-Berlin,Berlin,52.5167,13.3833,Germany,DE,DEU,Berlin,primary,3664088,1276451290
-Montréal,Montreal,45.5089,-73.5617,Canada,CA,CAN,Quebec,,3519595,1124586170
-Algiers,Algiers,36.7764,3.0586,Algeria,DZ,DZA,Alger,primary,3415811,1012973369
-Lucknow,Lucknow,26.847,80.947,India,IN,IND,Uttar Pradesh,admin,3382000,1356891790
-Faisalabad,Faisalabad,31.418,73.079,Pakistan,PK,PAK,Punjab,minor,3203846,1586323916
-Santa Cruz,Santa Cruz,-17.7892,-63.1975,Bolivia,BO,BOL,Santa Cruz,admin,3151676,1068129363
-Jaipur,Jaipur,26.9167,75.8667,India,IN,IND,Rājasthān,admin,3073350,1356293537
-Addis Ababa,Addis Ababa,9.0272,38.7369,Ethiopia,ET,ETH,Ādīs Ābeba,primary,3041002,1231824991
-Brasília,Brasilia,-15.7939,-47.8828,Brazil,BR,BRA,Distrito Federal,primary,3015268,1076144436
-Mashhad,Mashhad,36.3069,59.6042,Iran,IR,IRN,Khorāsān-e Raẕavī,admin,3001184,1364123206
-Kuwait City,Kuwait City,29.375,47.98,Kuwait,KW,KWT,Al ‘Āşimah,primary,2989000,1414102075
-Kyiv,Kyiv,50.45,30.5236,Ukraine,UA,UKR,Misto Kyiv,primary,2963199,1804382913
-Quezon City,Quezon City,14.6333,121.0333,Philippines,PH,PHL,Quezon,admin,2960048,1608974097
-Sanaa,Sanaa,15.35,44.2,Yemen,YE,YEM,Amānat al ‘Āşimah,primary,2957000,1887750814
-Guatemala City,Guatemala City,14.6099,-90.5252,Guatemala,GT,GTM,Guatemala,primary,2934841,1320197916
-Salvador,Salvador,-12.9708,-38.5108,Brazil,BR,BRA,Bahia,admin,2886698,1076923789
-Surabaya,Surabaya,-7.2458,112.7378,Indonesia,ID,IDN,Jawa Timur,admin,2885555,1360484663
-Bandung,Bandung,-6.95,107.5667,Indonesia,ID,IDN,Jawa Barat,admin,2875673,1360313023
-Rome,Rome,41.8931,12.4828,Italy,IT,ITA,Lazio,primary,2872800,1380382862
-La Paz,La Paz,-16.4942,-68.1475,Bolivia,BO,BOL,La Paz,primary,2867504,1068000064
-Taichung,Taichung,24.15,120.6667,Taiwan,TW,TWN,Taichung,admin,2803894,1158689622
-Kaohsiung,Kaohsiung,22.6167,120.3,Taiwan,TW,TWN,Kaohsiung,admin,2773533,1158331334
-Guayaquil,Guayaquil,-2.19,-79.8875,Ecuador,EC,ECU,Guayas,admin,2723665,1218802178
-Cawnpore,Cawnpore,26.4725,80.3311,India,IN,IND,Uttar Pradesh,,2701324,1356575238
-Taipei,Taipei,25.0478,121.5319,Taiwan,TW,TWN,Taipei,,2684567,1158881289
-Antananarivo,Antananarivo,-18.9386,47.5214,Madagascar,MG,MDG,Antananarivo,primary,2610000,1450978461
-Chattogram,Chattogram,22.335,91.8325,Bangladesh,BD,BGD,Chittagong,admin,2581643,1050830722
-Ibadan,Ibadan,7.3964,3.9167,Nigeria,NG,NGA,Oyo,admin,2550593,1566366407
-Medellín,Medellin,6.2447,-75.5748,Colombia,CO,COL,Antioquia,admin,2529403,1170680389
-Tashkent,Tashkent,41.3,69.2667,Uzbekistan,UZ,UZB,Toshkent,primary,2497900,1860331871
-Mirzāpur,Mirzapur,25.15,82.58,India,IN,IND,Uttar Pradesh,,2496970,1356427908
-Cali,Cali,3.44,-76.5197,Colombia,CO,COL,Valle del Cauca,admin,2471474,1170417589
-Fortaleza,Fortaleza,-3.7275,-38.5275,Brazil,BR,BRA,Ceará,admin,2452185,1076567885
-Douala,Douala,4.05,9.7,Cameroon,CM,CMR,Littoral,admin,2446945,1120494607
-Yaoundé,Yaounde,3.8578,11.5181,Cameroon,CM,CMR,Centre,primary,2440462,1120298240
-Omdurman,Omdurman,15.6167,32.48,Sudan,SD,SDN,Khartoum,,2395159,1729912179
-Bekasi,Bekasi,-6.2333,107,Indonesia,ID,IDN,Jawa Barat,,2381053,1360006015
-Brisbane,Brisbane,-27.4678,153.0281,Australia,AU,AUS,Queensland,admin,2360241,1036192929
-Depok,Depok,-6.394,106.8225,Indonesia,ID,IDN,Jawa Barat,,2330333,1360962899
-Accra,Accra,5.6037,-0.187,Ghana,GH,GHA,Greater Accra,primary,2291352,1288299415
-Fukuoka,Fukuoka,33.6,130.4167,Japan,JP,JPN,Fukuoka,admin,2280000,1392576294
-Vancouver,Vancouver,49.25,-123.1,Canada,CA,CAN,British Columbia,,2264823,1124825478
-Tangerang,Tangerang,-6.1783,106.6319,Indonesia,ID,IDN,Jawa Barat,,2237006,1360002844
-Baku,Baku,40.3667,49.8352,Azerbaijan,AZ,AZE,Bakı,primary,2181800,1031946365
-Harare,Harare,-17.8292,31.0522,Zimbabwe,ZW,ZWE,Harare,primary,2150000,1716196799
-Havana,Havana,23.1367,-82.3589,Cuba,CU,CUB,La Habana,primary,2141652,1192752771
-Phnom Penh,Phnom Penh,11.5696,104.921,Cambodia,KH,KHM,Phnom Penh,primary,2129371,1116260534
-Mogadishu,Mogadishu,2.0408,45.3425,Somalia,SO,SOM,Banaadir,primary,2120000,1706893395
-Haiphong,Haiphong,20.8,106.6667,Vietnam,VN,VNM,Hải Phòng,admin,2103500,1704000623
-Rawalpindi,Rawalpindi,33.6007,73.0679,Pakistan,PK,PAK,Punjab,minor,2098231,1586344001
-Kumasi,Kumasi,6.6833,-1.6167,Ghana,GH,GHA,Ashanti,admin,2069350,1288181103
-Perth,Perth,-31.9522,115.8589,Australia,AU,AUS,Western Australia,admin,2039200,1036178956
-Gujranwala,Gujranwala,32.15,74.1833,Pakistan,PK,PAK,Punjab,minor,2027001,1586400472
-Quito,Quito,-0.22,-78.5125,Ecuador,EC,ECU,Pichincha,primary,2011388,1218441993
-Minsk,Minsk,53.9022,27.5618,Belarus,BY,BLR,Minsk,primary,2009786,1112348503
-Bamako,Bamako,12.6458,-7.9922,Mali,ML,MLI,Bamako,primary,2009109,1466965925
-Peshawar,Peshawar,34,71.5,Pakistan,PK,PAK,Khyber Pakhtunkhwa,admin,1970042,1586851102
-Sapporo,Sapporo,43.0621,141.3544,Japan,JP,JPN,Hokkaidō,admin,1961690,1392000195
-Eşfahān,Esfahan,32.6447,51.6675,Iran,IR,IRN,Eşfahān,admin,1961260,1364023865
-Caracas,Caracas,10.5,-66.9333,Venezuela,VE,VEN,Distrito Capital,primary,1943901,1862748204
-Tijuana,Tijuana,32.525,-117.0333,Mexico,MX,MEX,Baja California,minor,1922523,1484708778
-Almaty,Almaty,43.25,76.9,Kazakhstan,KZ,KAZ,Almaty,admin,1916822,1398351701
-Aleppo,Aleppo,36.2,37.15,Syria,SY,SYR,Ḩalab,admin,1916781,1760366651
-Vienna,Vienna,48.2083,16.3725,Austria,AT,AUT,Wien,primary,1911191,1040261752
-Blantyre,Blantyre,-15.7861,35.0058,Malawi,MW,MWI,Blantyre,admin,1895973,1454145012
-Tainan,Tainan,22.9833,120.1833,Taiwan,TW,TWN,Tainan,admin,1883831,1158061376
-Bucharest,Bucharest,44.4,26.0833,Romania,RO,ROU,Bucureşti,primary,1883425,1642414442
-Curitiba,Curitiba,-25.4297,-49.2719,Brazil,BR,BRA,Paraná,admin,1879355,1076701712
-Ecatepec,Ecatepec,19.6097,-99.06,Mexico,MX,MEX,México,minor,1857188,1484003694
-Hamburg,Hamburg,53.55,10,Germany,DE,DEU,Hamburg,admin,1852478,1276041799
-Meru,Meru,0.05,37.65,Kenya,KE,KEN,Meru,admin,1833000,1404588252
-Manaus,Manaus,-3.1,-60.0167,Brazil,BR,BRA,Amazonas,admin,1802014,1076607274
-Warsaw,Warsaw,52.23,21.0111,Poland,PL,POL,Mazowieckie,primary,1790658,1616024847
-Davao,Davao,7.0667,125.6,Philippines,PH,PHL,Davao,admin,1776949,1608906877
-Damascus,Damascus,33.5131,36.2919,Syria,SY,SYR,Dimashq,primary,1754000,1760685964
-Brussels,Brussels,50.8353,4.3314,Belgium,BE,BEL,Brussels-Capital Region,primary,1743000,1056469830
-Lusaka,Lusaka,-15.4167,28.2833,Zambia,ZM,ZMB,Lusaka,primary,1742979,1894157390
-Budapest,Budapest,47.4983,19.0408,Hungary,HU,HUN,Budapest,primary,1723836,1348611435
-Mosul,Mosul,36.3667,43.1167,Iraq,IQ,IRQ,Nīnawá,admin,1694000,1368194914
-Conakry,Conakry,9.538,-13.6773,Guinea,GN,GIN,Conakry,primary,1667864,1324568159
-Caloocan City,Caloocan City,14.65,120.9667,Philippines,PH,PHL,Caloocan,admin,1661584,1608897690
-Kampala,Kampala,0.3136,32.5811,Uganda,UG,UGA,Kampala,primary,1659600,1800406299
-Novosibirsk,Novosibirsk,55.0333,82.9167,Russia,RU,RUS,Novosibirskaya Oblast’,admin,1602915,1643399240
-Karaj,Karaj,35.8327,50.9915,Iran,IR,IRN,Alborz,admin,1592492,1364258511
-León de los Aldama,Leon de los Aldama,21.1167,-101.6833,Mexico,MX,MEX,Guanajuato,minor,1579803,1484811199
-Puebla,Puebla,19.0333,-98.1833,Mexico,MX,MEX,Puebla,admin,1576259,1484416394
-Maracaibo,Maracaibo,10.6333,-71.6333,Venezuela,VE,VEN,Zulia,admin,1551539,1862072711
-Aba,Aba,5.1167,7.3667,Nigeria,NG,NGA,Abia,minor,1530000,1566262000
-Munich,Munich,48.1375,11.575,Germany,DE,DEU,Bavaria,admin,1488202,1276692352
-Valencia,Valencia,10.1667,-68,Venezuela,VE,VEN,Carabobo,admin,1484430,1862309871
-Onitsha,Onitsha,6.1667,6.7833,Nigeria,NG,NGA,Anambra,minor,1483000,1566593483
-Yekaterinburg,Yekaterinburg,56.8356,60.6128,Russia,RU,RUS,Sverdlovskaya Oblast’,admin,1468833,1643582706
-El Kelaa des Srarhna,El Kelaa des Srarhna,32.05,-7.4,Morocco,MA,MAR,Marrakech-Safi,,1450021,1504846488
-Kharkiv,Kharkiv,50,36.2292,Ukraine,UA,UKR,Kharkivs’ka Oblast’,admin,1446107,1804588111
-Muscat,Muscat,23.6139,58.5922,Oman,OM,OMN,Masqaţ,primary,1421409,1512035506
-Ulaanbaatar,Ulaanbaatar,47.9214,106.9055,Mongolia,MN,MNG,Ulaanbaatar,primary,1396288,1496024767
-Belgrade,Belgrade,44.8167,20.4667,Serbia,RS,SRB,Beograd,primary,1378682,1688374696
-Milan,Milan,45.4669,9.19,Italy,IT,ITA,Lombardy,admin,1366180,1380724377
-Prague,Prague,50.0833,14.4167,Czechia,CZ,CZE,Hlavní Město Praha,primary,1335084,1203744823
-Córdoba,Cordoba,-31.4167,-64.1833,Argentina,AR,ARG,Córdoba,admin,1329604,1032803249
-Montevideo,Montevideo,-34.8667,-56.1667,Uruguay,UY,URY,Montevideo,primary,1319108,1858107000
-Cacuaco,Cacuaco,-8.7833,13.3667,Angola,AO,AGO,Luanda,,1279488,1024559448
-Sofia,Sofia,42.6979,23.3217,Bulgaria,BG,BGR,Sofia-Grad,primary,1277411,1100762037
-Nizhniy Novgorod,Nizhniy Novgorod,56.3269,44.0075,Russia,RU,RUS,Nizhegorodskaya Oblast’,admin,1264075,1643012126
-Comayagüela,Comayaguela,14.0833,-87.2167,Honduras,HN,HND,Francisco Morazán,,1250000,1340762485
-Kazan,Kazan,55.7908,49.1144,Russia,RU,RUS,Tatarstan,admin,1243500,1643101260
-Calgary,Calgary,51.05,-114.0667,Canada,CA,CAN,Alberta,,1239220,1124690423
-Cần Thơ,Can Tho,10.0333,105.7833,Vietnam,VN,VNM,Cần Thơ,admin,1237300,1704783472
-Abuja,Abuja,9.0556,7.4914,Nigeria,NG,NGA,Federal Capital Territory,primary,1235880,1566342270
-Mandalay,Mandalay,21.9831,96.0844,Myanmar,MM,MMR,Mandalay,admin,1225546,1104468217
-Maputo,Maputo,-25.9153,32.5764,Mozambique,MZ,MOZ,Maputo,primary,1191613,1508074843
-Doha,Doha,25.3,51.5333,Qatar,QA,QAT,Ad Dawḩah,primary,1186023,1634459660
-Pikine,Pikine,14.75,-17.4,Senegal,SN,SEN,Dakar,,1170791,1686165071
-Kigali,Kigali,-1.9536,30.0606,Rwanda,RW,RWA,Kigali,primary,1156663,1646923541
-Dakar,Dakar,14.7319,-17.4572,Senegal,SN,SEN,Dakar,primary,1146053,1686604760
-Callao,Callao,-12.0611,-77.1333,Peru,PE,PER,Callao,admin,1129854,1604422141
-Tegucigalpa,Tegucigalpa,14.0942,-87.2067,Honduras,HN,HND,Francisco Morazán,primary,1126534,1340344059
-Tripoli,Tripoli,32.8752,13.1875,Libya,LY,LBY,Ţarābulus,primary,1126000,1434201852
-N’Djamena,N'Djamena,12.11,15.05,Chad,TD,TCD,Ville de N’Djaména,primary,1092066,1148708596
-Copenhagen,Copenhagen,55.6805,12.5615,Denmark,DK,DNK,Hovedstaden,primary,1085000,1208763942
-Cologne,Cologne,50.9422,6.9578,Germany,DE,DEU,North Rhine-Westphalia,,1083498,1276015998
-Nur-Sultan,Nur-Sultan,51.1333,71.4333,Kazakhstan,KZ,KAZ,Astana,primary,1078362,1398516045
-Nouakchott,Nouakchott,18.0858,-15.9785,Mauritania,MR,MRT,,primary,1077169,1478414984
-Yerevan,Yerevan,40.1814,44.5144,Armenia,AM,ARM,Yerevan,primary,1075800,1051074169
-Barquisimeto,Barquisimeto,10.0678,-69.3467,Venezuela,VE,VEN,Lara,admin,1059092,1862860739
-Tunis,Tunis,36.8008,10.18,Tunisia,TN,TUN,Tunis,primary,1056247,1788742103
-Bishkek,Bishkek,42.8667,74.5667,Kyrgyzstan,KG,KGZ,Bishkek,primary,1053900,1417191971
-Matola,Matola,-25.9667,32.4667,Mozambique,MZ,MOZ,Maputo,,1032197,1508768577
-Managua,Managua,12.15,-86.2667,Nicaragua,NI,NIC,Managua,primary,1028808,1558296252
-Niamey,Niamey,13.5086,2.1111,Niger,NE,NER,Niamey,primary,1026848,1562932886
-Shubrā al Khaymah,Shubra al Khaymah,30.1286,31.2422,Egypt,EG,EGY,Al Qalyūbīyah,,1025569,1818909612
-Monrovia,Monrovia,6.3106,-10.8047,Liberia,LR,LBR,Montserrado,primary,1021762,1430477826"Seoul","Seoul","37.5600","126.9900","South Korea","KR","KOR","Seoul","primary","22394000","1410836482"
+"Tokyo","Tokyo","35.6839","139.7744","Japan","JP","JPN","Tōkyō","primary","39105000","1392685764"
+"Jakarta","Jakarta","-6.2146","106.8451","Indonesia","ID","IDN","Jakarta","primary","35362000","1360771077"
+"Delhi","Delhi","28.6667","77.2167","India","IN","IND","Delhi","admin","31870000","1356872604"
+"Manila","Manila","14.6","120.9833","Philippines","PH","PHL","Manila","primary","23971000","1608618140"
+"São Paulo","Sao Paulo","-23.5504","-46.6339","Brazil","BR","BRA","São Paulo","admin","22495000","1076532519"
+"Mumbai","Mumbai","19.0758","72.8775","India","IN","IND","Mahārāshtra","admin","22186000","1356226629"
+"Shanghai","Shanghai","31.1667","121.4667","China","CN","CHN","Shanghai","admin","22118000","1156073548"
+"Mexico City","Mexico City","19.4333","-99.1333","Mexico","MX","MEX","Ciudad de México","primary","21505000","1484247881"
+"Guangzhou","Guangzhou","23.1288","113.259","China","CN","CHN","Guangdong","admin","21489000","1156237133"
+"Cairo","Cairo","30.0444","31.2358","Egypt","EG","EGY","Al Qāhirah","primary","19787000","1818253931"
+"Beijing","Beijing","39.904","116.4075","China","CN","CHN","Beijing","primary","19437000","1156228865"
+"Kolkāta","Kolkata","22.5727","88.3639","India","IN","IND","West Bengal","admin","18698000","1356060520"
+"Moscow","Moscow","55.7558","37.6178","Russia","RU","RUS","Moskva","primary","17693000","1643318494"
+"Bangkok","Bangkok","13.75","100.5167","Thailand","TH","THA","Krung Thep Maha Nakhon","primary","17573000","1764068610"
+"Dhaka","Dhaka","23.7289","90.3944","Bangladesh","BD","BGD","Dhaka","primary","16839000","1050529279"
+"Buenos Aires","Buenos Aires","-34.5997","-58.3819","Argentina","AR","ARG","Ciudad Autónoma de Buenos Aires","primary","16216000","1032717330"
+"Ōsaka","Osaka","34.752","135.4582","Japan","JP","JPN","Ōsaka","admin","15490000","1392419823"
+"Lagos","Lagos","6.45","3.4","Nigeria","NG","NGA","Lagos","minor","15487000","1566593751"
+"Istanbul","Istanbul","41.01","28.9603","Turkey","TR","TUR","İstanbul","admin","15311000","1792756324"
+"Karachi","Karachi","24.86","67.01","Pakistan","PK","PAK","Sindh","admin","15292000","1586129469"
+"Shenzhen","Shenzhen","22.535","114.054","China","CN","CHN","Guangdong","minor","14678000","1156158707"
+"Bangalore","Bangalore","12.9791","77.5913","India","IN","IND","Karnātaka","admin","13999000","1356410365"
+"Ho Chi Minh City","Ho Chi Minh City","10.8167","106.6333","Vietnam","VN","VNM","Hồ Chí Minh","admin","13954000","1704774326"
+"Tehran","Tehran","35.7","51.4167","Iran","IR","IRN","Tehrān","primary","13819000","1364305026"
+"Rio de Janeiro","Rio de Janeiro","-22.9083","-43.1964","Brazil","BR","BRA","Rio de Janeiro","admin","12486000","1076887657"
+"Chengdu","Chengdu","30.66","104.0633","China","CN","CHN","Sichuan","admin","11920000","1156421555"
+"Baoding","Baoding","38.8671","115.4845","China","CN","CHN","Hebei","","11860000","1156256829"
+"Chennai","Chennai","13.0825","80.275","India","IN","IND","Tamil Nādu","admin","11564000","1356374944"
+"Lahore","Lahore","31.5497","74.3436","Pakistan","PK","PAK","Punjab","admin","11148000","1586801463"
+"Paris","Paris","48.8566","2.3522","France","FR","FRA","Île-de-France","primary","11027000","1250015082"
+"Tianjin","Tianjin","39.1467","117.2056","China","CN","CHN","Tianjin","admin","10932000","1156174046"
+"Linyi","Linyi","35.0606","118.3425","China","CN","CHN","Shandong","","10820000","1156086320"
+"Shijiazhuang","Shijiazhuang","38.0422","114.5086","China","CN","CHN","Hebei","admin","10784600","1156217541"
+"Zhengzhou","Zhengzhou","34.7492","113.6605","China","CN","CHN","Henan","admin","10136000","1156183137"
+"Nanyang","Nanyang","32.9987","112.5292","China","CN","CHN","Henan","","10013600","1156192287"
+"Hyderābād","Hyderabad","17.3617","78.4747","India","IN","IND","Telangana","admin","9840000","1356871768"
+"Wuhan","Wuhan","30.5872","114.2881","China","CN","CHN","Hubei","admin","9729000","1156117184"
+"Handan","Handan","36.6116","114.4894","China","CN","CHN","Hebei","minor","9549700","1156957080"
+"Nagoya","Nagoya","35.1167","136.9333","Japan","JP","JPN","Aichi","admin","9522000","1392407472"
+"Weifang","Weifang","36.7167","119.1","China","CN","CHN","Shandong","","9373000","1156912965"
+"Lima","Lima","-12.06","-77.0375","Peru","PE","PER","Lima","primary","8992000","1604728603"
+"Zhoukou","Zhoukou","33.625","114.6418","China","CN","CHN","Henan","minor","8953172","1156272098"
+"Luanda","Luanda","-8.8383","13.2344","Angola","AO","AGO","Luanda","primary","8883000","1024949724"
+"Kuala Lumpur","Kuala Lumpur","3.1478","101.6953","Malaysia","MY","MYS","Kuala Lumpur","primary","8639000","1458988644"
+"Hanoi","Hanoi","21.0245","105.8412","Vietnam","VN","VNM","Hà Nội","primary","8246600","1704413791"
+"Pune","Pune","18.5196","73.8553","India","IN","IND","Mahārāshtra","","7948000","1356081074"
+"Bogotá","Bogota","4.6126","-74.0705","Colombia","CO","COL","Bogotá","primary","7743955","1170483426"
+"Ahmedabad","Ahmedabad","23.03","72.58","India","IN","IND","Gujarāt","minor","7717000","1356304381"
+"Dar es Salaam","Dar es Salaam","-6.8","39.2833","Tanzania","TZ","TZA","Dar es Salaam","primary","7461000","1834843853"
+"Santiago","Santiago","-33.45","-70.6667","Chile","CL","CHL","Región Metropolitana","primary","7026000","1152554349"
+"Baghdad","Baghdad","33.35","44.4167","Iraq","IQ","IRQ","Baghdād","primary","6107000","1368596238"
+"Khartoum","Khartoum","15.6031","32.5265","Sudan","SD","SDN","Khartoum","primary","6017000","1729268475"
+"Madrid","Madrid","40.4167","-3.7167","Spain","ES","ESP","Madrid","primary","6006000","1724616994"
+"Allahābād","Allahabad","25.45","81.85","India","IN","IND","Uttar Pradesh","","5954391","1356718332"
+"Giza","Giza","29.987","31.2118","Egypt","EG","EGY","Al Jīzah","admin","5598402","1818925479"
+"Nairobi","Nairobi","-1.2864","36.8172","Kenya","KE","KEN","Nairobi City","primary","5545000","1404000661"
+"Atlanta","Atlanta","33.7627","-84.4224","United States","US","USA","Georgia","admin","5449398","1840013660"
+"Guadalajara","Guadalajara","20.6767","-103.3475","Mexico","MX","MEX","Jalisco","admin","5437000","1484950208"
+"Rangoon","Rangoon","16.795","96.16","Myanmar","MM","MMR","Yangon","primary","5430000","1104616656"
+"Toronto","Toronto","43.7417","-79.3733","Canada","CA","CAN","Ontario","admin","5429524","1124279679"
+"Saint Petersburg","Saint Petersburg","59.95","30.3167","Russia","RU","RUS","Sankt-Peterburg","admin","5384342","1643616350"
+"Singapore","Singapore","1.3","103.8","Singapore","SG","SGP","Central Singapore","primary","5271000","1702341327"
+"Belo Horizonte","Belo Horizonte","-19.9281","-43.9419","Brazil","BR","BRA","Minas Gerais","admin","5159000","1076967355"
+"Sūrat","Surat","21.17","72.83","India","IN","IND","Gujarāt","","4875000","1356758738"
+"Alexandria","Alexandria","31.2","29.9167","Egypt","EG","EGY","Al Iskandarīyah","admin","4870000","1818695837"
+"Sydney","Sydney","-33.865","151.2094","Australia","AU","AUS","New South Wales","admin","4840600","1036074917"
+"Barcelona","Barcelona","41.3825","2.1769","Spain","ES","ESP","Catalonia","admin","4735000","1724594040"
+"Melbourne","Melbourne","-37.8136","144.9631","Australia","AU","AUS","Victoria","admin","4529500","1036533631"
+"Timbío","Timbio","2.3528","-76.6819","Colombia","CO","COL","Cauca","minor","4444444","1170815311"
+"Casablanca","Casablanca","33.5992","-7.62","Morocco","MA","MAR","Casablanca-Settat","admin","4370000","1504175315"
+"Kabul","Kabul","34.5328","69.1658","Afghanistan","AF","AFG","Kābul","primary","4273156","1004993580"
+"Amman","Amman","31.95","35.9333","Jordan","JO","JOR","Al ‘Āşimah","primary","4007526","1400522593"
+"Kano","Kano","12","8.5167","Nigeria","NG","NGA","Kano","admin","3848885","1566422868"
+"Yokohama","Yokohama","35.4333","139.6333","Japan","JP","JPN","Kanagawa","admin","3757630","1392118339"
+"Berlin","Berlin","52.5167","13.3833","Germany","DE","DEU","Berlin","primary","3664088","1276451290"
+"Montréal","Montreal","45.5089","-73.5617","Canada","CA","CAN","Quebec","","3519595","1124586170"
+"Algiers","Algiers","36.7764","3.0586","Algeria","DZ","DZA","Alger","primary","3415811","1012973369"
+"Lucknow","Lucknow","26.847","80.947","India","IN","IND","Uttar Pradesh","admin","3382000","1356891790"
+"Faisalabad","Faisalabad","31.418","73.079","Pakistan","PK","PAK","Punjab","minor","3203846","1586323916"
+"Santa Cruz","Santa Cruz","-17.7892","-63.1975","Bolivia","BO","BOL","Santa Cruz","admin","3151676","1068129363"
+"Jaipur","Jaipur","26.9167","75.8667","India","IN","IND","Rājasthān","admin","3073350","1356293537"
+"Addis Ababa","Addis Ababa","9.0272","38.7369","Ethiopia","ET","ETH","Ādīs Ābeba","primary","3041002","1231824991"
+"Brasília","Brasilia","-15.7939","-47.8828","Brazil","BR","BRA","Distrito Federal","primary","3015268","1076144436"
+"Mashhad","Mashhad","36.3069","59.6042","Iran","IR","IRN","Khorāsān-e Raẕavī","admin","3001184","1364123206"
+"Kuwait City","Kuwait City","29.375","47.98","Kuwait","KW","KWT","Al ‘Āşimah","primary","2989000","1414102075"
+"Kyiv","Kyiv","50.45","30.5236","Ukraine","UA","UKR","Misto Kyiv","primary","2963199","1804382913"
+"Quezon City","Quezon City","14.6333","121.0333","Philippines","PH","PHL","Quezon","admin","2960048","1608974097"
+"Sanaa","Sanaa","15.35","44.2","Yemen","YE","YEM","Amānat al ‘Āşimah","primary","2957000","1887750814"
+"Guatemala City","Guatemala City","14.6099","-90.5252","Guatemala","GT","GTM","Guatemala","primary","2934841","1320197916"
+"Salvador","Salvador","-12.9708","-38.5108","Brazil","BR","BRA","Bahia","admin","2886698","1076923789"
+"Surabaya","Surabaya","-7.2458","112.7378","Indonesia","ID","IDN","Jawa Timur","admin","2885555","1360484663"
+"Bandung","Bandung","-6.95","107.5667","Indonesia","ID","IDN","Jawa Barat","admin","2875673","1360313023"
+"Rome","Rome","41.8931","12.4828","Italy","IT","ITA","Lazio","primary","2872800","1380382862"
+"La Paz","La Paz","-16.4942","-68.1475","Bolivia","BO","BOL","La Paz","primary","2867504","1068000064"
+"Taichung","Taichung","24.15","120.6667","Taiwan","TW","TWN","Taichung","admin","2803894","1158689622"
+"Kaohsiung","Kaohsiung","22.6167","120.3","Taiwan","TW","TWN","Kaohsiung","admin","2773533","1158331334"
+"Guayaquil","Guayaquil","-2.19","-79.8875","Ecuador","EC","ECU","Guayas","admin","2723665","1218802178"
+"Cawnpore","Cawnpore","26.4725","80.3311","India","IN","IND","Uttar Pradesh","","2701324","1356575238"
+"Taipei","Taipei","25.0478","121.5319","Taiwan","TW","TWN","Taipei","","2684567","1158881289"
+"Antananarivo","Antananarivo","-18.9386","47.5214","Madagascar","MG","MDG","Antananarivo","primary","2610000","1450978461"
+"Chattogram","Chattogram","22.335","91.8325","Bangladesh","BD","BGD","Chittagong","admin","2581643","1050830722"
+"Ibadan","Ibadan","7.3964","3.9167","Nigeria","NG","NGA","Oyo","admin","2550593","1566366407"
+"Medellín","Medellin","6.2447","-75.5748","Colombia","CO","COL","Antioquia","admin","2529403","1170680389"
+"Tashkent","Tashkent","41.3","69.2667","Uzbekistan","UZ","UZB","Toshkent","primary","2497900","1860331871"
+"Mirzāpur","Mirzapur","25.15","82.58","India","IN","IND","Uttar Pradesh","","2496970","1356427908"
+"Cali","Cali","3.44","-76.5197","Colombia","CO","COL","Valle del Cauca","admin","2471474","1170417589"
+"Fortaleza","Fortaleza","-3.7275","-38.5275","Brazil","BR","BRA","Ceará","admin","2452185","1076567885"
+"Douala","Douala","4.05","9.7","Cameroon","CM","CMR","Littoral","admin","2446945","1120494607"
+"Yaoundé","Yaounde","3.8578","11.5181","Cameroon","CM","CMR","Centre","primary","2440462","1120298240"
+"Omdurman","Omdurman","15.6167","32.48","Sudan","SD","SDN","Khartoum","","2395159","1729912179"
+"Bekasi","Bekasi","-6.2333","107","Indonesia","ID","IDN","Jawa Barat","","2381053","1360006015"
+"Brisbane","Brisbane","-27.4678","153.0281","Australia","AU","AUS","Queensland","admin","2360241","1036192929"
+"Depok","Depok","-6.394","106.8225","Indonesia","ID","IDN","Jawa Barat","","2330333","1360962899"
+"Accra","Accra","5.6037","-0.187","Ghana","GH","GHA","Greater Accra","primary","2291352","1288299415"
+"Fukuoka","Fukuoka","33.6","130.4167","Japan","JP","JPN","Fukuoka","admin","2280000","1392576294"
+"Vancouver","Vancouver","49.25","-123.1","Canada","CA","CAN","British Columbia","","2264823","1124825478"
+"Tangerang","Tangerang","-6.1783","106.6319","Indonesia","ID","IDN","Jawa Barat","","2237006","1360002844"
+"Baku","Baku","40.3667","49.8352","Azerbaijan","AZ","AZE","Bakı","primary","2181800","1031946365"
+"Harare","Harare","-17.8292","31.0522","Zimbabwe","ZW","ZWE","Harare","primary","2150000","1716196799"
+"Havana","Havana","23.1367","-82.3589","Cuba","CU","CUB","La Habana","primary","2141652","1192752771"
+"Phnom Penh","Phnom Penh","11.5696","104.921","Cambodia","KH","KHM","Phnom Penh","primary","2129371","1116260534"
+"Mogadishu","Mogadishu","2.0408","45.3425","Somalia","SO","SOM","Banaadir","primary","2120000","1706893395"
+"Haiphong","Haiphong","20.8","106.6667","Vietnam","VN","VNM","Hải Phòng","admin","2103500","1704000623"
+"Rawalpindi","Rawalpindi","33.6007","73.0679","Pakistan","PK","PAK","Punjab","minor","2098231","1586344001"
+"Kumasi","Kumasi","6.6833","-1.6167","Ghana","GH","GHA","Ashanti","admin","2069350","1288181103"
+"Perth","Perth","-31.9522","115.8589","Australia","AU","AUS","Western Australia","admin","2039200","1036178956"
+"Gujranwala","Gujranwala","32.15","74.1833","Pakistan","PK","PAK","Punjab","minor","2027001","1586400472"
+"Quito","Quito","-0.22","-78.5125","Ecuador","EC","ECU","Pichincha","primary","2011388","1218441993"
+"Minsk","Minsk","53.9022","27.5618","Belarus","BY","BLR","Minsk","primary","2009786","1112348503"
+"Bamako","Bamako","12.6458","-7.9922","Mali","ML","MLI","Bamako","primary","2009109","1466965925"
+"Peshawar","Peshawar","34","71.5","Pakistan","PK","PAK","Khyber Pakhtunkhwa","admin","1970042","1586851102"
+"Sapporo","Sapporo","43.0621","141.3544","Japan","JP","JPN","Hokkaidō","admin","1961690","1392000195"
+"Eşfahān","Esfahan","32.6447","51.6675","Iran","IR","IRN","Eşfahān","admin","1961260","1364023865"
+"Caracas","Caracas","10.5","-66.9333","Venezuela","VE","VEN","Distrito Capital","primary","1943901","1862748204"
+"Tijuana","Tijuana","32.525","-117.0333","Mexico","MX","MEX","Baja California","minor","1922523","1484708778"
+"Almaty","Almaty","43.25","76.9","Kazakhstan","KZ","KAZ","Almaty","admin","1916822","1398351701"
+"Aleppo","Aleppo","36.2","37.15","Syria","SY","SYR","Ḩalab","admin","1916781","1760366651"
+"Vienna","Vienna","48.2083","16.3725","Austria","AT","AUT","Wien","primary","1911191","1040261752"
+"Blantyre","Blantyre","-15.7861","35.0058","Malawi","MW","MWI","Blantyre","admin","1895973","1454145012"
+"Tainan","Tainan","22.9833","120.1833","Taiwan","TW","TWN","Tainan","admin","1883831","1158061376"
+"Bucharest","Bucharest","44.4","26.0833","Romania","RO","ROU","Bucureşti","primary","1883425","1642414442"
+"Curitiba","Curitiba","-25.4297","-49.2719","Brazil","BR","BRA","Paraná","admin","1879355","1076701712"
+"Ecatepec","Ecatepec","19.6097","-99.06","Mexico","MX","MEX","México","minor","1857188","1484003694"
+"Hamburg","Hamburg","53.55","10","Germany","DE","DEU","Hamburg","admin","1852478","1276041799"
+"Meru","Meru","0.05","37.65","Kenya","KE","KEN","Meru","admin","1833000","1404588252"
+"Manaus","Manaus","-3.1","-60.0167","Brazil","BR","BRA","Amazonas","admin","1802014","1076607274"
+"Warsaw","Warsaw","52.23","21.0111","Poland","PL","POL","Mazowieckie","primary","1790658","1616024847"
+"Davao","Davao","7.0667","125.6","Philippines","PH","PHL","Davao","admin","1776949","1608906877"
+"Damascus","Damascus","33.5131","36.2919","Syria","SY","SYR","Dimashq","primary","1754000","1760685964"
+"Brussels","Brussels","50.8353","4.3314","Belgium","BE","BEL","Brussels-Capital Region","primary","1743000","1056469830"
+"Lusaka","Lusaka","-15.4167","28.2833","Zambia","ZM","ZMB","Lusaka","primary","1742979","1894157390"
+"Budapest","Budapest","47.4983","19.0408","Hungary","HU","HUN","Budapest","primary","1723836","1348611435"
+"Mosul","Mosul","36.3667","43.1167","Iraq","IQ","IRQ","Nīnawá","admin","1694000","1368194914"
+"Conakry","Conakry","9.538","-13.6773","Guinea","GN","GIN","Conakry","primary","1667864","1324568159"
+"Caloocan City","Caloocan City","14.65","120.9667","Philippines","PH","PHL","Caloocan","admin","1661584","1608897690"
+"Kampala","Kampala","0.3136","32.5811","Uganda","UG","UGA","Kampala","primary","1659600","1800406299"
+"Novosibirsk","Novosibirsk","55.0333","82.9167","Russia","RU","RUS","Novosibirskaya Oblast’","admin","1602915","1643399240"
+"Karaj","Karaj","35.8327","50.9915","Iran","IR","IRN","Alborz","admin","1592492","1364258511"
+"León de los Aldama","Leon de los Aldama","21.1167","-101.6833","Mexico","MX","MEX","Guanajuato","minor","1579803","1484811199"
+"Puebla","Puebla","19.0333","-98.1833","Mexico","MX","MEX","Puebla","admin","1576259","1484416394"
+"Maracaibo","Maracaibo","10.6333","-71.6333","Venezuela","VE","VEN","Zulia","admin","1551539","1862072711"
+"Aba","Aba","5.1167","7.3667","Nigeria","NG","NGA","Abia","minor","1530000","1566262000"
+"Munich","Munich","48.1375","11.575","Germany","DE","DEU","Bavaria","admin","1488202","1276692352"
+"Valencia","Valencia","10.1667","-68","Venezuela","VE","VEN","Carabobo","admin","1484430","1862309871"
+"Onitsha","Onitsha","6.1667","6.7833","Nigeria","NG","NGA","Anambra","minor","1483000","1566593483"
+"Yekaterinburg","Yekaterinburg","56.8356","60.6128","Russia","RU","RUS","Sverdlovskaya Oblast’","admin","1468833","1643582706"
+"El Kelaa des Srarhna","El Kelaa des Srarhna","32.05","-7.4","Morocco","MA","MAR","Marrakech-Safi","","1450021","1504846488"
+"Kharkiv","Kharkiv","50","36.2292","Ukraine","UA","UKR","Kharkivs’ka Oblast’","admin","1446107","1804588111"
+"Muscat","Muscat","23.6139","58.5922","Oman","OM","OMN","Masqaţ","primary","1421409","1512035506"
+"Ulaanbaatar","Ulaanbaatar","47.9214","106.9055","Mongolia","MN","MNG","Ulaanbaatar","primary","1396288","1496024767"
+"Belgrade","Belgrade","44.8167","20.4667","Serbia","RS","SRB","Beograd","primary","1378682","1688374696"
+"Milan","Milan","45.4669","9.19","Italy","IT","ITA","Lombardy","admin","1366180","1380724377"
+"Prague","Prague","50.0833","14.4167","Czechia","CZ","CZE","Hlavní Město Praha","primary","1335084","1203744823"
+"Córdoba","Cordoba","-31.4167","-64.1833","Argentina","AR","ARG","Córdoba","admin","1329604","1032803249"
+"Montevideo","Montevideo","-34.8667","-56.1667","Uruguay","UY","URY","Montevideo","primary","1319108","1858107000"
+"Cacuaco","Cacuaco","-8.7833","13.3667","Angola","AO","AGO","Luanda","","1279488","1024559448"
+"Sofia","Sofia","42.6979","23.3217","Bulgaria","BG","BGR","Sofia-Grad","primary","1277411","1100762037"
+"Nizhniy Novgorod","Nizhniy Novgorod","56.3269","44.0075","Russia","RU","RUS","Nizhegorodskaya Oblast’","admin","1264075","1643012126"
+"Comayagüela","Comayaguela","14.0833","-87.2167","Honduras","HN","HND","Francisco Morazán","","1250000","1340762485"
+"Kazan","Kazan","55.7908","49.1144","Russia","RU","RUS","Tatarstan","admin","1243500","1643101260"
+"Calgary","Calgary","51.05","-114.0667","Canada","CA","CAN","Alberta","","1239220","1124690423"
+"Cần Thơ","Can Tho","10.0333","105.7833","Vietnam","VN","VNM","Cần Thơ","admin","1237300","1704783472"
+"Abuja","Abuja","9.0556","7.4914","Nigeria","NG","NGA","Federal Capital Territory","primary","1235880","1566342270"
+"Mandalay","Mandalay","21.9831","96.0844","Myanmar","MM","MMR","Mandalay","admin","1225546","1104468217"
+"Maputo","Maputo","-25.9153","32.5764","Mozambique","MZ","MOZ","Maputo","primary","1191613","1508074843"
+"Doha","Doha","25.3","51.5333","Qatar","QA","QAT","Ad Dawḩah","primary","1186023","1634459660"
+"Pikine","Pikine","14.75","-17.4","Senegal","SN","SEN","Dakar","","1170791","1686165071"
+"Kigali","Kigali","-1.9536","30.0606","Rwanda","RW","RWA","Kigali","primary","1156663","1646923541"
+"Dakar","Dakar","14.7319","-17.4572","Senegal","SN","SEN","Dakar","primary","1146053","1686604760"
+"Callao","Callao","-12.0611","-77.1333","Peru","PE","PER","Callao","admin","1129854","1604422141"
+"Tegucigalpa","Tegucigalpa","14.0942","-87.2067","Honduras","HN","HND","Francisco Morazán","primary","1126534","1340344059"
+"Tripoli","Tripoli","32.8752","13.1875","Libya","LY","LBY","Ţarābulus","primary","1126000","1434201852"
+"N’Djamena","N'Djamena","12.11","15.05","Chad","TD","TCD","Ville de N’Djaména","primary","1092066","1148708596"
+"Copenhagen","Copenhagen","55.6805","12.5615","Denmark","DK","DNK","Hovedstaden","primary","1085000","1208763942"
+"Cologne","Cologne","50.9422","6.9578","Germany","DE","DEU","North Rhine-Westphalia","","1083498","1276015998"
+"Nur-Sultan","Nur-Sultan","51.1333","71.4333","Kazakhstan","KZ","KAZ","Astana","primary","1078362","1398516045"
+"Nouakchott","Nouakchott","18.0858","-15.9785","Mauritania","MR","MRT","","primary","1077169","1478414984"
+"Yerevan","Yerevan","40.1814","44.5144","Armenia","AM","ARM","Yerevan","primary","1075800","1051074169"
+"Barquisimeto","Barquisimeto","10.0678","-69.3467","Venezuela","VE","VEN","Lara","admin","1059092","1862860739"
+"Tunis","Tunis","36.8008","10.18","Tunisia","TN","TUN","Tunis","primary","1056247","1788742103"
+"Bishkek","Bishkek","42.8667","74.5667","Kyrgyzstan","KG","KGZ","Bishkek","primary","1053900","1417191971"
+"Matola","Matola","-25.9667","32.4667","Mozambique","MZ","MOZ","Maputo","","1032197","1508768577"
+"Managua","Managua","12.15","-86.2667","Nicaragua","NI","NIC","Managua","primary","1028808","1558296252"
+"Niamey","Niamey","13.5086","2.1111","Niger","NE","NER","Niamey","primary","1026848","1562932886"
+"Shubrā al Khaymah","Shubra al Khaymah","30.1286","31.2422","Egypt","EG","EGY","Al Qalyūbīyah","","1025569","1818909612"
+"Monrovia","Monrovia","6.3106","-10.8047","Liberia","LR","LBR","Montserrado","primary","1021762","1430477826"
+"Seoul","Seoul","37.5600","126.9900","South Korea","KR","KOR","Seoul","primary","22394000","1410836482"
 "Kinshasa","Kinshasa","-4.3317","15.3139","Democratic Republic of the Congo","CD","COD","Kinshasa","primary","15056000","1180000363"
-"London","London","51.5072","-0.1275","United Kingdom","GB","GBR","London, City of","primary","11120000","1826645935"
+"London","London","51.5072","-0.1275","United Kingdom","GB","GBR","City of London","primary","11120000","1826645935"
 "Hong Kong","Hong Kong","22.3069","114.1831","Hong Kong","HK","HKG","","primary","7398000","1344982653"
 "Riyadh","Riyadh","24.6500","46.7100","Saudi Arabia","SA","SAU","Ar Riyāḑ","primary","6889000","1682999334"
 "Washington","Washington","38.9047","-77.0163","United States","US","USA","District of Columbia","primary","5379184","1840006060"
@@ -233,7 +234,7 @@ Monrovia,Monrovia,6.3106,-10.8047,Liberia,LR,LBR,Montserrado,primary,1021762,143
 "Amsterdam","Amsterdam","52.3667","4.8833","Netherlands","NL","NLD","Noord-Holland","primary","862965","1528355309"
 "Lomé","Lome","6.1319","1.2228","Togo","TG","TGO","Maritime","primary","837437","1768409132"
 "Libreville","Libreville","0.3901","9.4544","Gabon","GA","GAB","Estuaire","primary","797003","1266952885"
-"Zagreb","Zagreb","45.8131","15.9772","Croatia","HR","HRV","Zagreb, Grad","primary","790017","1191233290"
+"Zagreb","Zagreb","45.8131","15.9772","Croatia","HR","HRV","Grad Zagreb","primary","790017","1191233290"
 "Dushanbe","Dushanbe","38.5731","68.7864","Tajikistan","TJ","TJK","Dushanbe","primary","778500","1762930616"
 "Lilongwe","Lilongwe","-13.9833","33.7833","Malawi","MW","MWI","Lilongwe","primary","781538","1454688499"
 "Cotonou","Cotonou","6.4020","2.5180","Benin","BJ","BEN","Littoral","primary","762000","1204955174"
@@ -272,7 +273,7 @@ Monrovia,Monrovia,6.3106,-10.8047,Liberia,LR,LBR,Montserrado,primary,1021762,143
 "Sucre","Sucre","-19.0431","-65.2592","Bolivia","BO","BOL","Chuquisaca","primary","300000","1068823873"
 "San José","San Jose","9.9333","-84.0833","Costa Rica","CR","CRI","San José","primary","288054","1188749877"
 "Ljubljana","Ljubljana","46.0500","14.5167","Slovenia","SI","SVN","Ljubljana","primary","286745","1705917455"
-"Sarajevo","Sarajevo","43.8563","18.4132","Bosnia And Herzegovina","BA","BIH","Bosnia and Herzegovina, Federation of","primary","275524","1070966777"
+"Sarajevo","Sarajevo","43.8563","18.4132","Bosnia And Herzegovina","BA","BIH","Federation of Bosnia and Herzegovina","primary","275524","1070966777"
 "Nassau","Nassau","25.0667","-77.3333","The Bahamas","BS","BHS","","primary","274400","1044318561"
 "Bloemfontein","Bloemfontein","-29.1000","26.2167","South Africa","ZA","ZAF","Free State","primary","256185","1710495933"
 "Fort-de-France","Fort-de-France","14.6104","-61.0800","Martinique","MQ","MTQ","","primary","253995","1474969110"
@@ -348,7 +349,7 @@ Monrovia,Monrovia,6.3106,-10.8047,Liberia,LR,LBR,Montserrado,primary,1021762,143
 "Basse-Terre","Basse-Terre","16.0104","-61.7055","Guadeloupe","GP","GLP","","primary","307","1312938008"
 "Hagåtña","Hagta","13.4745","144.7504","Guam","GU","GUM","","primary","1051","1316937540"
 "Marigot","Marigot","18.0706","-63.0847","Saint Martin","MF","MAF","","primary","","1663133172"
-"Jamestown","Jamestown","-15.9251","-5.7179","Saint Helena, Ascension, And Tristan Da Cunha","SH","SHN","Saint Helena","primary","714","1654761576"
+"Jamestown","Jamestown","-15.9251","-5.7179","Saint Helena Ascension And Tristan Da Cunha","SH","SHN","Saint Helena","primary","714","1654761576"
 "Brades","Brades","16.7928","-62.2106","Montserrat","MS","MSR","Saint Peter","primary","391","1500971198"
 "Philipsburg","Philipsburg","18.0256","-63.0492","Sint Maarten","SX","SXM","","primary","","1534859858"
 "Yaren","Yaren","-0.5477","166.9209","Nauru","NR","NRU","Yaren","primary","","1520790128"

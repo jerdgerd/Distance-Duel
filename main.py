@@ -101,7 +101,16 @@ class DistanceDuelGame(object):
                i = i + 1
            response  = requests.get('http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=' + page.title)
            json_data = json.loads(response.text)
-           picture = list(json_data['query']['pages'].values())[0]['original']['source']
+           try:
+               picture = list(json_data['query']['pages'].values())[0]['original']['source']
+           except Exception as e:
+               logger.debug(f"Errored out getting picture for {page.title} at {page.url}")
+               return {
+                   'title': page.title,
+                   'url': page.url,
+                   'summary': summary,
+                   'picture': ''
+               }
            return {
                'title': page.title,
                'url': page.url,
@@ -123,6 +132,7 @@ class DistanceDuelGame(object):
                'summary': '',
                'picture': ''
            }
+
 
     def generate_map_html(self, city1, city2, city3, city4):
       # create a folium map centered at (0, 0)

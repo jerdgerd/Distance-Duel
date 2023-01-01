@@ -83,11 +83,21 @@ class DistanceDuelGame(object):
         return template.render(high_scores=self.get_high_scores())
 
     def get_wiki_page(self, city_name, city_country):
-        search_list=wikipedia.search(f"{city_name}, {city_country}")
-        logger.debug(f"{search_list}")
-        search_term=search_list.pop(0)
-        logger.debug(f"New search term is: {search_term}")
-        page = wikipedia.page(search_term,auto_suggest=False)
+        if city_name != "Male":
+            try:
+                page = wikipedia.page(city_name,auto_suggest=False)
+            except wikipedia.DisambiguationError:
+                search_list=wikipedia.search(f"{city_name}, {city_country}")
+                logger.debug(f"{search_list}")
+                search_term=list(search_list)[0]
+                logger.debug(f"New search term is: {search_term}")
+                page = wikipedia.page(search_term,auto_suggest=False)
+        else:
+           search_list=wikipedia.search(f"{city_name}, {city_country}")
+           logger.debug(f"{search_list}")
+           search_term=list(search_list)[0]
+           logger.debug(f"New search term is: {search_term}")
+           page = wikipedia.page(search_term,auto_suggest=False)
         return page
 
 
@@ -293,6 +303,9 @@ class DistanceDuelGame(object):
     def cityPicker(self, topCities):
         random_index = random.randint(0, topCities)
         random_index2 = random.randint(0, topCities)
+        while random_index >= len(questionCities) or random_index2 >= len(questionCities):
+            random_index = random.randint(0, topCities)
+            random_index2 = random.randint(0, topCities)
         while random_index == random_index2:
             random_index2 = random.randint(0, topCities)
         return questionCities[random_index], questionCities[random_index2]

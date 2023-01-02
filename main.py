@@ -72,6 +72,7 @@ class DistanceDuelGame(object):
         session['difficulty'] = ''
         session['isMiles'] = True
         session['timerLength'] = -1
+        session['timedOut']=False
 
 
     @cherrypy.expose
@@ -410,7 +411,7 @@ class DistanceDuelGame(object):
             return self.nextRound()
 
     @cherrypy.expose
-    def distanceCheck(self, cityName1=None, cityName2=None, cityId1=None, cityId2=None):
+    def distanceCheck(self, cityName1=None, cityName2=None, cityId1=None, cityId2=None, time_remaining=None):
         session = cherrypy.session
         if (not self.validateSelections(cityId1, cityId2)):
             cities_json = json.dumps(cities)
@@ -422,7 +423,7 @@ class DistanceDuelGame(object):
                 city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
                 city1_picture = city1_picture, city2_picture = city2_picture,
                 continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
-                duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'])
+                duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'], timeoutDuration = session['timerLength'], timeRemaining = time_remaining)
 
         city1 = session['city1']
         city2 = session['city2']
@@ -431,12 +432,17 @@ class DistanceDuelGame(object):
         logger.debug(f"city2: {city2}")
         logger.debug(f"city3: {city3}")
         logger.debug(f"city4: {city4}")
-        distance1 = self.distance(city1[2], city1[3], city2[2], city2[3], session['isMiles'])
-        distance2 = self.distance(city3[2], city3[3], city4[2], city4[3], session['isMiles'])
-        # Calculate difference between distances
-        diff = abs(distance1 - distance2)
         session['numDuels'] = session['numDuels'] + 1
-        duelScore = self.addToScore(distance1, diff)
+        if session['timedOut']:
+            distance1 = 0
+            distance2 = 0
+            duelScore = 0
+        else:
+            distance1 = self.distance(city1[2], city1[3], city2[2], city2[3], session['isMiles'])
+            distance2 = self.distance(city3[2], city3[3], city4[2], city4[3], session['isMiles'])
+            # Calculate difference between distances
+            diff = abs(distance1 - distance2)
+            duelScore = self.addToScore(distance1, diff)
         session['score'] = session['score'] + duelScore
         feedback = self.decideOnFeedback(duelScore)
         distanceMeasure = ""
@@ -454,8 +460,12 @@ class DistanceDuelGame(object):
         else:
             distanceMeasure = "kilometers"
 
-        html = template.render(showMaps=showMaps,map_html=self.generate_map_html(city1,city2,city3,city4),numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
-        distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores())
+        if session['timedOut']:
+            html = template.render(showMaps=False,map_html="",numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
+            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(), timedOut=session['timedOut'])
+        else:
+            html = template.render(showMaps=showMaps,map_html=self.generate_map_html(city1,city2,city3,city4),numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
+            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(), timedOut=session['timedOut'])
 
         if (needToReset):
             self.resetValues()
@@ -479,16 +489,24 @@ class DistanceDuelGame(object):
         session['city2page'] = self.get_wiki_page(session['city2'][1], session['city2'][4])
         city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
         city2_title, city2_url, city2_summary, city2_picture = self.get_city_info(session['city2page']).values()
+        logger.debug(f"next round timerLength: {session['timerLength']}")
         return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
             city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
             city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = city1_picture, city2_picture = city2_picture,
-            continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
+            continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True, timeoutDuration = session['timerLength'],timeRemaining = session['timerLength'])
 
     @cherrypy.expose
     def validateSelections(self, cityId1, cityId2):
         session = cherrypy.session
         session['city3'] = self.collectCities(cityId1)
         session['city4'] = self.collectCities(cityId2)
+        if (cityId1 == "00000" or cityId2 == "00000"):
+            session['timedOut']=True
+            session['cityFound'] = True
+            session['duplicateContinent'] = False
+            return True
+        else:
+            session['timedOut']=False
         city3 = session['city3']
         city4 = session['city4']
         continent1 = session['continent1']

@@ -19,15 +19,19 @@
     <body>
         <h3 style="text-align: center;">Duel {{ numDuels }} Score: {{ duelScore }}</h1>
         <h1 style="text-align: center;">Total Score: {{ score }}</h1>
-	<p style="text-align: center;">  <b>{{ city1[1] }}, {{ city1[4] }}</b> and <b>{{ city2[1] }}, {{ city2[4] }}</b> are <b style="color: red;">{{ distance1 }} {{ distanceMeasure }}</b> apart,<br> 
-	<b>{{ city3[1] }}, {{ city3[4] }}</b> and <b>{{ city4[1] }}, {{ city4[4] }}</b>
-	are <b style="color: red;">{{ distance2 }} {{ distanceMeasure }}</b> apart. <br><br></p>
+	{% if timedOut %}
+	   <p style="text-align: center;"> <b> Out of time! </b> </p> 
+	{% else %}
+	    <p style="text-align: center;">  <b>{{ city1[1] }}, {{ city1[4] }}</b> and <b>{{ city2[1] }}, {{ city2[4] }}</b> are <b style="color: red;">{{ distance1 }} {{ distanceMeasure }}</b> apart,<br> 
+	    <b>{{ city3[1] }}, {{ city3[4] }}</b> and <b>{{ city4[1] }}, {{ city4[4] }}</b>
+	    are <b style="color: red;">{{ distance2 }} {{ distanceMeasure }}</b> apart. <br><br></p>
+	{% endif %}
 	<h3 style="text-align: center;">You have {{ duelsLeft }} duels left. </h3>
         <form method="post" action="nextRound">
             <input type="submit" value="Next Round">
         </form>
         <p style="text-align: center;">{{feedback}}</p>
-	{% if showMaps %}
+	{% if showMaps and not timedOut %}
 	<div style="width:900px;margin:auto;">
 	{{ map_html }}
 	</div>

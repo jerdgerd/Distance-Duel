@@ -31,6 +31,12 @@
          .section:last-child {
              border-right: none; /* remove the border from the last section */
          }
+         .timeout-counter {
+          display: block; /* enable flex layout */
+          text-align: center; /* center the text within the element */
+	      font-size: 36px;
+	      color: red;
+	 }
     </style>
 </head>
 <body>
@@ -52,6 +58,15 @@
 	    <img src= "{{ city1_picture }}" style="height: auto; width: auto; max-width:600px; max-height: 600px;">
     </div>
     <div class="section">
+<style>
+  .timeout-counter {
+	      font-size: 36px;
+	          color: red;
+		    }
+</style>
+        {% if timeoutDuration != -1 %}
+        <div class="timeout-counter">30</div>
+        {% endif %}
 	<p class="question">
 	What are two cities that are approximately the same distance apart as <br><br><b style="align: center;">{{ city1[1] }}, {{ city1[4] }}</b><br><br>and <br><br><b style="align: center">{{ city2[1] }}, {{ city2[4] }}</b>? 
 	</p>
@@ -69,8 +84,10 @@
 	   <br />
 	   <input type="hidden" name="cityId1" id="hiddenCityId1" value="">
 	   <input type="hidden" name="cityId2" id="hiddenCityId2" value="">
+	   <input type="hidden" name="time_remaining" id="time-remaining-id" value="{{ timeRemaining }}">
 	   <input type="submit" value="Submit" />
 	   <script src="/static/js/autocomplete_city_inputs.js"></script>
+	   <script src="/static/js/timeout.js" data-timeout="{{ timeRemaining }}"></script>
 	</form>
 	{% if duplicateContinent %}
 	<p class="error">You submitted cities where one of them was on the same continent as one of the cities in the question. Remember that all of Russia counts as Europe, and that South America starts below Panama.</p>

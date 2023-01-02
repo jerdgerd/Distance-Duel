@@ -73,6 +73,7 @@ class DistanceDuelGame(object):
         session['isMiles'] = True
         session['timerLength'] = -1
         session['timedOut']=False
+        session['isTimed']=False
 
 
     @cherrypy.expose
@@ -391,9 +392,13 @@ class DistanceDuelGame(object):
             session['difficulty'] = 'medium'
         else:
             session['diffuculty'] = difficulty
-        if timerLength == None:
+        if timerLength == "none":
+            logger.debug(f"timerLength: {timerLength}")
             session['timerLength'] = -1
+            session['isTimed'] = False
         else:
+            logger.debug(f"timerLength: {timerLength}")
+            session['isTimed']=True
             session['timerLength'] = timerLength
         if isMiles == None:
             session['isMiles'] = True
@@ -423,7 +428,7 @@ class DistanceDuelGame(object):
                 city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
                 city1_picture = city1_picture, city2_picture = city2_picture,
                 continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
-                duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'], timeoutDuration = session['timerLength'], timeRemaining = time_remaining)
+                duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'], timeoutDuration = session['timerLength'], timeRemaining = time_remaining, isTimed = session['isTimed'])
 
         city1 = session['city1']
         city2 = session['city2']
@@ -493,7 +498,7 @@ class DistanceDuelGame(object):
         return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
             city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
             city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = city1_picture, city2_picture = city2_picture,
-            continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True, timeoutDuration = session['timerLength'],timeRemaining = session['timerLength'])
+            continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True, timeoutDuration = session['timerLength'],timeRemaining = session['timerLength'], isTimed = session['isTimed'])
 
     @cherrypy.expose
     def validateSelections(self, cityId1, cityId2):

@@ -8,11 +8,12 @@ const timeRemainingField = document.querySelector('#time-remaining-id');
 console.log(timeoutDurationSec)
 console.log(timeRemainingField.value)
 
-// Set the initial value of the timeout counter
-timeoutCounter.textContent = timeoutDurationSec;
-form.elements['time_remaining'].value = timeoutDurationSec;
-
 if (timeoutDurationSec !== -1) {
+
+    // Set the initial value of the timeout counter
+    timeoutCounter.textContent = timeoutDurationSec;
+    form.elements['time_remaining'].value = timeoutDurationSec;
+
     const timeoutDuration = document.querySelector('script[src="/static/js/timeout.js"]').dataset.timeout * 1000;
     // Set a timeout
     const timeoutId = setTimeout(() => {

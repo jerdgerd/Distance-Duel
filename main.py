@@ -278,7 +278,7 @@ class DistanceDuelGame(object):
                     added_cities[city_id] = country
 
     @cherrypy.expose
-    def distance(self, lat1, lon1, lat2, lon2):
+    def distance(self, lat1, lon1, lat2, lon2, isMiles):
         session = cherrypy.session
         # Function to calculate the distance between two cities in miles
         # using the Haversine formula
@@ -295,10 +295,10 @@ class DistanceDuelGame(object):
         a = math.sin(
             dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-        if session['isMiles']:
+        if isMiles:
             return R * c
         else:
-            1.609344 * (R * c)
+            return 1.609344 * (R * c)
 
     @cherrypy.expose
     def cityPicker(self, topCities):
@@ -399,7 +399,10 @@ class DistanceDuelGame(object):
         if isMiles == None:
             session['isMiles'] = True
         else:
-            session['isMiles'] = isMiles
+            if isMiles == "True":
+                session['isMiles'] = True
+            elif isMiles == "False":
+                session['isMiles'] = False
 
         if (name == None or len(name) != 3):
             template = env.get_template('getName.html')
@@ -430,8 +433,8 @@ class DistanceDuelGame(object):
         logger.debug(f"city2: {city2}")
         logger.debug(f"city3: {city3}")
         logger.debug(f"city4: {city4}")
-        distance1 = self.distance(city1[2], city1[3], city2[2], city2[3])
-        distance2 = self.distance(city3[2], city3[3], city4[2], city4[3])
+        distance1 = self.distance(city1[2], city1[3], city2[2], city2[3], session['isMiles'])
+        distance2 = self.distance(city3[2], city3[3], city4[2], city4[3], session['isMiles'])
         # Calculate difference between distances
         diff = abs(distance1 - distance2)
         session['numDuels'] = session['numDuels'] + 1
@@ -450,7 +453,6 @@ class DistanceDuelGame(object):
 
         if (session['isMiles']):
             distanceMeasure = "miles"
-
         else:
             distanceMeasure = "kilometers"
 

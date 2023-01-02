@@ -8,8 +8,9 @@ $('#cityName1').autocomplete({
     });
     response(filtered_cities.map(function(city) {
       return {
-	label: city[1] + ', ' + city[4] + ' - Population: ' + city[6], // The label to display in the suggestion list
-        value: city[1], // The value to set in the input field when a suggestion is selected
+	label: city[1] + ', ' + city[7] +', ' + city[4] + ' - Population: ' + city[6], // The label to display in the suggestion list
+        value: city[1] + ', ' + city[7] +', ' + city[4], // The value to set in the input field when a suggestion is selected
+	city_id: city[0], // Additional fields to use in the event handler 
         population: city[6], // Additional fields to use in the event handler
         country: city[4]
       };
@@ -18,7 +19,11 @@ $('#cityName1').autocomplete({
   // The minimum number of characters required before the autocomplete functionality is triggered
   minLength: 3,
   // The element to display the autocomplete results in
-  appendTo: '#cityName1-autocomplete-results'
+  appendTo: '#cityName1-autocomplete-results',
+  // Set the value of the hidden field to the city_id value when a suggestion is selected
+  select: function(event, ui) {
+    $('#hiddenCityId1').val(ui.item.city_id);
+  }
 });
 
 // Set up the autocomplete functionality
@@ -31,8 +36,9 @@ $('#cityName2').autocomplete({
     });
     response(filtered_cities.map(function(city) {
       return {
-	label: city[1] + ', ' + city[4] + ' - Population: ' + city[6], // The label to display in the suggestion list
-        value: city[1], // The value to set in the input field when a suggestion is selected
+	label: city[1] + ', ' + city[7] +', ' + city[4] + ' - Population: ' + city[6], // The label to display in the suggestion list
+        value: city[1] + ', ' + city[7] +', ' + city[4], // The value to set in the input field when a suggestion is selected
+	city_id: city[0], // Additional fields to use in the event handler 
         population: city[6], // Additional fields to use in the event handler
         country: city[4]
       };
@@ -41,5 +47,9 @@ $('#cityName2').autocomplete({
   // The minimum number of characters required before the autocomplete functionality is triggered
   minLength: 3,
   // The element to display the autocomplete results in
-  appendTo: '#cityName2-autocomplete-results'
+  appendTo: '#cityName2-autocomplete-results',
+  // Set the value of the hidden field to the city_id value when a suggestion is selected
+  select: function(event, ui) {
+    $('#hiddenCityId2').val(ui.item.city_id);
+  }
 });

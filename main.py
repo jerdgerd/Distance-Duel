@@ -228,6 +228,7 @@ class DistanceDuelGame(object):
                 city_name = row[1]
                 country = row[4]
                 country_iso3 = row[6]
+                admin_region = row[7]
                 city_id=row[10]
 
                 # Check if the city has already been added
@@ -236,7 +237,7 @@ class DistanceDuelGame(object):
                     # country, country_iso3, population
                     if (row[9] != ""):
                         population = row[9].split(".")
-                        city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]))
+                        city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]), row[7])
                     # Add the tuple to the list
                     cities.append(city)
 
@@ -316,21 +317,18 @@ class DistanceDuelGame(object):
         return countriesToContinents.get(country, "ERROR1")
 
     @cherrypy.expose
-    def listSearch(self, cityName):
+    def listSearch(self, cityId):
         locationMatches = []
         for city in cities:
-            if (len(cityName) >= 5):
-                if (cityName.lower() in city[1].lower()):
-                    locationMatches.append(city)
-            elif cityName.lower() == city[1].lower():
-                locationMatches.append(city)
+           if cityId == city[0]:
+               locationMatches.append(city)
         return locationMatches
 
     @cherrypy.expose
-    def collectCities(self, cityName):
-        logger.debug(f"cityName: {cityName}")
-        cityMatches = self.listSearch(cityName.strip())
-        logger.debug(f"cityName: {cityName}, cityMatches: {cityMatches}")
+    def collectCities(self, cityId):
+        logger.debug(f"cityId: {cityId}")
+        cityMatches = self.listSearch(cityId.strip())
+        logger.debug(f"cityId: {cityId}, cityMatches: {cityMatches}")
         if len(cityMatches) == 0:
          return None
         # if (len(cityMatches) == 1):
@@ -412,9 +410,9 @@ class DistanceDuelGame(object):
             return self.nextRound()
 
     @cherrypy.expose
-    def distanceCheck(self, cityName1=None, cityName2=None):
+    def distanceCheck(self, cityName1=None, cityName2=None, cityId1=None, cityId2=None):
         session = cherrypy.session
-        if (not self.validateSelections(cityName1, cityName2)):
+        if (not self.validateSelections(cityId1, cityId2)):
             cities_json = json.dumps(cities)
             template = env.get_template('duelQuestion.html')
             city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
@@ -487,10 +485,10 @@ class DistanceDuelGame(object):
             continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True)
 
     @cherrypy.expose
-    def validateSelections(self, cityName1, cityName2):
+    def validateSelections(self, cityId1, cityId2):
         session = cherrypy.session
-        session['city3'] = self.collectCities(cityName1)
-        session['city4'] = self.collectCities(cityName2)
+        session['city3'] = self.collectCities(cityId1)
+        session['city4'] = self.collectCities(cityId2)
         city3 = session['city3']
         city4 = session['city4']
         continent1 = session['continent1']

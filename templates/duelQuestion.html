@@ -61,12 +61,14 @@
 	</p>
 	<form method="get" action="distanceCheck">
 	   <!-- Include the autocomplete script -->
-	   City 1: <input type="text" name="cityName1" id="cityName1"/>
+	   City 1: <input type="text" name="cityName1" id="cityName1" style="width: 400px;"/>
 	           <div id="cityName1-autocomplete-results"></div>
 	   <br />
-	   City 2: <input type="text" name="cityName2" id="cityName2"/>
+	   City 2: <input type="text" name="cityName2" id="cityName2" style="width: 400px"/>
 	           <div id="cityName2-autocomplete-results"></div>
 	   <br />
+	   <input type="hidden" name="cityId1" id="hiddenCityId1" value="">
+	   <input type="hidden" name="cityId2" id="hiddenCityId2" value="">
 	   <input type="submit" value="Submit" />
 	   <script src="/static/js/autocomplete_city_inputs.js"></script>
 	</form>

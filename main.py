@@ -48,6 +48,7 @@ maxScore = 5000
 cities = []
 questionCities = []
 showMaps = True
+generated_numbers = []
 
 sessions.init()
 
@@ -77,6 +78,7 @@ class DistanceDuelGame(object):
         session['continentOfPlay']="global"
         session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
         session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
+        session['scoreId'] = self.generate_unique_number()
 
 
     @cherrypy.expose
@@ -281,6 +283,15 @@ class DistanceDuelGame(object):
 
                     # Add the city name to the dictionary
                     added_cities[city_id] = country
+    
+    @cherrypy.expose
+    def generate_unique_number(self):
+        number = random.randint(10000000000, 99999999999)
+        while number in generated_numbers:
+            number = random.randint(10000000000, 99999999999)
+        generated_numbers.append(number)
+        return number
+
 
     @cherrypy.expose
     def distance(self, lat1, lon1, lat2, lon2, isMiles):
@@ -382,10 +393,10 @@ class DistanceDuelGame(object):
         return high_scores[:5]
 
     @cherrypy.expose
-    def add_score_to_database(self, name, score, highScoresFile):
+    def add_score_to_database(self, name, score, highScoresFile, id):
         with open(highScoresFile, "a") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([name, score])
+            writer.writerow([name, score, id])
 
     @cherrypy.expose
     def gatherName(self, name=None, difficulty=None, timerLength=None, isMiles=None):
@@ -414,7 +425,10 @@ class DistanceDuelGame(object):
             template = env.get_template('getName.html')
             return template.render()
         else:
-            session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
+            if (session['isTimed']):
+                session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
+            else:
+                session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores.csv"
             session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
             self.gatherQuestionCities(session['questionCityFile'])
             session['name'] = name.upper()
@@ -461,7 +475,7 @@ class DistanceDuelGame(object):
             template = env.get_template('notFinalDuelResults.html')
 
         else:
-            self.add_score_to_database(session['name'],session['score'],session['highScoresFile'])
+            self.add_score_to_database(session['name'],session['score'],session['highScoresFile'], session['scoreId'])
             template = env.get_template('finalDuelResults.html')
             needToReset = True
 

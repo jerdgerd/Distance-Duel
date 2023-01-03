@@ -48,6 +48,7 @@ maxScore = 5000
 cities = []
 questionCities = []
 showMaps = True
+openweatherapikey="02cb929956f5c623f3c7552d88638f8d"
 
 sessions.init()
 
@@ -75,9 +76,25 @@ class DistanceDuelGame(object):
         session['timedOut']=False
         session['isTimed']=False
         session['continentOfPlay']="global"
-        session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
+        if session['timerLength'] == -1:
+            session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores.csv"
+        else:
+            session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
         session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
 
+    @cherrypy.expose
+    def get_weather(self, lat, lon):
+        API_KEY = openweatherapikey
+        API_ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather'
+        params = {
+            'lat': lat,
+            'lon': lon,
+            'appid': API_KEY,
+            'units': 'metric'
+        }
+        response = requests.get(API_ENDPOINT, params=params)
+        data = response.json()
+        return data
 
     @cherrypy.expose
     def index(self):
@@ -414,7 +431,10 @@ class DistanceDuelGame(object):
             template = env.get_template('getName.html')
             return template.render()
         else:
-            session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
+            if session['timerLength'] == -1:
+                session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores.csv"
+            else:
+                session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
             session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
             self.gatherQuestionCities(session['questionCityFile'])
             session['name'] = name.upper()
@@ -426,9 +446,13 @@ class DistanceDuelGame(object):
         if (not self.validateSelections(cityId1, cityId2)):
             cities_json = json.dumps(cities)
             template = env.get_template('duelQuestion.html')
+            # Grab data from openweather for both cities
+            city1weather=self.get_weather(session['city1'][2],session['city1'][3])
+            city2weather=self.get_weather(session['city2'][2],session['city2'][3])
+
             city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
             city2_title, city2_url, city2_summary, city2_picture = self.get_city_info(session['city2page']).values()
-            return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
+            return template.render(city1weather=city1weather,city2weather=city2weather,cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
                 city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]),
                 city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
                 city1_picture = city1_picture, city2_picture = city2_picture,
@@ -494,13 +518,17 @@ class DistanceDuelGame(object):
         # Convert the list of cities to a JSON string
         cities_json = json.dumps(cities)
 
+        # Grab data from openweather for both cities
+        city1weather=self.get_weather(session['city1'][2],session['city1'][3])
+        city2weather=self.get_weather(session['city2'][2],session['city2'][3])
+
         template = env.get_template('duelQuestion.html')
         session['city1page'] = self.get_wiki_page(session['city1'][1], session['city1'][4])
         session['city2page'] = self.get_wiki_page(session['city2'][1], session['city2'][4])
         city1_title, city1_url, city1_summary, city1_picture = self.get_city_info(session['city1page']).values()
         city2_title, city2_url, city2_summary, city2_picture = self.get_city_info(session['city2page']).values()
         logger.debug(f"next round timerLength: {session['timerLength']}")
-        return template.render(cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
+        return template.render(city1weather=city1weather, city2weather=city2weather, cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
             city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
             city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = city1_picture, city2_picture = city2_picture,
             continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True, timeoutDuration = session['timerLength'],timeRemaining = session['timerLength'], isTimed = session['isTimed'])

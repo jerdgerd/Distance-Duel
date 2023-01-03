@@ -37,6 +37,24 @@
 	      font-size: 36px;
 	      color: red;
 	 }
+         div.weatherinfo {
+           max-width: 800px;
+           margin: 0 auto;
+           padding: 20px;
+           background-color: #fff;
+           box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+         }
+         h1.weatherinfo {
+           margin-top: 0;
+         }
+         p.weatherinfo {
+           margin: 0 0 10px 0;
+         }
+         /* Add style for the weatherinfo class */
+         .weatherinfo {
+           font-size: 18px;
+           color: #333;
+         }
     </style>
 </head>
 <body>
@@ -54,6 +72,13 @@
 	    <img src="/static/images/flags/{{city1_country_iso3}}.svg" style="max-width: 200px; max-height: 200px; width=100%; height=100%">
 	    <h2> {{ city1[1] }}, {{ city1[4] }} </h2>
 	    <h2> Population: {{ city1_pop }} </h2>
+
+            <div class="weatherinfo">
+              <h1 class="weatherinfo">Weather</h1>
+              <p class="weatherinfo">Current weather conditions: {{ city1weather['weather'][0]['main'] }}</p>
+              <p class="weatherinfo">Current temperature: {{ city1weather['main']['temp'] }}°C</p>
+            </div>
+
 	    <p class="summary"> {{ city1_summary }} </p>
 	    <img src= "{{ city1_picture }}" style="height: auto; width: auto; max-width:600px; max-height: 600px;">
     </div>
@@ -106,6 +131,11 @@
 	    <img src="/static/images/flags/{{city2_country_iso3}}.svg" style="max-width: 200px; max-height: 200px; width=100%; height=100%">
 	    <h2> {{ city2[1] }}, {{ city2[4] }} </h2>
 	    <h2> Population: {{ city2_pop }} </h2>
+            <div class="weatherinfo">
+              <h1 class="weatherinfo">Weather</h1>
+              <p class="weatherinfo">Current weather conditions: {{ city2weather['weather'][0]['main'] }}</p>
+              <p class="weatherinfo">Current temperature: {{ city2weather['main']['temp'] }}°C</p>
+            </div>
 	    <p class="summary"> {{ city2_summary }} </p>
 	    <img src= "{{ city2_picture }}" style="height: auto; width: auto; max-width:600px; max-height: 600px;">
     </div>

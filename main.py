@@ -74,15 +74,17 @@ class DistanceDuelGame(object):
         session['timerLength'] = -1
         session['timedOut']=False
         session['isTimed']=False
+        session['continentOfPlay']="global"
+        session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
+        session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
 
 
     @cherrypy.expose
     def index(self):
         self.resetValues()
         self.populateCitiesList()
-        self.gatherQuestionCities()
         template = env.get_template('getName.html')
-        return template.render(high_scores=self.get_high_scores())
+        return template.render(high_scores=self.get_high_scores("data/global/highScores.csv"))
 
     def get_wiki_page(self, city_name, city_country):
         if city_name != "Male":
@@ -246,8 +248,8 @@ class DistanceDuelGame(object):
                     # Add the city name to the dictionary
                     added_cities[city_id] = country
 
-    def gatherQuestionCities(self):
-        with open("data/worldcities3.csv", "r") as file:
+    def gatherQuestionCities(self, cityFile):
+        with open(cityFile, "r") as file:
             # Create a CSV reader object
             reader = csv.reader(file)
 
@@ -357,22 +359,22 @@ class DistanceDuelGame(object):
         return int(maxScore * math.exp(-decayValue * percentDifferent))
 
     @cherrypy.expose
-    def sortHighScores(self):
+    def sortHighScores(self, highScoresFile=None):
         # Read the CSV file
-        with open('data/highScores.csv', 'r') as file:
+        with open(highScoresFile, 'r') as file:
             reader = csv.reader(file)
             rows = [(row[0], int(row[1])) for row in reader]
         # Sort the rows in place in descending order by the second column
         rows.sort(key=lambda row: row[1], reverse=True)
         # Overwrite the original file with the sorted rows
-        with open('data/highScores.csv', 'w') as file:
+        with open(highScoresFile, 'w') as file:
             writer = csv.writer(file)
             writer.writerows(rows)
 
     @cherrypy.expose
-    def get_high_scores(self):
+    def get_high_scores(self, highScoresFile):
         high_scores = []
-        with open("data/highScores.csv", "r") as csvfile:
+        with open(highScoresFile, "r") as csvfile:
             reader = csv.reader(csvfile)
             for row in reader:
                 high_scores.append((row[0], row[1]))
@@ -380,8 +382,8 @@ class DistanceDuelGame(object):
         return high_scores[:5]
 
     @cherrypy.expose
-    def add_score_to_database(self, name, score):
-        with open("data/highScores.csv", "a") as csvfile:
+    def add_score_to_database(self, name, score, highScoresFile):
+        with open(highScoresFile, "a") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([name, score])
 
@@ -412,6 +414,9 @@ class DistanceDuelGame(object):
             template = env.get_template('getName.html')
             return template.render()
         else:
+            session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
+            session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
+            self.gatherQuestionCities(session['questionCityFile'])
             session['name'] = name.upper()
             return self.nextRound()
 
@@ -456,7 +461,7 @@ class DistanceDuelGame(object):
             template = env.get_template('notFinalDuelResults.html')
 
         else:
-            self.add_score_to_database(session['name'],session['score'])
+            self.add_score_to_database(session['name'],session['score'],session['highScoresFile'])
             template = env.get_template('finalDuelResults.html')
             needToReset = True
 
@@ -467,10 +472,10 @@ class DistanceDuelGame(object):
 
         if session['timedOut']:
             html = template.render(showMaps=False,map_html="",numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
-            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(), timedOut=session['timedOut'])
+            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(session['highScoresFile']), timedOut=session['timedOut'])
         else:
             html = template.render(showMaps=showMaps,map_html=self.generate_map_html(city1,city2,city3,city4),numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
-            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(), timedOut=session['timedOut'])
+            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(session['highScoresFile']), timedOut=session['timedOut'])
 
         if (needToReset):
             self.resetValues()

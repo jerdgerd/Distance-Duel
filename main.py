@@ -51,8 +51,6 @@ showMaps = True
 openweatherapikey="02cb929956f5c623f3c7552d88638f8d"
 generated_numbers = []
 
-sessions.init()
-
 class DistanceDuelGame(object):
 
     @cherrypy.expose
@@ -79,6 +77,7 @@ class DistanceDuelGame(object):
         session['continentOfPlay']="global"
         session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
         session['scoreId'] = self.generate_unique_number()
+        session['guessesList'] = []
 
     @cherrypy.expose
     def get_weather(self, lat, lon):
@@ -308,7 +307,7 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def distance(self, lat1, lon1, lat2, lon2, isMiles):
-        session = cherrypy.session
+        session = cherrypy.session      
         # Function to calculate the distance between two cities in miles
         # using the Haversine formula
         R = 3958.8  # approximate radius of earth in miles
@@ -474,6 +473,7 @@ class DistanceDuelGame(object):
         logger.debug(f"city3: {city3}")
         logger.debug(f"city4: {city4}")
         session['numDuels'] = session['numDuels'] + 1
+
         if session['timedOut']:
             distance1 = 0
             distance2 = 0
@@ -487,6 +487,9 @@ class DistanceDuelGame(object):
         session['score'] = session['score'] + duelScore
         feedback = self.decideOnFeedback(duelScore)
         distanceMeasure = ""
+        sessionGuess = [city1, city2, city3, city4, duelScore]
+        session['guessesList'].append(sessionGuess)
+        guessList = session['guessesList']
         needToReset = False
         if session['numDuels'] < numTries:
             template = env.get_template('notFinalDuelResults.html')
@@ -503,15 +506,14 @@ class DistanceDuelGame(object):
 
         if session['timedOut']:
             html = template.render(showMaps=False,map_html="",numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
-            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(session['highScoresFile']), timedOut=session['timedOut'])
+            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(session['highScoresFile']), timedOut=session['timedOut'], guess_list=guessList)
         else:
             html = template.render(showMaps=showMaps,map_html=self.generate_map_html(city1,city2,city3,city4),numDuels=session['numDuels'], duelScore=duelScore, score=session['score'], city1=city1, city2=city2, distance1=format(distance1, '.2f'),
-            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(session['highScoresFile']), timedOut=session['timedOut'])
+            distanceMeasure=distanceMeasure, city3=city3, city4=city4, distance2=format(distance2, '.2f'), duelsLeft= (numTries - session['numDuels']), feedback=feedback, high_scores=self.get_high_scores(session['highScoresFile']), timedOut=session['timedOut'], guess_list=guessList)
 
         if (needToReset):
             self.resetValues()
             needToReset = False
-
         return html
 
     @cherrypy.expose
@@ -578,15 +580,15 @@ class DistanceDuelGame(object):
             return ""
 
 
-conf={
-        '/': {
-            'tools.sessions.on': True,
-        },
-        "/static": {
-            'tools.staticdir.on': True,
-            'tools.staticdir.dir': os.path.abspath("./static")
-        }
-	}
+conf = {
+    '/': {
+        'tools.sessions.on': True,
+    },
+    '/static': {
+        'tools.staticdir.on': True,
+        'tools.staticdir.dir': os.path.abspath('./static'),
+    }
+}
 
 
 

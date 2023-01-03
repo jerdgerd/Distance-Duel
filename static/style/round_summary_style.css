@@ -1,0 +1,47 @@
+.round-summary {
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+  }
+  
+  .round-summary h2 {
+    font-size: 40px;
+    color: black; 
+  }
+  
+  .round-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .round-summary li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(to right, lightgray, white);
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 300px;
+    margin: 0 auto;
+  } 
+  
+  .round-summary li:hover {
+    background-color: lightblue;
+  }
+  
+  .round-summary-name {
+    font-weight: bold;
+    flex-grow: 1;
+  }
+  
+  .round-summary-score {
+    font-weight: bold;
+    color: green;
+    margin-left: auto;
+  }
+  

@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="/static/style/basic_style.css">
         <link rel="stylesheet" href="/static/style/high_scores_style.css">
+        <link rel="stylesheet" href="/static/style/round_summary_style.css">
     <style>
       /* set the height of the map container to 100% of the viewport height */
       .map-container {
@@ -18,6 +19,19 @@
     </style>
     </head>
     <body>
+      <div class="round-summary">
+        <h2>Round Summary</h2>
+        <ul>
+          {% for guess in guess_list %}
+          <li>
+            <span class="round-summary-name">Question: {{ guess[0][1] }}, {{ guess[0][4] }}, to {{ guess[1][1] }}, {{ guess[1][4] }}</span>
+            <span class="round-summary-name">Answer: {{ guess[2][1] }}, {{ guess[2][4] }}, to {{ guess[3][1] }}, {{ guess[3][4] }}</span>
+            <span class="round-summary-score">Score:  {{ guess[4] }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    <br>
     <div class="high-scores">
       <h2 class="high-scores">Hall of Fame</h2>
       <ul class="high-scores">

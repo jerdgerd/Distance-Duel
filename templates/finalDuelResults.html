@@ -19,19 +19,6 @@
     </style>
     </head>
     <body>
-      <div class="round-summary">
-        <h2>Round Summary</h2>
-        <ul>
-          {% for guess in guess_list %}
-          <li>
-            <span class="round-summary-name">Question: {{ guess[0][1] }}, {{ guess[0][4] }}, to {{ guess[1][1] }}, {{ guess[1][4] }}</span>
-            <span class="round-summary-name">Answer: {{ guess[2][1] }}, {{ guess[2][4] }}, to {{ guess[3][1] }}, {{ guess[3][4] }}</span>
-            <span class="round-summary-score">Score:  {{ guess[4] }}</span>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    <br>
     <div class="high-scores">
       <h2 class="high-scores">Hall of Fame</h2>
       <ul class="high-scores">
@@ -44,6 +31,19 @@
       </ul>
     </div>
     <br><br><br>
+      <div class="round-summary">
+        <h2>Round Summary</h2>
+        <ul>
+          {% for guess in guess_list %}
+          <li>
+		  <span class="round-summary-name"><ul><li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;"><b style="color: navy;">Question:</b></li> <li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;">{{ guess[0][1] }}, {{ guess[0][4] }}, to </li><li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;">{{ guess[1][1] }}, {{ guess[1][4] }}</li></ul></span>
+		  <span class="round-summary-name"><ul><li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;"><b style="color: navy;">Answer:</b></li> <li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;">{{ guess[2][1] }}, {{ guess[2][4] }}, to</li><li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;">{{ guess[3][1] }}, {{ guess[3][4] }}</li></ul></span>
+		  <span class="round-summary-score"><ul><li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;"><b style="color:navy;">Score:</b></li><li style="width: 300px; border-style: none; justify-content: center; outline-style: none;list-style-type: none;box-shadow: none;background: transparent;background-color: transparent;">{{ guess[4] }}</li></ul></span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <br>
 
         <h3 style="text-align: center;">Duel {{ numDuels }} Score: {{ duelScore }}</h3>
         <h1 style="text-align: center;">Total Score: {{ score }}</h1>
@@ -58,6 +58,7 @@
         <form method="post" action="index">
             <input type="submit" value="Start Over">
         </form>
+    <br>
     <p style="text-align: center;">{{feedback}}</p>
     {% if showMaps and not timedOut %}
     <div style="width:900px;margin:auto;">

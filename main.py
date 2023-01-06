@@ -286,7 +286,7 @@ class DistanceDuelGame(object):
                     population = row[9].split(".")
                     city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]))
                     session['questionCities'].append(city)
-    
+
     @cherrypy.expose
     def generate_unique_number(self):
         number = random.randint(10000000000, 99999999999)
@@ -298,7 +298,7 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def distance(self, lat1, lon1, lat2, lon2, isMiles):
-        session = cherrypy.session      
+        session = cherrypy.session
         # Function to calculate the distance between two cities in miles
         # using the Haversine formula
         R = 3958.8  # approximate radius of earth in miles
@@ -333,7 +333,7 @@ class DistanceDuelGame(object):
                 maxDistance = 30000
             if not session['isMiles']:
                 maxDistance = maxDistance * 1.609344
-            while (random_index == random_index2 or (self.distance(session['questionCities'][random_index][2], session['questionCities'][random_index][3], 
+            while (random_index == random_index2 or (self.distance(session['questionCities'][random_index][2], session['questionCities'][random_index][3],
             session['questionCities'][random_index2][2], session['questionCities'][random_index2][3], session['isMiles']) > maxDistance)):
                 random_index2 = random.randint(0, len(session['questionCities']))
         else:
@@ -389,7 +389,7 @@ class DistanceDuelGame(object):
             return (continent != continent1 and continent != continent2)
         else:
             play_continent = session['continentOfPlay'].replace('_', ' ').title()
-            return (continent == play_continent)
+            return (continent != play_continent)
 
     @cherrypy.expose
     def addToScore(self, originalDistance, diffDistance):

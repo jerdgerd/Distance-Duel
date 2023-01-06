@@ -1,0 +1,201 @@
+city,city_ascii,lat,lng,country,iso2,iso3,admin_name,capital,population,id
+Sydney,Sydney,-33.8650,151.2094,Australia,AU,AUS,New South Wales,admin,4840600,1036074917
+Melbourne,Melbourne,-37.8136,144.9631,Australia,AU,AUS,Victoria,admin,4529500,1036533631
+Brisbane,Brisbane,-27.4678,153.0281,Australia,AU,AUS,Queensland,admin,2360241,1036192929
+Perth,Perth,-31.9522,115.8589,Australia,AU,AUS,Western Australia,admin,2039200,1036178956
+Auckland,Auckland,-36.8500,174.7833,New Zealand,NZ,NZL,Auckland,admin,1346091,1554435911
+Adelaide,Adelaide,-34.9275,138.6000,Australia,AU,AUS,South Australia,admin,1295714,1036538171
+Wellington,Wellington,-41.2889,174.7772,New Zealand,NZ,NZL,Wellington,primary,418500,1554772152
+Canberra,Canberra,-35.2931,149.1269,Australia,AU,AUS,Australian Capital Territory,primary,381488,1036142029
+Port Moresby,Port Moresby,-9.4789,147.1494,Papua New Guinea,PG,PNG,National Capital,primary,317374,1598685395
+Papeete,Papeete,-17.5334,-149.5667,French Polynesia,PF,PYF,Îles du Vent,primary,131695,1258907380
+Nouméa,Noumea,-22.2625,166.4443,New Caledonia,NC,NCL,Province Sud,primary,93060,1540958092
+Honiara,Honiara,-9.4333,159.9500,Solomon Islands,SB,SLB,Honiara,primary,84520,1090737486
+Suva,Suva,-18.1333,178.4333,Fiji,FJ,FJI,Rewa,primary,88271,1242615095
+Port-Vila,Port-Vila,-17.7333,168.3167,Vanuatu,VU,VUT,Shefa,primary,51437,1548805075
+Apia,Apia,-13.8333,-171.8333,Samoa,WS,WSM,Tuamasaga,primary,37708,1882489296
+Tarawa,Tarawa,1.3382,173.0176,Kiribati,KI,KIR,,primary,28802,1296152641
+Majuro,Majuro,7.0918,171.3802,Marshall Islands,MH,MHL,Majuro,primary,30000,1584000000
+Nuku‘alofa,Nuku`alofa,-21.1347,-175.2083,Tonga,TO,TON,Tongatapu,primary,23221,1776737461
+Pago Pago,Pago Pago,-14.2740,-170.7046,American Samoa,AS,ASM,,primary,12576,1016976740
+Palikir,Palikir,6.9178,158.1850,Federated States of Micronesia,FM,FSM,Pohnpei,primary,6227,1583008885
+Funafuti,Funafuti,-8.5243,179.1942,Tuvalu,TV,TUV,Funafuti,primary,6025,1798251391
+Avarua,Avarua,-21.2070,-159.7710,Cook Islands,CK,COK,,primary,5445,1184217570
+Capitol Hill,Capitol Hill,15.2137,145.7546,Northern Mariana Islands,MP,MNP,,primary,2500,1580556972
+Alofi,Alofi,-19.0560,-169.9210,Niue,NU,NIU,,primary,1611,1570882835
+Hagåtña,Hagta,13.4745,144.7504,Guam,GU,GUM,,primary,1051,1316937540
+Yaren,Yaren,-0.5477,166.9209,Nauru,NR,NRU,Yaren,primary,,1520790128
+Ngerulmud,Ngerulmud,7.5006,134.6242,Palau,PW,PLW,Melekeok,primary,271,1585525081
+Mata-Utu,Mata-Utu,-13.2825,-176.1736,Wallis And Futuna,WF,WLF,Uvea,primary,,1876784844
+Kingston,Kingston,-29.0569,167.9617,Norfolk Island,NF,NFK,,primary,,1574121434
+Flying Fish Cove,Flying Fish Cove,-10.4167,105.7167,Christmas Island,CX,CXR,,primary,,1162889600
+Gold Coast,Gold Coast,-28.0167,153.4000,Australia,AU,AUS,Queensland,,638090,1036153217
+Cranbourne,Cranbourne,-38.0996,145.2834,Australia,AU,AUS,Victoria,,460491,1036685862
+Christchurch,Christchurch,-43.5309,172.6365,New Zealand,NZ,NZL,Canterbury,admin,383200,1554377228
+Manukau City,Manukau City,-37.0000,174.8850,New Zealand,NZ,NZL,Auckland,,375600,1554797148
+Central Coast,Central Coast,-33.3000,151.2000,Australia,AU,AUS,New South Wales,,297713,1036067845
+Wollongong,Wollongong,-34.4331,150.8831,Australia,AU,AUS,New South Wales,,261896,1036502269
+Hobart,Hobart,-42.8806,147.3250,Australia,AU,AUS,Tasmania,admin,222356,1036679838
+Northcote,Northcote,-36.7913,174.7758,New Zealand,NZ,NZL,Auckland,,205605,1554717659
+Waitakere,Waitakere,-36.8490,174.5430,New Zealand,NZ,NZL,Auckland,,208100,1554034359
+Geelong,Geelong,-38.1500,144.3500,Australia,AU,AUS,Victoria,,184182,1036870987
+Townsville,Townsville,-19.2500,146.8167,Australia,AU,AUS,Queensland,,178649,1036500020
+Hamilton,Hamilton,-37.7833,175.2833,New Zealand,NZ,NZL,Waikato,admin,176500,1554873040
+Ipswich,Ipswich,-27.6167,152.7667,Australia,AU,AUS,Queensland,,163000,1036244388
+Newcastle,Newcastle,-32.9167,151.7500,Australia,AU,AUS,New South Wales,,152984,1036468001
+Cairns,Cairns,-16.9200,145.7800,Australia,AU,AUS,Queensland,,146778,1036016939
+Darwin,Darwin,-12.4381,130.8411,Australia,AU,AUS,Northern Territory,admin,136828,1036497565
+Toowoomba,Toowoomba,-27.5667,151.9500,Australia,AU,AUS,Queensland,,135631,1036765315
+Tauranga,Tauranga,-37.6858,176.1667,New Zealand,NZ,NZL,Bay of Plenty,,135000,1554759867
+Maina,Maina,13.4692,144.7332,Guam,GU,GUM,,,122411,1316874021
+Launceston,Launceston,-41.4419,147.1450,Australia,AU,AUS,Tasmania,,106153,1036170383
+Lower Hutt,Lower Hutt,-41.2167,174.9167,New Zealand,NZ,NZL,Wellington,,103400,1554623632
+Lae,Lae,-6.7303,147.0008,Papua New Guinea,PG,PNG,Morobe,admin,100677,1598466091
+Dunedin,Dunedin,-45.8742,170.5036,New Zealand,NZ,NZL,Otago,admin,99885,1554475997
+Palmerston North,Palmerston North,-40.3549,175.6095,New Zealand,NZ,NZL,Manawatu-Wanganui,admin,76236,1554138183
+Napier,Napier,-39.4833,176.9167,New Zealand,NZ,NZL,Hawke’s Bay,admin,62241,1554064936
+Madang,Madang,-5.2248,145.7853,Papua New Guinea,PG,PNG,Madang,admin,62023,1598116558
+Lautoka,Lautoka,-17.6242,177.4528,Fiji,FJ,FJI,Ba,,52220,1242457077
+Whangarei,Whangarei,-35.7250,174.3236,New Zealand,NZ,NZL,Northland,admin,50784,1554000636
+Nausori,Nausori,-18.0244,178.5454,Fiji,FJ,FJI,Tailevu,,47604,1242640119
+Nelson,Nelson,-41.2931,173.2381,New Zealand,NZ,NZL,Nelson,admin,49300,1554017097
+Invercargill,Invercargill,-46.4290,168.3620,New Zealand,NZ,NZL,Southland,admin,47625,1554148942
+Caloundra,Caloundra,-26.7986,153.1289,Australia,AU,AUS,Queensland,,41293,1036266942
+Gisborne,Gisborne,-38.6625,178.0178,New Zealand,NZ,NZL,Gisborne,admin,34527,1554359840
+Dandenong,Dandenong,-37.9810,145.2150,Australia,AU,AUS,Victoria,,29906,1036214023
+Mount Hagen,Mount Hagen,-5.8667,144.2167,Papua New Guinea,PG,PNG,Western Highlands,admin,29765,1598400611
+Popondetta,Popondetta,-8.7656,148.2347,Papua New Guinea,PG,PNG,Northern,admin,28198,1598887925
+Blenheim,Blenheim,-41.5167,173.9500,New Zealand,NZ,NZL,Marlborough,admin,26400,1554001426
+Mendi,Mendi,-6.1478,143.6572,Papua New Guinea,PG,PNG,Southern Highlands,admin,26252,1598467297
+Wewak,Wewak,-3.5500,143.6333,Papua New Guinea,PG,PNG,East Sepik,admin,25143,1598405100
+Goroka,Goroka,-6.0833,145.3833,Papua New Guinea,PG,PNG,Eastern Highlands,admin,21507,1598928169
+Kavieng,Kavieng,-2.5667,150.8000,Papua New Guinea,PG,PNG,New Ireland,admin,19849,1598946326
+Kimbe,Kimbe,-5.5500,150.1430,Papua New Guinea,PG,PNG,West New Britain,admin,18847,1598372456
+Richmond,Richmond,-41.3333,173.1833,New Zealand,NZ,NZL,Tasman,admin,15000,1554001427
+Whakatane,Whakatane,-37.9640,176.9840,New Zealand,NZ,NZL,Bay of Plenty,admin,15795,1554253729
+Mosgiel,Mosgiel,-45.8750,170.3480,New Zealand,NZ,NZL,Otago,,13400,1554341062
+Campbelltown,Campbelltown,-34.0733,150.8261,Australia,AU,AUS,New South Wales,,12566,1036474450
+Leopold,Leopold,-38.1892,144.4644,Australia,AU,AUS,Victoria,,12814,1036263278
+Luganville,Luganville,-15.5126,167.1766,Vanuatu,VU,VUT,Sanma,admin,13397,1548569362
+Corinda,Corinda,-27.4833,153.1000,Australia,AU,AUS,Queensland,,11019,1036501460
+Daru,Daru,-9.0833,143.2000,Papua New Guinea,PG,PNG,Western,admin,12879,1598923764
+Alotau,Alotau,-10.3167,150.4333,Papua New Guinea,PG,PNG,Milne Bay,admin,11624,1598284215
+Vanimo,Vanimo,-2.6817,141.3014,Papua New Guinea,PG,PNG,West Sepik,admin,11204,1598892363
+Teaoraereke,Teaoraereke,1.3331,173.0116,Kiribati,KI,KIR,,,6073,1296060597
+Kundiawa,Kundiawa,-6.0230,144.9600,Papua New Guinea,PG,PNG,Chimbu,admin,9383,1598730976
+Kolonia,Kolonia,6.9639,158.2081,Federated States of Micronesia,FM,FSM,Pohnpei,admin,6074,1583881416
+Gizo,Gizo,-8.1000,156.8500,Solomon Islands,SB,SLB,Western,admin,6154,1090427067
+Greymouth,Greymouth,-42.4667,171.2000,New Zealand,NZ,NZL,West Coast,admin,7965,1554984303
+Worragee,Worragee,-34.9144,150.6386,Australia,AU,AUS,New South Wales,,5068,1036339460
+Stratford,Stratford,-39.3410,174.2840,New Zealand,NZ,NZL,Taranaki,admin,5740,1554001293
+Lorengau,Lorengau,-2.0208,147.2667,Papua New Guinea,PG,PNG,Manus,admin,5806,1598571197
+Kerema,Kerema,-7.9270,145.8380,Papua New Guinea,PG,PNG,Gulf,admin,5646,1598925932
+Wabag,Wabag,-5.4833,143.7000,Papua New Guinea,PG,PNG,Enga,admin,3958,1598428400
+Tofol,Tofol,5.3258,163.0086,Federated States of Micronesia,FM,FSM,Kosrae,admin,2591,1583000000
+Kirakira,Kirakira,-10.4544,161.9205,Solomon Islands,SB,SLB,Makira and Ulawa,admin,,1090349580
+Auki,Auki,-8.7678,160.6978,Solomon Islands,SB,SLB,Malaita,admin,,1090993143
+Taro,Taro,-6.7111,156.3972,Solomon Islands,SB,SLB,Choiseul,admin,,1090931394
+Lata,Lata,-10.7380,165.8567,Solomon Islands,SB,SLB,Temotu,admin,553,1090442496
+Tulagi,Tulagi,-9.1031,160.1506,Solomon Islands,SB,SLB,Central,admin,,1090844311
+Lakatoro,Lakatoro,-16.1069,167.4208,Vanuatu,VU,VUT,Malampa,admin,705,1548761183
+Weno,Weno,7.4500,151.8500,Federated States of Micronesia,FM,FSM,Chuuk,admin,,1583964118
+Buala,Buala,-8.1448,159.5905,Solomon Islands,SB,SLB,Isabel,admin,,1090726690
+Afega,Afega,-13.7973,-171.8531,Samoa,WS,WSM,Tuamasaga,admin,,1882284139
+Colonia,Colonia,9.5144,138.1292,Federated States of Micronesia,FM,FSM,Yap,admin,,1583511563
+Isangel,Isangel,-19.5417,169.2817,Vanuatu,VU,VUT,Tafea,admin,,1548941443
+Waitangi,Waitangi,-43.9510,-176.5610,New Zealand,NZ,NZL,Chatham Islands,admin,177,1554847194
+Leulumoega,Leulumoega,-13.8230,-171.9613,Samoa,WS,WSM,A‘ana,admin,,1882782502
+Kokopo,Kokopo,-4.3500,152.2736,Papua New Guinea,PG,PNG,East New Britain,admin,,1598823962
+Mulifanua,Mulifanua,-13.8318,-172.0360,Samoa,WS,WSM,Aiga-i-le-Tai,admin,,1882029963
+Saratamata,Saratamata,-15.2869,167.9906,Vanuatu,VU,VUT,Penama,admin,,1548907051
+Kurumul,Kurumul,-5.8550,144.6311,Papua New Guinea,PG,PNG,Jiwaka,admin,,1598000045
+Tari,Tari,-5.8489,142.9506,Papua New Guinea,PG,PNG,Hela,admin,,1598669271
+Lufilufi,Lufilufi,-13.8745,-171.5986,Samoa,WS,WSM,Atua,admin,,1882092632
+Safotulafai,Safotulafai,-13.6715,-172.1777,Samoa,WS,WSM,Fa‘asaleleaga,admin,,1882524892
+Leava,Leava,-14.2933,-178.1583,Wallis And Futuna,WF,WLF,Sigave,admin,,1876731744
+Buka,Buka,-5.4219,154.6728,Papua New Guinea,PG,PNG,Bougainville,admin,,1598000066
+Samamea,Samamea,-13.9338,-171.5312,Samoa,WS,WSM,Va‘a-o-Fonoti,admin,,1882468874
+Satupa‘itea,Satupa`itea,-13.7659,-172.3269,Samoa,WS,WSM,Satupa‘itea,admin,,1882940042
+Asau,Asau,-13.5196,-172.6378,Samoa,WS,WSM,Vaisigano,admin,,1882504626
+Safotu,Safotu,-13.4513,-172.4018,Samoa,WS,WSM,Gagaifomauga,admin,,1882879383
+Vailoa,Vailoa,-13.7555,-172.3070,Samoa,WS,WSM,Palauli,admin,,1882047846
+Koné,Kone,-21.0667,164.8667,New Caledonia,NC,NCL,Province Nord,admin,,1540397627
+Sola,Sola,-13.8761,167.5517,Vanuatu,VU,VUT,Torba,admin,,1548600754
+Saleaula,Saleaula,-13.4489,-172.3352,Samoa,WS,WSM,Gaga‘emauga,admin,,1882605280
+Tigoa,Tigoa,-11.5531,160.0647,Solomon Islands,SB,SLB,Rennell and Bellona,admin,,1090423471
+Wé,We,-20.9000,167.2667,New Caledonia,NC,NCL,Province Îles,admin,,1540672599
+Ballarat,Ballarat,-37.5608,143.8475,Australia,AU,AUS,Victoria,,98543,1036567186
+Bendigo,Bendigo,-36.7500,144.2667,Australia,AU,AUS,Victoria,,95587,1036537913
+Bunbury,Bunbury,-33.3272,115.6369,Australia,AU,AUS,Western Australia,,71090,1036561011
+Bundaberg,Bundaberg,-24.8661,152.3494,Australia,AU,AUS,Queensland,,70540,1036377333
+Wagga Wagga,Wagga Wagga,-35.1189,147.3689,Australia,AU,AUS,New South Wales,,67364,1036273188
+Porirua,Porirua,-41.1333,174.8500,New Zealand,NZ,NZL,Wellington,,55218,1554561880
+Melton,Melton,-37.6833,144.5833,Australia,AU,AUS,Victoria,,54455,1036007778
+Rotorua,Rotorua,-38.1378,176.2514,New Zealand,NZ,NZL,Bay of Plenty,,54204,1554000379
+New Plymouth,New Plymouth,-39.0578,174.0742,New Zealand,NZ,NZL,Taranaki,,53988,1554939405
+Hervey Bay,Hervey Bay,-25.2900,152.8400,Australia,AU,AUS,Queensland,,52073,1036833938
+Pakenham,Pakenham,-38.0712,145.4878,Australia,AU,AUS,Victoria,,46421,1036063031
+Port Macquarie,Port Macquarie,-31.4333,152.9000,Australia,AU,AUS,New South Wales,,44830,1036051032
+Nadi,Nadi,-17.8000,177.4167,Fiji,FJ,FJI,Ba,,42284,1242357822
+Upper Hutt,Upper Hutt,-41.1333,175.0500,New Zealand,NZ,NZL,Wellington,,41000,1554000042
+Whanganui,Whanganui,-39.9333,175.0500,New Zealand,NZ,NZL,Manawatu-Wanganui,,39400,1554827998
+Arawa,Arawa,-6.2280,155.5660,Papua New Guinea,PG,PNG,Bougainville,,40266,1598413091
+Dubbo,Dubbo,-32.2569,148.6011,Australia,AU,AUS,New South Wales,,38943,1036855042
+Orange,Orange,-33.2833,149.1000,Australia,AU,AUS,New South Wales,,38097,1036760396
+Frankston,Frankston,-38.1580,145.1350,Australia,AU,AUS,Victoria,,36097,1036126828
+Sunbury,Sunbury,-37.5811,144.7139,Australia,AU,AUS,Victoria,,36084,1036519781
+Bathurst,Bathurst,-33.4200,149.5778,Australia,AU,AUS,New South Wales,,34303,1036446465
+Gladstone,Gladstone,-23.8427,151.2555,Australia,AU,AUS,Queensland,,33418,1036070755
+Mildura,Mildura,-34.1889,142.1583,Australia,AU,AUS,Victoria,,32738,1036624348
+Southport,Southport,-27.9667,153.4000,Australia,AU,AUS,Queensland,,31908,1036417513
+Geraldton,Geraldton,-28.7744,114.6089,Australia,AU,AUS,Western Australia,,31982,1036811875
+Shepparton,Shepparton,-36.3833,145.4000,Australia,AU,AUS,Victoria,,31197,1036030548
+Kalgoorlie,Kalgoorlie,-30.7489,121.4658,Australia,AU,AUS,Western Australia,,30841,1036087904
+Warrnambool,Warrnambool,-38.3833,142.4833,Australia,AU,AUS,Victoria,,29661,1036291219
+Labasa,Labasa,-16.4333,179.3667,Fiji,FJ,FJI,Macuata,,27949,1242740801
+Albany,Albany,-35.0228,117.8814,Australia,AU,AUS,Western Australia,,29373,1036047365
+Paraparaumu,Paraparaumu,-40.9167,175.0167,New Zealand,NZ,NZL,Wellington,,28701,1554166459
+Quakers Hill,Quakers Hill,-33.7344,150.8789,Australia,AU,AUS,New South Wales,,27080,1036046868
+Burnie,Burnie,-41.0636,145.8753,Australia,AU,AUS,Tasmania,,27174,1036394657
+Timaru,Timaru,-44.3931,171.2508,New Zealand,NZ,NZL,Canterbury,,27501,1554243304
+Caboolture,Caboolture,-27.0667,152.9670,Australia,AU,AUS,Queensland,,26433,1036273434
+Coffs Harbour,Coffs Harbour,-30.3022,153.1189,Australia,AU,AUS,New South Wales,,25752,1036320442
+Mount Gambier,Mount Gambier,-37.8294,140.7828,Australia,AU,AUS,South Australia,,25512,1036932780
+Pukekohe East,Pukekohe East,-37.1950,174.9481,New Zealand,NZ,NZL,Auckland,,26300,1554599644
+Traralgon,Traralgon,-38.1958,146.5403,Australia,AU,AUS,Victoria,,24933,1036938861
+Busselton,Busselton,-33.6478,115.3458,Australia,AU,AUS,Western Australia,,25329,1036911902
+Armidale,Armidale,-30.5000,151.6500,Australia,AU,AUS,New South Wales,,23352,1036975829
+Taupo,Taupo,-38.6900,176.0800,New Zealand,NZ,NZL,Waikato,,23622,1554654784
+Alice Springs,Alice Springs,-23.7000,133.8667,Australia,AU,AUS,Northern Territory,,23726,1036830397
+Devonport,Devonport,-41.1800,146.3503,Australia,AU,AUS,Tasmania,,23046,1036033175
+Goulburn,Goulburn,-34.7547,149.6186,Australia,AU,AUS,New South Wales,,22419,1036347537
+Whyalla,Whyalla,-33.0333,137.5667,Australia,AU,AUS,South Australia,,21501,1036961366
+Masterton,Masterton,-40.9667,175.6500,New Zealand,NZ,NZL,Wellington,,19818,1554641049
+Kwinana,Kwinana,-32.2394,115.7702,Australia,AU,AUS,Western Australia,,20086,1036753478
+Ba,Ba,-17.5333,177.6833,Fiji,FJ,FJI,Ba,,18526,1242193764
+Mount Eliza,Mount Eliza,-38.1890,145.0920,Australia,AU,AUS,Victoria,,17888,1036041769
+Griffith,Griffith,-34.2900,146.0400,Australia,AU,AUS,New South Wales,,18196,1036563313
+Wodonga,Wodonga,-36.1214,146.8881,Australia,AU,AUS,Victoria,,18948,1036788540
+Narangba,Narangba,-27.2015,152.9655,Australia,AU,AUS,Queensland,,18573,1036559054
+Cambridge,Cambridge,-37.8833,175.4667,New Zealand,NZ,NZL,Waikato,,18651,1554000848
+Wangaratta,Wangaratta,-36.3583,146.3125,Australia,AU,AUS,Victoria,,17377,1036395326
+Levin,Levin,-40.6250,175.2833,New Zealand,NZ,NZL,Manawatu-Wanganui,,17670,1554983635
+Broken Hill,Broken Hill,-31.9500,141.4667,Australia,AU,AUS,New South Wales,,17814,1036216956
+Taree,Taree,-31.9000,152.4500,Australia,AU,AUS,New South Wales,,16197,1036855717
+Banora Point,Banora Point,-28.2225,153.5386,Australia,AU,AUS,New South Wales,,16167,1036608972
+Ashton,Ashton,-44.0330,171.7720,New Zealand,NZ,NZL,Canterbury,,17700,1554784264
+Nerang,Nerang,-27.9956,153.3220,Australia,AU,AUS,Queensland,,16864,1036082899
+Lara,Lara,-38.0167,144.4167,Australia,AU,AUS,Victoria,,16355,1036754750
+Cessnock,Cessnock,-32.8342,151.3555,Australia,AU,AUS,New South Wales,,15177,1036822046
+Macetown,Macetown,-44.8650,168.8190,New Zealand,NZ,NZL,Otago,,16600,1554582165
+Feilding,Feilding,-40.2250,175.5650,New Zealand,NZ,NZL,Manawatu-Wanganui,,15990,1554000257
+Rolleston,Rolleston,-43.5960,172.3830,New Zealand,NZ,NZL,Canterbury,,16350,1554176166
+Warragul,Warragul,-38.1500,145.9333,Australia,AU,AUS,Victoria,,15757,1036504084
+Karratha,Karratha,-20.7364,116.8464,Australia,AU,AUS,Western Australia,,15828,1036951388
+Maryborough,Maryborough,-25.5375,152.7019,Australia,AU,AUS,Queensland,,15406,1036205623
+Ulladulla,Ulladulla,-35.3486,150.4678,Australia,AU,AUS,New South Wales,,15278,1036687220
+Murray Bridge,Murray Bridge,-35.1170,139.2670,Australia,AU,AUS,South Australia,,14560,1036345943
+Ulverstone,Ulverstone,-41.1667,146.1667,Australia,AU,AUS,Tasmania,,14109,1036014544
+Barwon Heads,Barwon Heads,-38.2500,144.5167,Australia,AU,AUS,Victoria,,14165,1036797778
+Horsham,Horsham,-36.7167,142.2000,Australia,AU,AUS,Victoria,,14543,1036654340
+Australind,Australind,-33.2800,115.7260,Australia,AU,AUS,Western Australia,,14539,1036182351

@@ -99,7 +99,7 @@
 	</p>
 	<br>
 	<p class="question">
-	You may not use cities from <b>{{ continent1 }}</b>{% if continent1 != continent2 %} and <b>{{ continent2  }}</b>{% endif %}.
+	You may not use cities from {% if isGlobal %} <b>{{ continent1 }}</b>{% if continent1 != continent2 %} and <b>{{ continent2  }}</b>{% endif %} {% endif %} {% if not isGlobal %} <b> any continent but {{ continentOfPlay }}</b> {% endif %}.
 	</p>
 	<form method="get" action="distanceCheck">
 	   <!-- Include the autocomplete script -->
@@ -121,7 +121,7 @@
            {% endif %}
 	</form>
 	{% if duplicateContinent %}
-	<p class="error">You submitted cities where one of them was on the same continent as one of the cities in the question. Remember that all of Russia counts as Europe, and that South America starts below Panama.</p>
+	<p class="error">You submitted cities where one of them was on a forbidden continent. Remember that all of Russia counts as Europe, and that South America starts below Panama.</p>
 	{% endif %}
 	{% if not cityFound %}
 	<p class="error">You submitted a city that was not in our database. Please make sure you select a city from the autocomplete to avoid typos.</p>

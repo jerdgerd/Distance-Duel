@@ -1,0 +1,201 @@
+city,city_ascii,lat,lng,country,iso2,iso3,admin_name,capital,population,id
+Mexico City,Mexico City,19.4333,-99.1333,Mexico,MX,MEX,Ciudad de México,primary,21505000,1484247881
+New York,New York,40.6943,-73.9249,United States,US,USA,New York,,18713220,1840034016
+Los Angeles,Los Angeles,34.1139,-118.4068,United States,US,USA,California,,12750807,1840020491
+Chicago,Chicago,41.8373,-87.6862,United States,US,USA,Illinois,,8604203,1840000494
+Miami,Miami,25.7839,-80.2102,United States,US,USA,Florida,,6445545,1840015149
+Dallas,Dallas,32.7936,-96.7662,United States,US,USA,Texas,,5743938,1840019440
+Philadelphia,Philadelphia,40.0077,-75.1339,United States,US,USA,Pennsylvania,,5649300,1840000673
+Houston,Houston,29.7863,-95.3889,United States,US,USA,Texas,,5464251,1840020925
+Guadalajara,Guadalajara,20.6767,-103.3475,Mexico,MX,MEX,Jalisco,admin,5437000,1484950208
+Atlanta,Atlanta,33.7627,-84.4224,United States,US,USA,Georgia,admin,5449398,1840013660
+Toronto,Toronto,43.7417,-79.3733,Canada,CA,CAN,Ontario,admin,5429524,1124279679
+Washington,Washington,38.9047,-77.0163,United States,US,USA,District of Columbia,primary,5379184,1840006060
+Boston,Boston,42.3188,-71.0846,United States,US,USA,Massachusetts,admin,4688346,1840000455
+Phoenix,Phoenix,33.5722,-112.0891,United States,US,USA,Arizona,admin,4219697,1840020568
+Seattle,Seattle,47.6211,-122.3244,United States,US,USA,Washington,,3789215,1840021117
+San Francisco,San Francisco,37.7562,-122.4430,United States,US,USA,California,,3592294,1840021543
+Montréal,Montreal,45.5089,-73.5617,Canada,CA,CAN,Quebec,,3519595,1124586170
+Detroit,Detroit,42.3834,-83.1024,United States,US,USA,Michigan,,3506126,1840003971
+San Diego,San Diego,32.8312,-117.1225,United States,US,USA,California,,3220118,1840021990
+Minneapolis,Minneapolis,44.9635,-93.2678,United States,US,USA,Minnesota,,2977172,1840007830
+Guatemala City,Guatemala City,14.6099,-90.5252,Guatemala,GT,GTM,Guatemala,primary,2934841,1320197916
+Tampa,Tampa,27.9942,-82.4451,United States,US,USA,Florida,,2908063,1840015982
+Denver,Denver,39.7621,-104.8759,United States,US,USA,Colorado,admin,2876625,1840018789
+Santo Domingo,Santo Domingo,18.4764,-69.8933,Dominican Republic,DO,DOM,Ozama,primary,2581827,1214636202
+Brooklyn,Brooklyn,40.6501,-73.9496,United States,US,USA,New York,,2559903,1840034030
+Vancouver,Vancouver,49.2500,-123.1000,Canada,CA,CAN,British Columbia,,2264823,1124825478
+Queens,Queens,40.7498,-73.7976,United States,US,USA,New York,,2230722,1840034002
+Havana,Havana,23.1367,-82.3589,Cuba,CU,CUB,La Habana,primary,2141652,1192752771
+Riverside,Riverside,33.9381,-117.3948,United States,US,USA,California,,2107852,1840020551
+Baltimore,Baltimore,39.3051,-76.6144,United States,US,USA,Maryland,,2106068,1840001592
+Las Vegas,Las Vegas,36.2333,-115.2654,United States,US,USA,Nevada,,2104198,1840020364
+Portland,Portland,45.5372,-122.6500,United States,US,USA,Oregon,,2074775,1840019941
+San Antonio,San Antonio,29.4658,-98.5253,United States,US,USA,Texas,,2049293,1840022220
+St. Louis,St. Louis,38.6358,-90.2451,United States,US,USA,Missouri,,2024074,1840001651
+Tijuana,Tijuana,32.5250,-117.0333,Mexico,MX,MEX,Baja California,minor,1922523,1484708778
+Sacramento,Sacramento,38.5667,-121.4683,United States,US,USA,California,admin,1898019,1840021491
+Ecatepec,Ecatepec,19.6097,-99.0600,Mexico,MX,MEX,México,minor,1857188,1484003694
+Orlando,Orlando,28.4772,-81.3369,United States,US,USA,Florida,,1822394,1840015099
+San Jose,San Jose,37.3019,-121.8486,United States,US,USA,California,,1798103,1840021570
+Cleveland,Cleveland,41.4767,-81.6804,United States,US,USA,Ohio,,1710093,1840000596
+Pittsburgh,Pittsburgh,40.4396,-79.9762,United States,US,USA,Pennsylvania,,1703266,1840001254
+Austin,Austin,30.3004,-97.7522,United States,US,USA,Texas,admin,1687311,1840019590
+Cincinnati,Cincinnati,39.1413,-84.5061,United States,US,USA,Ohio,,1662691,1840003814
+Kansas City,Kansas City,39.1239,-94.5541,United States,US,USA,Missouri,,1636715,1840008535
+Manhattan,Manhattan,40.7834,-73.9662,United States,US,USA,New York,,1628706,1840034000
+Indianapolis,Indianapolis,39.7771,-86.1458,United States,US,USA,Indiana,admin,1588961,1840030084
+León de los Aldama,Leon de los Aldama,21.1167,-101.6833,Mexico,MX,MEX,Guanajuato,minor,1579803,1484811199
+Puebla,Puebla,19.0333,-98.1833,Mexico,MX,MEX,Puebla,admin,1576259,1484416394
+Columbus,Columbus,39.9862,-82.9850,United States,US,USA,Ohio,admin,1562009,1840003760
+Charlotte,Charlotte,35.2080,-80.8304,United States,US,USA,North Carolina,,1512923,1840014557
+Virginia Beach,Virginia Beach,36.7335,-76.0435,United States,US,USA,Virginia,,1478868,1840003871
+Zapopan,Zapopan,20.7167,-103.4000,Mexico,MX,MEX,Jalisco,minor,1476491,1484198680
+Bronx,Bronx,40.8501,-73.8662,United States,US,USA,New York,,1418207,1840033999
+Milwaukee,Milwaukee,43.0642,-87.9673,United States,US,USA,Wisconsin,,1365787,1840003046
+Santiago,Santiago,19.4500,-70.7000,Dominican Republic,DO,DOM,Cibao Norte,admin,1343423,1214985348
+Juárez,Juarez,31.7386,-106.4870,Mexico,MX,MEX,Chihuahua,minor,1321004,1484840083
+Comayagüela,Comayaguela,14.0833,-87.2167,Honduras,HN,HND,Francisco Morazán,,1250000,1340762485
+Calgary,Calgary,51.0500,-114.0667,Canada,CA,CAN,Alberta,,1239220,1124690423
+Providence,Providence,41.8230,-71.4187,United States,US,USA,Rhode Island,admin,1203230,1840003289
+Jacksonville,Jacksonville,30.3322,-81.6749,United States,US,USA,Florida,,1181496,1840015031
+Monterrey,Monterrey,25.6667,-100.3000,Mexico,MX,MEX,Nuevo León,admin,1135512,1484559591
+Ciudad Nezahualcóyotl,Ciudad Nezahualcoyotl,19.4100,-99.0300,Mexico,MX,MEX,México,,1109363,1484016661
+Tegucigalpa,Tegucigalpa,14.0942,-87.2067,Honduras,HN,HND,Francisco Morazán,primary,1126534,1340344059
+Salt Lake City,Salt Lake City,40.7777,-111.9306,United States,US,USA,Utah,admin,1098526,1840021383
+Nezahualcóyotl,Nezahualcoyotl,19.4000,-98.9889,Mexico,MX,MEX,México,minor,1077208,1484074285
+Nashville,Nashville,36.1715,-86.7843,United States,US,USA,Tennessee,admin,1081903,1840036155
+Richmond,Richmond,37.5295,-77.4756,United States,US,USA,Virginia,admin,1075798,1840001698
+San Pedro Sula,San Pedro Sula,15.5000,-88.0333,Honduras,HN,HND,Cortés,admin,1073824,1340568412
+Memphis,Memphis,35.1046,-89.9773,United States,US,USA,Tennessee,,1066967,1840015457
+Edmonton,Edmonton,53.5344,-113.4903,Canada,CA,CAN,Alberta,admin,1062643,1124290735
+Mexicali,Mexicali,32.6633,-115.4678,Mexico,MX,MEX,Baja California,admin,1049792,1484788702
+Raleigh,Raleigh,35.8325,-78.6435,United States,US,USA,North Carolina,admin,1038738,1840014497
+Managua,Managua,12.1500,-86.2667,Nicaragua,NI,NIC,Managua,primary,1028808,1558296252
+Port-au-Prince,Port-au-Prince,18.5425,-72.3386,Haiti,HT,HTI,Ouest,primary,987310,1332401940
+New Orleans,New Orleans,30.0687,-89.9288,United States,US,USA,Louisiana,,1020886,1840001839
+Villahermosa,Villahermosa,17.9892,-92.9281,Mexico,MX,MEX,Tabasco,admin,1013484,1484460894
+Louisville,Louisville,38.1663,-85.6485,United States,US,USA,Kentucky,,1005654,1840030815
+Ottawa,Ottawa,45.4247,-75.6950,Canada,CA,CAN,Ontario,primary,989567,1124399363
+Panama City,Panama City,9.0000,-79.5000,Panama,PA,PAN,Panamá,primary,880691,1591672475
+Winnipeg,Winnipeg,49.8844,-97.1464,Canada,CA,CAN,Manitoba,admin,705244,1124224963
+Quebec City,Quebec City,46.8139,-71.2081,Canada,CA,CAN,Quebec,admin,705103,1124823933
+Kingston,Kingston,17.9714,-76.7931,Jamaica,JM,JAM,Kingston,primary,580000,1388709177
+San Salvador,San Salvador,13.6989,-89.1914,El Salvador,SV,SLV,San Salvador,primary,567698,1222647454
+Kitchener,Kitchener,43.4186,-80.4728,Canada,CA,CAN,Ontario,,470015,1124158530
+Halifax,Halifax,44.6475,-63.5906,Canada,CA,CAN,Nova Scotia,admin,403131,1124130981
+Victoria,Victoria,48.4283,-123.3647,Canada,CA,CAN,British Columbia,admin,335696,1124147219
+San José,San Jose,9.9333,-84.0833,Costa Rica,CR,CRI,San José,primary,288054,1188749877
+Nassau,Nassau,25.0667,-77.3333,The Bahamas,BS,BHS,,primary,274400,1044318561
+Fort-de-France,Fort-de-France,14.6104,-61.0800,Martinique,MQ,MTQ,,primary,253995,1474969110
+Willemstad,Willemstad,12.1080,-68.9350,Curaçao,CW,CUW,,primary,150000,1531000000
+Bridgetown,Bridgetown,13.0975,-59.6167,Barbados,BB,BRB,Saint Michael,primary,110000,1052274244
+Castries,Castries,14.0167,-60.9833,Saint Lucia,LC,LCA,Castries,primary,70000,1662922505
+Hamilton,Hamilton,32.2942,-64.7839,Bermuda,BM,BMU,Hamilton,primary,52320,1060000000
+Port of Spain,Port of Spain,10.6667,-61.5167,Trinidad And Tobago,TT,TTO,Port of Spain,primary,37074,1780670676
+Oranjestad,Oranjestad,12.5186,-70.0358,Aruba,AW,ABW,,primary,34980,1533513057
+George Town,George Town,19.2866,-81.3744,Cayman Islands,KY,CYM,,primary,27704,1136159124
+Kingstown,Kingstown,13.1667,-61.2333,Saint Vincent And The Grenadines,VC,VCT,Saint George,primary,25000,1670376659
+Saint John’s,Saint John's,17.1211,-61.8447,Antigua And Barbuda,AG,ATG,Saint John,primary,21926,1028912067
+Nuuk,Nuuk,64.1750,-51.7333,Greenland,GL,GRL,Sermersooq,primary,18326,1304028354
+Belmopan,Belmopan,17.2500,-88.7675,Belize,BZ,BLZ,Cayo,primary,17222,1084586375
+Roseau,Roseau,15.3000,-61.3833,Dominica,DM,DMA,Saint George,primary,16582,1212060440
+Basseterre,Basseterre,17.2983,-62.7342,Saint Kitts And Nevis,KN,KNA,Saint George Basseterre,primary,13220,1659198919
+Grand Turk,Grand Turk,21.4664,-71.1360,Turks And Caicos Islands,TC,TCA,,primary,5801,1796965313
+Saint George’s,Saint George's,12.0444,-61.7417,Grenada,GD,GRD,Saint George,primary,4315,1308891766
+Basse-Terre,Basse-Terre,16.0104,-61.7055,Guadeloupe,GP,GLP,,primary,307,1312938008
+Marigot,Marigot,18.0706,-63.0847,Saint Martin,MF,MAF,,primary,,1663133172
+Brades,Brades,16.7928,-62.2106,Montserrat,MS,MSR,Saint Peter,primary,391,1500971198
+Philipsburg,Philipsburg,18.0256,-63.0492,Sint Maarten,SX,SXM,,primary,,1534859858
+Gustavia,Gustavia,17.8958,-62.8508,Saint Barthelemy,BL,BLM,,primary,,1652681565
+Road Town,Road Town,18.4167,-64.6167,British Virgin Islands,VG,VGB,,primary,,1092732412
+Saint-Pierre,Saint-Pierre,46.7811,-56.1764,Saint Pierre And Miquelon,PM,SPM,,primary,,1666340272
+The Valley,The Valley,18.2167,-63.0500,Anguilla,AI,AIA,,primary,,1660698387
+Oklahoma City,Oklahoma City,35.4676,-97.5136,United States,US,USA,Oklahoma,admin,972943,1840020428
+Morelia,Morelia,19.7683,-101.1894,Mexico,MX,MEX,Michoacán de Ocampo,,962555,1484669072
+Santo Domingo Este,Santo Domingo Este,18.4855,-69.8734,Dominican Republic,DO,DOM,Ozama,admin,948855,1214664832
+Aguascalientes,Aguascalientes,21.8760,-102.2960,Mexico,MX,MEX,Aguascalientes,admin,934424,1484666646
+Bridgeport,Bridgeport,41.1918,-73.1953,United States,US,USA,Connecticut,,924449,1840004836
+Naucalpan de Juárez,Naucalpan de Juarez,19.4753,-99.2378,Mexico,MX,MEX,México,minor,913681,1484850125
+Buffalo,Buffalo,42.9016,-78.8487,United States,US,USA,New York,,914341,1840000386
+Fort Worth,Fort Worth,32.7811,-97.3473,United States,US,USA,Texas,,909585,1840020696
+Hartford,Hartford,41.7661,-72.6834,United States,US,USA,Connecticut,admin,905152,1840004773
+Mérida,Merida,20.9700,-89.6200,Mexico,MX,MEX,Yucatán,admin,892363,1484396779
+Cancún,Cancun,21.1606,-86.8475,Mexico,MX,MEX,Quintana Roo,minor,888797,1484010310
+Tucson,Tucson,32.1545,-110.8782,United States,US,USA,Arizona,,888486,1840022101
+Chihuahua,Chihuahua,28.6353,-106.0889,Mexico,MX,MEX,Chihuahua,admin,878062,1484335603
+Saltillo,Saltillo,25.4333,-101.0000,Mexico,MX,MEX,Coahuila de Zaragoza,admin,864431,1484107245
+Hermosillo,Hermosillo,29.0989,-110.9542,Mexico,MX,MEX,Sonora,admin,855563,1484015319
+Omaha,Omaha,41.2627,-96.0522,United States,US,USA,Nebraska,,847819,1840009315
+El Paso,El Paso,31.8479,-106.4309,United States,US,USA,Texas,,843386,1840023252
+Honolulu,Honolulu,21.3294,-157.8460,United States,US,USA,Hawaii,admin,820987,1840013305
+Culiacán,Culiacan,24.8069,-107.3939,Mexico,MX,MEX,Sinaloa,admin,808416,1484516810
+McAllen,McAllen,26.2273,-98.2471,United States,US,USA,Texas,,804114,1840021024
+Querétaro,Queretaro,20.5875,-100.3928,Mexico,MX,MEX,Querétaro,admin,801940,1484604775
+San Luis Potosí,San Luis Potosi,22.1511,-100.9761,Mexico,MX,MEX,San Luis Potosí,admin,772828,1484583620
+Hempstead,Hempstead,40.6629,-73.6089,United States,US,USA,New York,,767417,1840005293
+Albuquerque,Albuquerque,35.1053,-106.6464,United States,US,USA,New Mexico,,761195,1840019176
+Tlajomulco de Zúñiga,Tlajomulco de Zuniga,20.4736,-103.4431,Mexico,MX,MEX,Jalisco,minor,727750,1484017493
+Birmingham,Birmingham,33.5277,-86.7987,United States,US,USA,Alabama,,739573,1840006507
+Sarasota,Sarasota,27.3386,-82.5431,United States,US,USA,Florida,,722243,1840015988
+Mississauga,Mississauga,43.6000,-79.6500,Canada,CA,CAN,Ontario,,721599,1124112672
+Dayton,Dayton,39.7797,-84.1998,United States,US,USA,Ohio,,718353,1840034249
+Torreón,Torreon,25.5394,-103.4486,Mexico,MX,MEX,Coahuila de Zaragoza,minor,716672,1484215762
+Rochester,Rochester,43.1680,-77.6162,United States,US,USA,New York,,703952,1840000373
+Fresno,Fresno,36.7831,-119.7941,United States,US,USA,California,,703498,1840020319
+Guadalupe,Guadalupe,25.6775,-100.2597,Mexico,MX,MEX,Nuevo León,minor,691931,1484002410
+Hamilton,Hamilton,43.2567,-79.8692,Canada,CA,CAN,Ontario,,693645,1124567288
+Allentown,Allentown,40.5961,-75.4756,United States,US,USA,Pennsylvania,,683794,1840001044
+Acapulco de Juárez,Acapulco de Juarez,16.8636,-99.8825,Mexico,MX,MEX,Guerrero,minor,673478,1484463183
+Tulsa,Tulsa,36.1284,-95.9042,United States,US,USA,Oklahoma,,671033,1840021672
+Tlaquepaque,Tlaquepaque,20.6167,-103.3167,Mexico,MX,MEX,Jalisco,minor,664193,1484087945
+Mazatlán,Mazatlan,23.2167,-106.4167,Mexico,MX,MEX,Sinaloa,minor,658354,1484841466
+Cape Coral,Cape Coral,26.6446,-81.9956,United States,US,USA,Florida,,668382,1840015130
+Tlalnepantla,Tlalnepantla,19.5367,-99.1947,Mexico,MX,MEX,México,minor,653410,1484861603
+Durango,Durango,24.0167,-104.6667,Mexico,MX,MEX,Durango,admin,654876,1484854616
+Concord,Concord,37.9722,-122.0016,United States,US,USA,California,,652308,1840018905
+Colorado Springs,Colorado Springs,38.8674,-104.7606,United States,US,USA,Colorado,,642413,1840018825
+Charleston,Charleston,32.8153,-79.9628,United States,US,USA,South Carolina,,628377,1840015163
+Chimalhuacán,Chimalhuacan,19.4167,-98.9000,Mexico,MX,MEX,México,minor,614453,1484504936
+Villa Nueva,Villa Nueva,14.5314,-90.5964,Guatemala,GT,GTM,Guatemala,minor,618397,1320353009
+Springfield,Springfield,42.1155,-72.5395,United States,US,USA,Massachusetts,,623401,1840000466
+Grand Rapids,Grand Rapids,42.9620,-85.6562,United States,US,USA,Michigan,,609314,1840002928
+Tuxtla,Tuxtla,16.7528,-93.1167,Mexico,MX,MEX,Chiapas,admin,598710,1484832519
+Irapuato,Irapuato,20.6667,-101.3500,Mexico,MX,MEX,Guanajuato,minor,592953,1484625454
+Brampton,Brampton,43.6833,-79.7667,Canada,CA,CAN,Ontario,,593638,1124625989
+Mission Viejo,Mission Viejo,33.6095,-117.6550,United States,US,USA,California,,590249,1840020580
+Reynosa,Reynosa,26.0922,-98.2778,Mexico,MX,MEX,Tamaulipas,minor,589466,1484737671
+Albany,Albany,42.6664,-73.7987,United States,US,USA,New York,admin,586383,1840000417
+Knoxville,Knoxville,35.9692,-83.9496,United States,US,USA,Tennessee,,586048,1840014486
+Bakersfield,Bakersfield,35.3529,-119.0359,United States,US,USA,California,,579295,1840019148
+Ogden,Ogden,41.2278,-111.9682,United States,US,USA,Utah,,578523,1840020135
+Tonalá,Tonala,20.6167,-103.2333,Mexico,MX,MEX,Jalisco,minor,569913,1484750897
+Baton Rouge,Baton Rouge,30.4418,-91.1310,United States,US,USA,Louisiana,admin,570308,1840013941
+Akron,Akron,41.0798,-81.5219,United States,US,USA,Ohio,,565208,1840000791
+New Haven,New Haven,41.3112,-72.9246,United States,US,USA,Connecticut,,564830,1840004850
+Ensenada,Ensenada,31.8578,-116.6058,Mexico,MX,MEX,Baja California,minor,557430,1484714297
+Columbia,Columbia,34.0376,-80.9037,United States,US,USA,South Carolina,admin,560041,1840014730
+Heroica Matamoros,Heroica Matamoros,25.8797,-97.5042,Mexico,MX,MEX,Tamaulipas,minor,541979,1484614906
+Tultitlán de Mariano Escobedo,Tultitlan de Mariano Escobedo,19.6450,-99.1694,Mexico,MX,MEX,México,minor,520557,1484562374
+Ciudad Apodaca,Ciudad Apodaca,25.7833,-100.1833,Mexico,MX,MEX,Nuevo León,minor,523370,1484855080
+Mesa,Mesa,33.4017,-111.7180,United States,US,USA,Arizona,,518012,1840020566
+Surrey,Surrey,49.1900,-122.8489,Canada,CA,CAN,British Columbia,,517887,1124001454
+Carrefour,Carrefour,18.5333,-72.4000,Haiti,HT,HTI,Ouest,,511345,1332000098
+Choloma,Choloma,15.6333,-88.0000,Honduras,HN,HND,Cortés,,510456,1340125981
+Palm Bay,Palm Bay,27.9550,-80.6627,United States,US,USA,Florida,,507002,1840015094
+Provo,Provo,40.2457,-111.6457,United States,US,USA,Utah,,500617,1840020174
+Worcester,Worcester,42.2705,-71.8079,United States,US,USA,Massachusetts,,498328,1840000434
+Ixtapaluca,Ixtapaluca,19.3186,-98.8822,Mexico,MX,MEX,México,minor,495566,1484452937
+Murrieta,Murrieta,33.5720,-117.1909,United States,US,USA,California,,496046,1840020553
+Ciudad López Mateos,Ciudad Lopez Mateos,19.5500,-99.2833,Mexico,MX,MEX,México,minor,489937,1484363879
+Celaya,Celaya,20.5222,-100.8122,Mexico,MX,MEX,Guanajuato,minor,494304,1484979555
+Los Mochis,Los Mochis,25.7835,-108.9937,Mexico,MX,MEX,Sinaloa,minor,490000,1484443585
+Greenville,Greenville,34.8353,-82.3647,United States,US,USA,South Carolina,,484465,1840013501
+Brookhaven,Brookhaven,40.8321,-72.9518,United States,US,USA,New York,,483546,1840057464
+Wichita,Wichita,37.6896,-97.3442,United States,US,USA,Kansas,,482249,1840001686
+Toledo,Toledo,41.6639,-83.5822,United States,US,USA,Ohio,,482111,1840000572
+Staten Island,Staten Island,40.5834,-74.1496,United States,US,USA,New York,,476143,1840034032
+Des Moines,Des Moines,41.5725,-93.6105,United States,US,USA,Iowa,admin,473957,1840007069
+Long Beach,Long Beach,33.7981,-118.1675,United States,US,USA,California,,462628,1840020490
+Port St. Lucie,Port St. Lucie,27.2796,-80.3883,United States,US,USA,Florida,,461152,1840015119
+Denton,Denton,33.2176,-97.1419,United States,US,USA,Texas,,457177,1840019390

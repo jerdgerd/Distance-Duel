@@ -26,7 +26,7 @@ countriesToContinents = {
     "Bermuda": "North America",
     "Bhutan": "Asia",
     "Bolivia": "South America",
-    "Bosnia and Herzegovina": "Europe",
+    "Bosnia And Herzegovina": "Europe",
     "Botswana": "Africa",
     "Brazil": "South America",
     "British Virgin Islands": "North America",
@@ -60,6 +60,8 @@ countriesToContinents = {
     "Dominica": "North America",
     "Dominican Republic": "North America",
     "Democratic Republic of the Congo": "Africa",
+    "Congo (Kinshasa)": "Africa",
+    "Congo (Brazzaville)": "Africa",
     "East Timor": "Asia",
     "Ecuador": "South America",
     "Egypt": "Africa",
@@ -162,7 +164,7 @@ countriesToContinents = {
     "Rwanda": "Africa",
     "Saint Kitts And Nevis": "North America",
     "Saint Lucia": "North America",
-    "Saint Vincent And the Grenadines": "North America",
+    "Saint Vincent And The Grenadines": "North America",
     "Samoa": "Oceania",
     "San Marino": "Europe",
     "Sao Tome And Principe": "Africa",
@@ -230,7 +232,7 @@ countriesToContinents = {
     "Puerto Rico": "North America",
     "Reunion": "Africa",
     "Saint Barthelemy": "North America",
-    "Saint Helena Ascension And Tristan Da Cunha": "N/A Atlantic",
+    "Saint Helena, Ascension, And Tristan Da Cunha": "N/A Atlantic",
     "Saint Martin": "North America",
     "Saint Pierre And Miquelon": "North America",
     "Sint Maarten": "North America",
@@ -244,5 +246,6 @@ countriesToContinents = {
     "Turks And Caicos Islands": "North America",
     "U.S. Virgin Islands": "North America",
     "Wallis And Futuna": "Oceania",
-    "West Bank": "Asia"
+    "West Bank": "Asia",
+    "Macau": "Asia"
 }

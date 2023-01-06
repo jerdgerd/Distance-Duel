@@ -46,7 +46,6 @@ difficultyCities = 369
 decayValue = 5
 maxScore = 5000
 cities = []
-questionCities = []
 showMaps = True
 openweatherapikey="02cb929956f5c623f3c7552d88638f8d"
 generated_numbers = []
@@ -78,6 +77,7 @@ class DistanceDuelGame(object):
         session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
         session['scoreId'] = self.generate_unique_number()
         session['guessesList'] = []
+        session['questionCities'] = []
 
     @cherrypy.expose
     def get_weather(self, lat, lon):
@@ -263,16 +263,13 @@ class DistanceDuelGame(object):
                     added_cities[city_id] = country
 
     def gatherQuestionCities(self, cityFile):
+        session = cherrypy.session
         with open(cityFile, "r") as file:
             # Create a CSV reader object
             reader = csv.reader(file)
 
             # Skip the first row (header row)
             next(reader)
-
-            # Create a dictionary to store the names of cities that have already been added
-            added_cities = {}
-
             # Iterate over the rows in the CSV file
             for row in reader:
                 logger.debug(f"row: {row}")
@@ -282,19 +279,13 @@ class DistanceDuelGame(object):
                 country_iso3 = row[6]
                 city_id=row[10]
 
-                # Check if the city has already been added
-                if city_id not in added_cities:
-                    # Create a tuple with the values for city_id, city_ascii, lat, lng,
-                    # country, country_iso3, population
-                    if (row[9] != ""):
-                        logger.debug(f"population: {row[9]}")
-                        population = row[9].split(".")
-                        city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]))
-                    # Add the tuple to the list
-                    questionCities.append(city)
-
-                    # Add the city name to the dictionary
-                    added_cities[city_id] = country
+                # Create a tuple with the values for city_id, city_ascii, lat, lng,
+                # country, country_iso3, population
+                if (row[9] != ""):
+                    logger.debug(f"population: {row[9]}")
+                    population = row[9].split(".")
+                    city = (row[10], row[1], float(row[2]), float(row[3]), row[4],row[6],int(population[0]))
+                    session['questionCities'].append(city)
     
     @cherrypy.expose
     def generate_unique_number(self):
@@ -330,14 +321,18 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def cityPicker(self, topCities):
-        random_index = random.randint(0, topCities)
-        random_index2 = random.randint(0, topCities)
-        while random_index >= len(questionCities) or random_index2 >= len(questionCities):
-            random_index = random.randint(0, topCities)
-            random_index2 = random.randint(0, topCities)
+        session = cherrypy.session
+        if (session['continentOfPlay']):
+            random_index = random.randint(0, len(session['questionCities']))
+            random_index2 = random.randint(0, len(session['questionCities']))
+        else:
+            random_index = random.randint(0, 51)
+            random_index2 = random.randint(0, 51)
+        print(random_index)
+        print(random_index2)
         while random_index == random_index2:
-            random_index2 = random.randint(0, topCities)
-        return questionCities[random_index], questionCities[random_index2]
+            random_index2 = random.randint(0, len(session['questionCities']))
+        return session['questionCities'][random_index], session['questionCities'][random_index2]
 
     @cherrypy.expose
     def getContinent(self, country):
@@ -373,8 +368,15 @@ class DistanceDuelGame(object):
 
     @cherrypy.expose
     def validContinent(self, continent1, continent2, city):
+        session = cherrypy.session
         continent = countriesToContinents.get(city[4], "ERROR")
-        return (continent != continent1 and continent != continent2)
+        if (session['continentOfPlay'] == "global"):
+            return (continent != continent1 and continent != continent2)
+        else:
+            play_continent = session['continentOfPlay'].replace('_', ' ').title()
+            print(continent)
+            print(play_continent)
+            return (continent == play_continent)
 
     @cherrypy.expose
     def addToScore(self, originalDistance, diffDistance):
@@ -411,7 +413,7 @@ class DistanceDuelGame(object):
             writer.writerow([name, score, id])
 
     @cherrypy.expose
-    def gatherName(self, name=None, difficulty=None, timerLength=None, isMiles=None):
+    def gatherName(self, name=None, difficulty=None, timerLength=None, isMiles=None, continent=None):
         session = cherrypy.session
         if difficulty == None:
             session['difficulty'] = 'medium'
@@ -432,7 +434,9 @@ class DistanceDuelGame(object):
                 session['isMiles'] = True
             elif isMiles == "False":
                 session['isMiles'] = False
-
+        if continent == None:
+            continent = "global"
+        session['continentOfPlay'] = continent
         if (name == None or len(name) != 3):
             template = env.get_template('getName.html')
             return template.render()
@@ -441,6 +445,7 @@ class DistanceDuelGame(object):
                 session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
             else:
                 session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores.csv"
+            print(session['questionCityFile'])
             session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
             self.gatherQuestionCities(session['questionCityFile'])
             session['name'] = name.upper()
@@ -463,7 +468,8 @@ class DistanceDuelGame(object):
                 city2_summary=city2_summary, city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5],
                 city1_picture = city1_picture, city2_picture = city2_picture,
                 continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
-                duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'], timeoutDuration = session['timerLength'], timeRemaining = time_remaining, isTimed = session['isTimed'])
+                duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'], timeoutDuration = session['timerLength'], timeRemaining = time_remaining, isTimed = session['isTimed'],
+                isGlobal=(session['continentOfPlay'] == "global"), continentOfPlay=session['continentOfPlay'])
 
         city1 = session['city1']
         city2 = session['city2']
@@ -540,7 +546,8 @@ class DistanceDuelGame(object):
         return template.render(city1weather=city1weather, city2weather=city2weather, cities_json=cities_json, city1=session['city1'], city1_pop=self.format_population(session['city1'][6]),
             city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
             city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = city1_picture, city2_picture = city2_picture,
-            continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True, timeoutDuration = session['timerLength'],timeRemaining = session['timerLength'], isTimed = session['isTimed'])
+            continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True, timeoutDuration = session['timerLength'],timeRemaining = session['timerLength'], isTimed = session['isTimed'],
+            isGlobal=(session['continentOfPlay'] == "global"), continentOfPlay=session['continentOfPlay'])
 
     @cherrypy.expose
     def validateSelections(self, cityId1, cityId2):

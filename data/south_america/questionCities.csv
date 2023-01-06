@@ -1,0 +1,201 @@
+city,city_ascii,lat,lng,country,iso2,iso3,admin_name,capital,population,id
+São Paulo,Sao Paulo,-23.5504,-46.6339,Brazil,BR,BRA,São Paulo,admin,22495000,1076532519
+Buenos Aires,Buenos Aires,-34.5997,-58.3819,Argentina,AR,ARG,"Buenos Aires, Ciudad Autónoma de",primary,16216000,1032717330
+Rio de Janeiro,Rio de Janeiro,-22.9083,-43.1964,Brazil,BR,BRA,Rio de Janeiro,admin,12486000,1076887657
+Lima,Lima,-12.0600,-77.0375,Peru,PE,PER,Lima,primary,8992000,1604728603
+Bogotá,Bogota,4.6126,-74.0705,Colombia,CO,COL,Bogotá,primary,7743955,1170483426
+Santiago,Santiago,-33.4500,-70.6667,Chile,CL,CHL,Región Metropolitana,primary,7026000,1152554349
+Belo Horizonte,Belo Horizonte,-19.9281,-43.9419,Brazil,BR,BRA,Minas Gerais,admin,5159000,1076967355
+Timbío,Timbio,2.3528,-76.6819,Colombia,CO,COL,Cauca,minor,4444444,1170815311
+Santa Cruz,Santa Cruz,-17.7892,-63.1975,Bolivia,BO,BOL,Santa Cruz,admin,3151676,1068129363
+Brasília,Brasilia,-15.7939,-47.8828,Brazil,BR,BRA,Distrito Federal,primary,3015268,1076144436
+Salvador,Salvador,-12.9708,-38.5108,Brazil,BR,BRA,Bahia,admin,2886698,1076923789
+La Paz,La Paz,-16.4942,-68.1475,Bolivia,BO,BOL,La Paz,primary,2867504,1068000064
+Guayaquil,Guayaquil,-2.1900,-79.8875,Ecuador,EC,ECU,Guayas,admin,2723665,1218802178
+Medellín,Medellin,6.2447,-75.5748,Colombia,CO,COL,Antioquia,admin,2529403,1170680389
+Cali,Cali,3.4400,-76.5197,Colombia,CO,COL,Valle del Cauca,admin,2471474,1170417589
+Fortaleza,Fortaleza,-3.7275,-38.5275,Brazil,BR,BRA,Ceará,admin,2452185,1076567885
+Quito,Quito,-0.2200,-78.5125,Ecuador,EC,ECU,Pichincha,primary,2011388,1218441993
+Caracas,Caracas,10.5000,-66.9333,Venezuela,VE,VEN,Distrito Capital,primary,1943901,1862748204
+Curitiba,Curitiba,-25.4297,-49.2719,Brazil,BR,BRA,Paraná,admin,1879355,1076701712
+Manaus,Manaus,-3.1000,-60.0167,Brazil,BR,BRA,Amazonas,admin,1802014,1076607274
+Recife,Recife,-8.0539,-34.8808,Brazil,BR,BRA,Pernambuco,admin,1653461,1076137337
+Maracaibo,Maracaibo,10.6333,-71.6333,Venezuela,VE,VEN,Zulia,admin,1551539,1862072711
+Belém,Belem,-1.4558,-48.5039,Brazil,BR,BRA,Pará,admin,1499641,1076646823
+Porto Alegre,Porto Alegre,-30.0328,-51.2300,Brazil,BR,BRA,Rio Grande do Sul,admin,1484941,1076658221
+Valencia,Valencia,10.1667,-68.0000,Venezuela,VE,VEN,Carabobo,admin,1484430,1862309871
+Goiânia,Goiania,-16.6806,-49.2564,Brazil,BR,BRA,Goiás,admin,1393575,1076034054
+Córdoba,Cordoba,-31.4167,-64.1833,Argentina,AR,ARG,Córdoba,admin,1329604,1032803249
+Guarulhos,Guarulhos,-23.4667,-46.5333,Brazil,BR,BRA,São Paulo,,1324781,1076730420
+Montevideo,Montevideo,-34.8667,-56.1667,Uruguay,UY,URY,Montevideo,primary,1319108,1858107000
+Barranquilla,Barranquilla,10.9639,-74.7964,Colombia,CO,COL,Atlántico,admin,1274250,1170179113
+Vila Velha,Vila Velha,3.2167,-51.2167,Brazil,BR,BRA,Amapá,,1209091,1076575691
+Rosario,Rosario,-32.9575,-60.6394,Argentina,AR,ARG,Santa Fe,minor,1193605,1032770677
+Campinas,Campinas,-22.9009,-47.0573,Brazil,BR,BRA,São Paulo,,1164098,1076145766
+Callao,Callao,-12.0611,-77.1333,Peru,PE,PER,Callao,admin,1129854,1604422141
+São Gonçalo,Sao Goncalo,-22.8269,-43.0539,Brazil,BR,BRA,Rio de Janeiro,,1077687,1076485783
+São Luís,Sao Luis,-2.5300,-44.3028,Brazil,BR,BRA,Maranhão,admin,1073893,1076819308
+Barquisimeto,Barquisimeto,10.0678,-69.3467,Venezuela,VE,VEN,Lara,admin,1059092,1862860739
+Cartagena,Cartagena,10.4236,-75.5253,Colombia,CO,COL,Bolívar,admin,1036412,1170886102
+Maceió,Maceio,-9.6658,-35.7350,Brazil,BR,BRA,Alagoas,admin,1025360,1076440479
+Arequipa,Arequipa,-16.3988,-71.5369,Peru,PE,PER,Arequipa,admin,1008290,1604723954
+Asunción,Asuncion,-25.3000,-57.6333,Paraguay,PY,PRY,Asunción,primary,524190,1600057911
+Sucre,Sucre,-19.0431,-65.2592,Bolivia,BO,BOL,Chuquisaca,primary,300000,1068823873
+Paramaribo,Paramaribo,5.8667,-55.1667,Suriname,SR,SUR,Paramaribo,primary,223757,1740518660
+Georgetown,Georgetown,6.7833,-58.1667,Guyana,GY,GUY,Demerara-Mahaica,primary,200500,1328160906
+Cayenne,Cayenne,4.9330,-52.3300,French Guiana,GF,GUF,,primary,61550,1254304969
+Stanley,Stanley,-51.7000,-57.8500,Falkland Islands (Islas Malvinas),FK,FLK,,primary,2213,1238780509
+King Edward Point,King Edward Point,-54.2833,-36.5000,South Georgia And South Sandwich Islands,GS,SGS,,primary,,1239048838
+Natal,Natal,-6.9838,-60.2699,Brazil,BR,BRA,Amazonas,,980588,1076336975
+Trujillo,Trujillo,-8.1119,-79.0289,Peru,PE,PER,La Libertad,admin,919899,1604613706
+Campo Grande,Campo Grande,-20.4686,-54.6222,Brazil,BR,BRA,Mato Grosso do Sul,admin,906092,1076660445
+Natal,Natal,-5.7950,-35.2089,Brazil,BR,BRA,Rio Grande do Norte,admin,877662,1076697777
+Teresina,Teresina,-5.0949,-42.8042,Brazil,BR,BRA,Piauí,admin,847430,1076727667
+Iguaçu,Iguacu,-22.7400,-43.4700,Brazil,BR,BRA,Rio de Janeiro,,844583,1076339714
+São Bernardo do Campo,Sao Bernardo do Campo,-23.6939,-46.5650,Brazil,BR,BRA,São Paulo,,816925,1076793227
+João Pessoa,Joao Pessoa,-7.1200,-34.8800,Brazil,BR,BRA,Paraíba,admin,801718,1076922014
+Abaeté,Abaete,-19.1583,-45.4522,Brazil,BR,BRA,Minas Gerais,,800000,1076413528
+Palermo,Palermo,2.8883,-75.4339,Colombia,CO,COL,Huila,minor,800000,1170614290
+Ciudad Guayana,Ciudad Guayana,8.3596,-62.6517,Venezuela,VE,VEN,Bolívar,minor,751331,1862889027
+Cúcuta,Cucuta,7.9075,-72.5047,Colombia,CO,COL,Norte de Santander,admin,750000,1170743755
+Comodoro Rivadavia,Comodoro Rivadavia,-45.8667,-67.5000,Argentina,AR,ARG,Chubut,minor,730266,1032042035
+Soledad,Soledad,10.9200,-74.7700,Colombia,CO,COL,Atlántico,minor,698852,1170765625
+Jaboatão,Jaboatao,-8.1803,-35.0014,Brazil,BR,BRA,Pernambuco,,702621,1076000699
+Santo André,Santo Andre,-23.6572,-46.5333,Brazil,BR,BRA,São Paulo,,710210,1076625886
+Osasco,Osasco,-23.5328,-46.7919,Brazil,BR,BRA,São Paulo,,694844,1076786452
+São José dos Campos,Sao Jose dos Campos,-23.1789,-45.8869,Brazil,BR,BRA,São Paulo,,688597,1076783887
+Ribeirão Prêto,Ribeirao Preto,-21.1783,-47.8067,Brazil,BR,BRA,São Paulo,,666323,1076524478
+Catia La Mar,Catia La Mar,10.6038,-67.0303,Venezuela,VE,VEN,Vargas,minor,661897,1862657837
+Contagem,Contagem,-19.9319,-44.0539,Brazil,BR,BRA,Minas Gerais,,648766,1076845191
+Sorocaba,Sorocaba,-23.5019,-47.4578,Brazil,BR,BRA,São Paulo,,644919,1076758708
+Aracaju,Aracaju,-10.9167,-37.0500,Brazil,BR,BRA,Sergipe,admin,632744,1076527830
+Cochabamba,Cochabamba,-17.3935,-66.1570,Bolivia,BO,BOL,Cochabamba,admin,632013,1068793894
+Feira de Santana,Feira de Santana,-12.2669,-38.9669,Brazil,BR,BRA,Bahia,,617528,1076892244
+San Miguel de Tucumán,San Miguel de Tucuman,-26.8167,-65.2167,Argentina,AR,ARG,Tucumán,admin,605767,1032233996
+Uberlândia,Uberlandia,-18.9189,-48.2769,Brazil,BR,BRA,Minas Gerais,,604013,1076495001
+Mar del Plata,Mar del Plata,-38.0000,-57.5500,Argentina,AR,ARG,Buenos Aires,minor,593337,1032456103
+Pereira,Pereira,4.8143,-75.6946,Colombia,CO,COL,Risaralda,admin,590554,1170386718
+Cuiabá,Cuiaba,-15.5958,-56.0969,Brazil,BR,BRA,Mato Grosso,admin,585367,1076112309
+Bucaramanga,Bucaramanga,7.1186,-73.1161,Colombia,CO,COL,Santander,admin,581130,1170940590
+Puente Alto,Puente Alto,-33.6167,-70.5833,Chile,CL,CHL,Región Metropolitana,minor,573935,1152516346
+Ciudad Bolívar,Ciudad Bolivar,8.1167,-63.5500,Venezuela,VE,VEN,Bolívar,admin,567953,1862318264
+Juiz de Fora,Juiz de Fora,-21.7500,-43.3500,Brazil,BR,BRA,Minas Gerais,,555284,1076006144
+Chiclayo,Chiclayo,-6.7630,-79.8366,Peru,PE,PER,Lambayeque,admin,552508,1604799615
+Londrina,Londrina,-23.3100,-51.1628,Brazil,BR,BRA,Paraná,,548249,1076723241
+Valledupar,Valledupar,10.4603,-73.2597,Colombia,CO,COL,Cesar,admin,544134,1170481949
+Ibagué,Ibague,4.4378,-75.2006,Colombia,CO,COL,Tolima,admin,541101,1170245063
+Salta,Salta,-24.7883,-65.4106,Argentina,AR,ARG,Salta,admin,535303,1032926124
+Villavicencio,Villavicencio,4.1425,-73.6294,Colombia,CO,COL,Meta,admin,527668,1170426927
+Santa Teresa del Tuy,Santa Teresa del Tuy,10.2333,-66.6500,Venezuela,VE,VEN,Miranda,minor,525321,1862528581
+Maipú,Maipu,-33.5167,-70.7667,Chile,CL,CHL,Región Metropolitana,,521627,1152583016
+Soacha,Soacha,4.5781,-74.2144,Colombia,CO,COL,Cundinamarca,minor,522442,1170512000
+Santa Marta,Santa Marta,11.2361,-74.2017,Colombia,CO,COL,Magdalena,admin,515556,1170715594
+Joinvile,Joinvile,-26.3039,-48.8458,Brazil,BR,BRA,Santa Catarina,,515288,1076050637
+Maturín,Maturin,9.7457,-63.1832,Venezuela,VE,VEN,Monagas,admin,514046,1862546949
+Ananindeua,Ananindeua,-1.3658,-48.3719,Brazil,BR,BRA,Pará,,510834,1076025295
+Montería,Monteria,8.7600,-75.8856,Colombia,CO,COL,Córdoba,admin,505334,1170855299
+Niterói,Niteroi,-22.8833,-43.1036,Brazil,BR,BRA,Rio de Janeiro,,496696,1076501425
+Chimbote,Chimbote,-9.0745,-78.5936,Peru,PE,PER,Ancash,,497875,1604199858
+Serra,Serra,-20.1289,-40.3078,Brazil,BR,BRA,Espírito Santo,,485376,1076191325
+Florianópolis,Florianopolis,-27.5933,-48.5530,Brazil,BR,BRA,Santa Catarina,admin,477798,1076190259
+San Juan,San Juan,-31.5375,-68.5364,Argentina,AR,ARG,San Juan,admin,471389,1032869625
+Vila Velha,Vila Velha,-20.3364,-40.2936,Brazil,BR,BRA,Espírito Santo,,472762,1076404077
+Macapá,Macapa,0.0330,-51.0653,Brazil,BR,BRA,Amapá,admin,474706,1076189884
+Piura,Piura,-5.2008,-80.6253,Peru,PE,PER,Piura,admin,473025,1604331641
+Lanús,Lanus,-34.7000,-58.4000,Argentina,AR,ARG,Buenos Aires,minor,459263,1032009573
+Campos,Campos,-21.7539,-41.3239,Brazil,BR,BRA,Rio de Janeiro,,463731,1076606365
+Mauá,Maua,-23.6678,-46.4608,Brazil,BR,BRA,São Paulo,,453286,1076477498
+Barcelona,Barcelona,10.1333,-64.6833,Venezuela,VE,VEN,Anzoátegui,admin,448016,1862418619
+São José do Rio Prêto,Sao Jose do Rio Preto,-20.8200,-49.3789,Brazil,BR,BRA,São Paulo,,442548,1076760827
+Caxias do Sul,Caxias do Sul,-29.1678,-51.1789,Brazil,BR,BRA,Rio Grande do Sul,,435564,1076809957
+Santos,Santos,-23.9608,-46.3339,Brazil,BR,BRA,São Paulo,,433966,1076033299
+Manizales,Manizales,5.0661,-75.4847,Colombia,CO,COL,Caldas,admin,434403,1170930654
+Cusco,Cusco,-13.5222,-71.9833,Peru,PE,PER,Cusco,admin,428450,1604162901
+Porto Velho,Porto Velho,-8.7619,-63.9039,Brazil,BR,BRA,Rondônia,admin,428527,1076045591
+Florencio Varela,Florencio Varela,-34.8167,-58.2833,Argentina,AR,ARG,Buenos Aires,,426005,1032730758
+Mogi das Cruzes,Mogi das Cruzes,-23.5228,-46.1931,Brazil,BR,BRA,São Paulo,,424633,1076857883
+Diadema,Diadema,-23.6858,-46.6228,Brazil,BR,BRA,São Paulo,,412428,1076867279
+Buenaventura,Buenaventura,3.8772,-77.0267,Colombia,CO,COL,Valle del Cauca,minor,423927,1170287988
+Rio Branco,Rio Branco,-9.9781,-67.8117,Brazil,BR,BRA,Acre,admin,413418,1076391263
+Maracay,Maracay,10.2469,-67.5958,Venezuela,VE,VEN,Aragua,admin,407109,1862284350
+Santa Fe,Santa Fe,-31.6333,-60.7000,Argentina,AR,ARG,Santa Fe,admin,405683,1032817575
+Campina Grande,Campina Grande,-7.2306,-35.8811,Brazil,BR,BRA,Paraíba,,405072,1076218697
+Maringá,Maringa,-23.4250,-51.9389,Brazil,BR,BRA,Paraná,,403063,1076013378
+Carapicuíba,Carapicuiba,-23.5228,-46.8358,Brazil,BR,BRA,São Paulo,,392294,1076874103
+Jundiaí,Jundiai,-23.1864,-46.8842,Brazil,BR,BRA,São Paulo,,401896,1076998392
+Olinda,Olinda,-8.0089,-34.8550,Brazil,BR,BRA,Pernambuco,,389494,1076784718
+Piracicaba,Piracicaba,-22.7253,-47.6492,Brazil,BR,BRA,São Paulo,,391449,1076166252
+Pasto,Pasto,1.2100,-77.2747,Colombia,CO,COL,Nariño,admin,382236,1170320545
+Huancayo,Huancayo,-12.0667,-75.2167,Peru,PE,PER,Junín,admin,378203,1604249985
+Betim,Betim,-19.9678,-44.1978,Brazil,BR,BRA,Minas Gerais,,378089,1076953384
+Iquitos,Iquitos,-3.7333,-73.2500,Peru,PE,PER,Loreto,admin,377609,1604493809
+Cumaná,Cumana,10.4500,-64.1667,Venezuela,VE,VEN,Sucre,admin,374706,1862583279
+Bello,Bello,6.3319,-75.5581,Colombia,CO,COL,Antioquia,minor,371591,1170423489
+La Florida,La Florida,-33.5500,-70.5667,Chile,CL,CHL,Región Metropolitana,,366916,1152939649
+Bauru,Bauru,-22.3147,-49.0606,Brazil,BR,BRA,São Paulo,,366992,1076905338
+Anápolis,Anapolis,-16.3269,-48.9528,Brazil,BR,BRA,Goiás,,366491,1076208869
+Blumenau,Blumenau,-26.9189,-49.0658,Brazil,BR,BRA,Santa Catarina,,361855,1076618665
+Montes Claros,Montes Claros,-16.7322,-43.8636,Brazil,BR,BRA,Minas Gerais,,361915,1076113275
+Vitória,Vitoria,-20.3189,-40.3378,Brazil,BR,BRA,Espírito Santo,admin,355875,1076376829
+São Vicente,Sao Vicente,-23.9633,-46.3922,Brazil,BR,BRA,São Paulo,,355542,1076857089
+Itaquaquecetuba,Itaquaquecetuba,-23.4864,-46.3486,Brazil,BR,BRA,São Paulo,,352801,1076942224
+Corrientes,Corrientes,-27.4833,-58.8167,Argentina,AR,ARG,Corrientes,admin,352646,1032173097
+Neiva,Neiva,2.9275,-75.2875,Colombia,CO,COL,Huila,admin,353033,1170159963
+Cabimas,Cabimas,10.4000,-71.4333,Venezuela,VE,VEN,Zulia,minor,351735,1862398719
+Cariacica,Cariacica,-20.2639,-40.4200,Brazil,BR,BRA,Espírito Santo,,348738,1076479479
+Palmira,Palmira,3.5347,-76.2956,Colombia,CO,COL,Valle del Cauca,minor,349294,1170969619
+Antofagasta,Antofagasta,-23.6464,-70.3980,Chile,CL,CHL,Antofagasta,admin,348517,1152734289
+Caruaru,Caruaru,-8.2828,-35.9758,Brazil,BR,BRA,Pernambuco,,347088,1076397475
+Vitória da Conquista,Vitoria da Conquista,-14.8658,-40.8389,Brazil,BR,BRA,Bahia,,343230,1076812020
+Franca,Franca,-20.5389,-47.4008,Brazil,BR,BRA,São Paulo,,342112,1076740256
+Petrolina,Petrolina,-9.3928,-40.5078,Brazil,BR,BRA,Pernambuco,,337683,1076843988
+Viña del Mar,Vina del Mar,-33.0245,-71.5518,Chile,CL,CHL,Valparaíso,,332875,1152898644
+Cuenca,Cuenca,-2.8974,-79.0045,Ecuador,EC,ECU,Azuay,admin,329928,1218041020
+Ribeirão das Neves,Ribeirao das Neves,-19.7669,-44.0869,Brazil,BR,BRA,Minas Gerais,,331045,1076482220
+Pelotas,Pelotas,-31.7719,-52.3428,Brazil,BR,BRA,Rio Grande do Sul,,328275,1076815692
+Boa Vista,Boa Vista,2.8200,-60.6719,Brazil,BR,BRA,Roraima,admin,326419,1076621300
+Canoas,Canoas,-29.9200,-51.1800,Brazil,BR,BRA,Rio Grande do Sul,,323827,1076009922
+Pucallpa,Pucallpa,-8.3833,-74.5500,Peru,PE,PER,Ucayali,admin,326040,1604478712
+Caucaia,Caucaia,-3.7328,-38.6558,Brazil,BR,BRA,Ceará,,325441,1076870058
+Uberaba,Uberaba,-19.7478,-47.9319,Brazil,BR,BRA,Minas Gerais,,325279,1076230331
+Ciudad del Este,Ciudad del Este,-25.5167,-54.6167,Paraguay,PY,PRY,Alto Paraná,admin,320782,1600265252
+San Salvador de Jujuy,San Salvador de Jujuy,-24.1856,-65.2994,Argentina,AR,ARG,Jujuy,admin,321789,1032815808
+Guarujá,Guaruja,-23.9936,-46.2564,Brazil,BR,BRA,São Paulo,,311230,1076832747
+Zarzal,Zarzal,4.3942,-76.0703,Colombia,CO,COL,Valle del Cauca,minor,312599,1170495189
+Ponta Grossa,Ponta Grossa,-25.0950,-50.1619,Brazil,BR,BRA,Paraná,,311611,1076716439
+Puerto La Cruz,Puerto La Cruz,10.2167,-64.6167,Venezuela,VE,VEN,Anzoátegui,minor,306261,1862856141
+Paulista,Paulista,-7.9408,-34.8728,Brazil,BR,BRA,Pernambuco,,300466,1076183876
+Armenia,Armenia,4.5389,-75.6725,Colombia,CO,COL,Quindío,admin,301226,1170398459
+San Bernardo,San Bernardo,-33.6000,-70.7167,Chile,CL,CHL,Región Metropolitana,minor,301313,1152050361
+Taubaté,Taubate,-23.0333,-45.5500,Brazil,BR,BRA,São Paulo,,302331,1076146252
+Popayán,Popayan,2.4411,-76.6061,Colombia,CO,COL,Cauca,admin,300837,1170764265
+Praia Grande,Praia Grande,-24.0058,-46.4028,Brazil,BR,BRA,São Paulo,,299261,1076548222
+Mérida,Merida,8.5833,-71.1333,Venezuela,VE,VEN,Mérida,admin,300000,1862668122
+Bahía Blanca,Bahia Blanca,-38.7167,-62.2667,Argentina,AR,ARG,Buenos Aires,minor,299101,1032795766
+Petrópolis,Petropolis,-22.5050,-43.1789,Brazil,BR,BRA,Rio de Janeiro,,298142,1076352504
+Valparaíso,Valparaiso,-33.0458,-71.6197,Chile,CL,CHL,Valparaíso,admin,296655,1152337970
+Limeira,Limeira,-22.5647,-47.4017,Brazil,BR,BRA,São Paulo,,296440,1076508566
+Santarém,Santarem,-2.4428,-54.7078,Brazil,BR,BRA,Pará,,292520,1076256494
+Resistencia,Resistencia,-27.4514,-58.9867,Argentina,AR,ARG,Chaco,admin,291720,1032720891
+Juliaca,Juliaca,-15.4908,-70.1269,Peru,PE,PER,Puno,,291189,1604174464
+Itagüí,Itagui,6.1726,-75.6096,Colombia,CO,COL,Antioquia,minor,276744,1170708072
+San Lorenzo,San Lorenzo,-25.3431,-57.5094,Paraguay,PY,PRY,Central,,287977,1600667303
+Punto Fijo,Punto Fijo,11.7167,-70.1833,Venezuela,VE,VEN,Falcón,minor,287558,1862535644
+Sincelejo,Sincelejo,9.2994,-75.3958,Colombia,CO,COL,Sucre,admin,286716,1170364198
+Camaçari,Camacari,-12.6978,-38.3239,Brazil,BR,BRA,Bahia,,286919,1076610862
+San Cristóbal,San Cristobal,7.7682,-72.2322,Venezuela,VE,VEN,Táchira,admin,285872,1862252264
+Suzano,Suzano,-23.5428,-46.3108,Brazil,BR,BRA,São Paulo,,285280,1076830201
+Cascavel,Cascavel,-24.9558,-53.4550,Brazil,BR,BRA,Paraná,,286205,1076509946
+Tacna,Tacna,-18.0556,-70.2483,Peru,PE,PER,Tacna,admin,286240,1604388134
+Barinas,Barinas,8.6226,-70.2075,Venezuela,VE,VEN,Barinas,admin,284289,1862647790
+Coro,Coro,11.3950,-69.6816,Venezuela,VE,VEN,Falcón,admin,284266,1862429150
+Temuco,Temuco,-38.7399,-72.5901,Chile,CL,CHL,Araucanía,admin,282415,1152318955
+Ica,Ica,-14.0667,-75.7333,Peru,PE,PER,Ica,admin,282407,1604607907
+Governador Valadares,Governador Valadares,-18.8508,-41.9489,Brazil,BR,BRA,Minas Gerais,,278363,1076271003
+Taboão da Serra,Taboao da Serra,-23.6019,-46.7528,Brazil,BR,BRA,São Paulo,,272177,1076000585
+Posadas,Posadas,-27.3667,-55.8969,Argentina,AR,ARG,Misiones,admin,275988,1032970696
+Crato,Crato,-7.4639,-63.0400,Brazil,BR,BRA,Amazonas,,273883,1076425706
+Palmas,Palmas,-10.2128,-48.3603,Brazil,BR,BRA,Tocantins,admin,272726,1076052802
+Santo Domingo de los Colorados,Santo Domingo de los Colorados,-0.2542,-79.1719,Ecuador,EC,ECU,Santo Domingo de los Tsáchilas,admin,270875,1218148017
+Floridablanca,Floridablanca,7.0697,-73.0978,Colombia,CO,COL,Santander,minor,267170,1170331200
+Sumaré,Sumare,-22.8219,-47.2669,Brazil,BR,BRA,São Paulo,,265955,1076684312

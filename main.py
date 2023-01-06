@@ -74,7 +74,7 @@ class DistanceDuelGame(object):
         session['timedOut']=False
         session['isTimed']=False
         session['continentOfPlay']="global"
-        session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
+        session['questionCityFile']=f"data/{session['continentOfPlay']}/questionCities.csv"
         session['scoreId'] = self.generate_unique_number()
         session['guessesList'] = []
         session['questionCities'] = []
@@ -467,7 +467,7 @@ class DistanceDuelGame(object):
                 session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
             else:
                 session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores.csv"
-            session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
+            session['questionCityFile']=f"data/{session['continentOfPlay']}/questionCities.csv"
             self.gatherQuestionCities(session['questionCityFile'])
             session['name'] = name.upper()
             return self.nextRound()

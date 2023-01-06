@@ -68,7 +68,7 @@ class DistanceDuelGame(object):
         session['duplicateContinent'] = False
         session['city1page'] = ''
         session['city2page'] = ''
-        session['difficulty'] = ''
+        session['difficulty'] = 'easy'
         session['isMiles'] = True
         session['timerLength'] = -1
         session['timedOut']=False
@@ -325,13 +325,28 @@ class DistanceDuelGame(object):
         if (session['continentOfPlay']):
             random_index = random.randint(0, len(session['questionCities']))
             random_index2 = random.randint(0, len(session['questionCities']))
+            if session['difficulty']  == 'easy':
+                maxDistance = 4000
+            elif session['difficulty'] == 'medium':
+                maxDistance = 8000
+            else:
+                maxDistance = 30000
+            if not session['isMiles']:
+                maxDistance = maxDistance * 1.609344
+            while (random_index == random_index2 or (self.distance(session['questionCities'][random_index][2], session['questionCities'][random_index][3], 
+            session['questionCities'][random_index2][2], session['questionCities'][random_index2][3], session['isMiles']) > maxDistance)):
+                random_index2 = random.randint(0, len(session['questionCities']))
         else:
-            random_index = random.randint(0, 51)
-            random_index2 = random.randint(0, 51)
-        print(random_index)
-        print(random_index2)
-        while random_index == random_index2:
-            random_index2 = random.randint(0, len(session['questionCities']))
+            if session['difficulty'] == 'easy':
+                maxCities = 35
+            elif session['difficulty'] == 'medium':
+                maxCities = 80
+            elif session['difficulty'] == 'hard':
+                maxCities = 200
+            random_index = random.randint(0, maxCities)
+            random_index2 = random.randint(0, maxCities)
+            while random_index == random_index2:
+                random_index2 = random.randint(0, maxCities)
         return session['questionCities'][random_index], session['questionCities'][random_index2]
 
     @cherrypy.expose
@@ -374,14 +389,21 @@ class DistanceDuelGame(object):
             return (continent != continent1 and continent != continent2)
         else:
             play_continent = session['continentOfPlay'].replace('_', ' ').title()
-            print(continent)
-            print(play_continent)
             return (continent == play_continent)
 
     @cherrypy.expose
     def addToScore(self, originalDistance, diffDistance):
+        session = cherrypy.session
         percentDifferent = (diffDistance + 0.0) / originalDistance
-        return int(maxScore * math.exp(-decayValue * percentDifferent))
+        maxModifier = 0
+        decayModifier = 1
+        if session['difficulty'] == "easy":
+            decayModifier = .7
+            maxModifier = -1000
+        elif session['difficulty'] == "hard":
+            difficultyModifier = 1.3
+            maxModifier = 1000
+        return int(maxScore * math.exp(-(decayValue * decayModifier) * percentDifferent))
 
     @cherrypy.expose
     def sortHighScores(self, highScoresFile=None):
@@ -418,7 +440,7 @@ class DistanceDuelGame(object):
         if difficulty == None:
             session['difficulty'] = 'medium'
         else:
-            session['diffuculty'] = difficulty
+            session['difficulty'] = difficulty
         if timerLength == "none":
             logger.debug(f"timerLength: {timerLength}")
             session['timerLength'] = -1
@@ -445,7 +467,6 @@ class DistanceDuelGame(object):
                 session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores{session['timerLength']}s.csv"
             else:
                 session['highScoresFile']=f"data/{session['continentOfPlay']}/highScores.csv"
-            print(session['questionCityFile'])
             session['questionCityFile']=f"data/{session['continentOfPlay']}/questioncities.csv"
             self.gatherQuestionCities(session['questionCityFile'])
             session['name'] = name.upper()
@@ -469,7 +490,7 @@ class DistanceDuelGame(object):
                 city1_picture = city1_picture, city2_picture = city2_picture,
                 continent1 = session['continent1'], continent2 = session['continent2'], cherrypy=cherrypy,
                 duplicateContinent = session['duplicateContinent'], cityFound = session['cityFound'], timeoutDuration = session['timerLength'], timeRemaining = time_remaining, isTimed = session['isTimed'],
-                isGlobal=(session['continentOfPlay'] == "global"), continentOfPlay=session['continentOfPlay'])
+                isGlobal=(session['continentOfPlay'] == "global"), continentOfPlay=session['continentOfPlay'].replace('_', ' ').title())
 
         city1 = session['city1']
         city2 = session['city2']
@@ -547,7 +568,7 @@ class DistanceDuelGame(object):
             city1_summary=city1_summary, city2=session['city2'], city2_pop=self.format_population(session['city2'][6]), city2_summary=city2_summary,
             city1_country_iso3=session['city1'][5], city2_country_iso3=session['city2'][5], city1_picture = city1_picture, city2_picture = city2_picture,
             continent1 = session['continent1'], continent2 = session['continent2'], duplicateContinent = False, cherrypy=cherrypy, cityFound = True, timeoutDuration = session['timerLength'],timeRemaining = session['timerLength'], isTimed = session['isTimed'],
-            isGlobal=(session['continentOfPlay'] == "global"), continentOfPlay=session['continentOfPlay'])
+            isGlobal=(session['continentOfPlay'] == "global"), continentOfPlay=session['continentOfPlay'].replace('_', ' ').title())
 
     @cherrypy.expose
     def validateSelections(self, cityId1, cityId2):

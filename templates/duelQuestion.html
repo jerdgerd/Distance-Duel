@@ -99,7 +99,7 @@
 	</p>
 	<br>
 	<p class="question">
-	You may not use cities from {% if isGlobal %} <b>{{ continent1 }}</b>{% if continent1 != continent2 %} and <b>{{ continent2  }}</b>{% endif %} {% endif %} {% if not isGlobal %} <b> any continent but {{ continentOfPlay }}</b> {% endif %}.
+	You <b>may not</b> use cities from {% if isGlobal %} <b>{{ continent1 }}</b>{% if continent1 != continent2 %} and <b>{{ continent2  }}</b>{% endif %} {% endif %} {% if not isGlobal %} <b>any</b> continent <b> but {{ continentOfPlay }}</b>{% endif %}.
 	</p>
 	<form method="get" action="distanceCheck">
 	   <!-- Include the autocomplete script -->
